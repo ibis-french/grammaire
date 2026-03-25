@@ -64,6 +64,140 @@
                     </li>
                      <li>
                            <a class="page-scroll" href="#languages" style="color: #eee8d5;">Equipe</a>
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Équipe Ibis French</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: #f5f7fa;
+      color: #333;
+    }
+
+    header {
+      background: #EFAC2E;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+    }
+
+    .name {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .role {
+      color: #6b7280;
+      font-size: 0.9rem;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Équipe Ibis French</h1>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+    <div class="card">
+      <div class="name">Fatima Kane</div>
+      <div class="role">Développeuse</div>
+      <p>
+        Récente diplômée de l’Université de Miami, elle est informaticienne et membre fière de l’équipe Ibis French.
+        Elle a étudié l’informatique et le français et souhaite poursuivre dans le design UX à Atlanta.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="name">Yadiel Cruz</div>
+      <div class="role">Développeur</div>
+      <p>
+        Étudiant de deuxième année en informatique et français à l’Université de Miami,
+        il est l’un des développeurs du projet Ibis French.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="name">Karla Fidalgo</div>
+      <div class="role">Étudiante-consultante</div>
+      <p>
+        Membre du projet Ibis French, elle contribue en tant qu’étudiante-consultante.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="name">Dr. Viviana Pezzullo</div>
+      <div class="role">Coordinatrice</div>
+      <p>
+        Enseignante coordinatrice du projet Ibis French et directrice du programme de français
+        à l’Université de Miami. Elle se spécialise en culture visuelle, humanités numériques
+        et pédagogie des langues.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  © 2026 Ibis French
+</footer>
+
+</body>
+</html>
+
                     </li>
                     <li>
                         <a class="page-scroll" href="#dh" style="color: #eee8d5;">FAQ</a>
