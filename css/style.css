@@ -14,6 +14,8 @@ body{
 	color:#111;
 }
 
+/* --------------------------------------------------------------- */
+
 .site{max-width:1280px;margin:18px auto;padding:18px;}
 
 .site-header{display:flex;align-items:center;justify-content:space-between;padding:8px 6px;flex-wrap:wrap;gap:12px}
@@ -42,6 +44,8 @@ body{
 .footer-nav{display:flex;gap:18px;align-items:center;background:rgba(255,235,190,0.85);padding:14px;border-radius:12px;width:fit-content}
 .nav-item{color:var(--muted);font-size:24px;padding:6px 10px;text-decoration:none;cursor:pointer}
 
+
+/* --------------------------------------------------------------- */
 /* Dashboard styles */
 .dashboard-container {
 	margin-top: 28px;
@@ -94,6 +98,7 @@ body{
 	font-weight: 400;
 	display: block;
 	font-size: 28px;
+	justify-content: center;
 }
 
 .module-card-date {
@@ -123,6 +128,8 @@ body{
 	background: #ff8c00;
 }
 
+/* --------------------------------------------------------------- */
+
 @media (max-width:900px){
 	.hero{flex-direction:column}
 	.hero-right{width:100%;order:2}
@@ -133,6 +140,7 @@ body{
 		grid-template-columns: 1fr;
 	}
 }
+/* --------------------------------------------------------------- */
 
 /* Modules page styles */
 .modules-container {
@@ -173,7 +181,8 @@ body{
 	margin: 0 0 12px 0;
 	color: #111;
 	white-space: pre-wrap;
-	word-wrap: break-word;
+	/* word-wrap: break-word; */
+	/* check if title wrapping still looks wonky */
 }
 
 .module-number {
@@ -218,6 +227,8 @@ body{
 	line-height: 1;
 }
 
+
+/* --------------------------------------------------------------- */
 /* Exercise sections */
 .exercises-section {
 	margin-top: 24px;
