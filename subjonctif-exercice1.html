@@ -9,96 +9,114 @@
     .correct { color: #008000; }
     .incorrect { color: #ff0000; }
   </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
 </head>
+
 <body>
+    <header class="site-header">
+        <div class="logo"><a href="index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="#">à propos</a>
+          <a class="nav-item" href="#">F.A.Q</a>
+          <a class="nav-item" href="#">nous contacter</a>
+          <a class="nav-item" href="#">Université de Miami</a>
+          <!-- <a class="nav-item nav-divider">|</a>
+          <a class="nav-item" href="#">Se Déconnecter</a> -->
+        </nav>
+    </header>
 
-<h2>Complétez avec le verbe au subjonctif</h2>
 
-<form id="quiz">
+    <main>
+        <h2>Complétez avec le verbe au subjonctif.</h2>
 
-<p>1. Le chef répète la recette pour que vous 
-<input type="text" id="q1"> (faire) le plat correctement.</p>
+        <form id="quiz">
 
-<p>2. Nous préparons les ingrédients avant que les invités 
-<input type="text" id="q2"> (venir) dîner.</p>
+        <p>1. Le chef répète la recette pour que vous 
+        <input type="text" id="q1"> (faire) le plat correctement.</p>
 
-<p>3. Il ajoute des épices afin que la soupe 
-<input type="text" id="q3"> (avoir) plus de goût.</p>
+        <p>2. Nous préparons les ingrédients avant que les invités 
+        <input type="text" id="q2"> (venir) dîner.</p>
 
-<p>4. Je t’explique la recette pour que tu 
-<input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
+        <p>3. Il ajoute des épices afin que la soupe 
+        <input type="text" id="q3"> (avoir) plus de goût.</p>
 
-<p>5. Le chef parle lentement pour que tout le monde 
-<input type="text" id="q5"> (pouvoir) comprendre.</p>
+        <p>4. Je t’explique la recette pour que tu 
+        <input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
 
-<p>6. Nous attendons jusqu’à ce que le gâteau 
-<input type="text" id="q6"> (être) prêt.</p>
+        <p>5. Le chef parle lentement pour que tout le monde 
+        <input type="text" id="q5"> (pouvoir) comprendre.</p>
 
-<p>7. Elle prépare plusieurs plats afin que les invités 
-<input type="text" id="q7"> (vouloir) goûter à tout.</p>
+        <p>6. Nous attendons jusqu’à ce que le gâteau 
+        <input type="text" id="q6"> (être) prêt.</p>
 
-<p>8. Avant que vous 
-<input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
+        <p>7. Elle prépare plusieurs plats afin que les invités 
+        <input type="text" id="q7"> (vouloir) goûter à tout.</p>
 
-<p>9. Je ferme la cuisine pour que personne ne 
-<input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
+        <p>8. Avant que vous 
+        <input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
 
-<p>10. Je goûte la soupe avant que nous 
-<input type="text" id="q10"> (servir) le dîner.</p>
+        <p>9. Je ferme la cuisine pour que personne ne 
+        <input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
 
-<p>11. Bien que vous 
-<input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
+        <p>10. Je goûte la soupe avant que nous 
+        <input type="text" id="q10"> (servir) le dîner.</p>
 
-<p>12. Nous mélangeons la sauce pour qu’elle 
-<input type="text" id="q12"> (être) bien homogène.</p>
+        <p>11. Bien que vous 
+        <input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
 
-<p>13. Le professeur explique la recette afin que les étudiants 
-<input type="text" id="q13"> (faire) le plat chez eux.</p>
+        <p>12. Nous mélangeons la sauce pour qu’elle 
+        <input type="text" id="q12"> (être) bien homogène.</p>
 
-<p>14. Il ajoute du sucre pour que le dessert 
-<input type="text" id="q14"> (devenir) plus doux.</p>
+        <p>13. Le professeur explique la recette afin que les étudiants 
+        <input type="text" id="q13"> (faire) le plat chez eux.</p>
 
-<button type="button" onclick="checkAnswers()">Vérifier</button>
+        <p>14. Il ajoute du sucre pour que le dessert 
+        <input type="text" id="q14"> (devenir) plus doux.</p>
 
-</form>
+        <button type="button" onclick="checkAnswers()">Vérifier</button>
 
-<h3 id="result"></h3>
+        </form>
 
-<script>
-function checkAnswers() {
-  const answers = {
-    q1: "fassiez",
-    q2: "viennent",
-    q3: "ait",
-    q4: "saches",
-    q5: "puisse",
-    q6: "soit",
-    q7: "veuillent",
-    q8: "alliez",
-    q9: "prenne",
-    q10: "servions",
-    q11: "ayez",
-    q12: "soit",
-    q13: "fassent",
-    q14: "devienne"
-  };
+        <h3 id="result"></h3>
 
-  let score = 0;
+        <script>
+        function checkAnswers() {
+        const answers = {
+            q1: "fassiez",
+            q2: "viennent",
+            q3: "ait",
+            q4: "saches",
+            q5: "puisse",
+            q6: "soit",
+            q7: "veuillent",
+            q8: "alliez",
+            q9: "prenne",
+            q10: "servions",
+            q11: "ayez",
+            q12: "soit",
+            q13: "fassent",
+            q14: "devienne"
+        };
 
-  for (let key in answers) {
-    let userAnswer = document.getElementById(key).value.toLowerCase().trim();
-    if (userAnswer === answers[key]) {
-      score++;
-      document.getElementById(key).style.borderColor = "green";
-    } else {
-      document.getElementById(key).style.borderColor = "red";
-    }
-  }
+        let score = 0;
 
-  document.getElementById("result").innerHTML =
-    "Score: " + score + " / 14";
-}
-</script>
+        for (let key in answers) {
+            let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+            if (userAnswer === answers[key]) {
+            score++;
+            document.getElementById(key).style.borderColor = "green";
+            } else {
+            document.getElementById(key).style.borderColor = "red";
+            }
+        }
 
+        document.getElementById("result").innerHTML =
+            "Score: " + score + " / 14";
+        }
+        </script>
+    </main>
 </body>
 </html>
