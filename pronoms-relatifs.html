@@ -137,7 +137,36 @@
     </select> j’adore pour son caramel et ses pommes fondantes.
     <span class="feedback"></span>
   </label>
-  <!-- Vous pouvez continuer avec les autres phrases similaires ici -->
+  <label>6. Le couteau de chef est un ustensile 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="ce qui">ce qui</option>
+      <option value="que">que</option>
+      <option value="ce que">ce que</option>
+    </select> est essentiel dans toutes les cuisines professionnelles.
+    <span class="feedback"></span>
+  </label>
+  <label>7. La technique du flambage est une méthode 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="ce qui">ce qui</option>
+      <option value="que">que</option>
+      <option value="ce que">ce que</option>
+    </select> permet de caraméliser un plat avec de l’alcool.
+    <span class="feedback"></span>
+  </label>
+  <label>8. Les épices sont des ingrédients 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="ce qui">ce qui</option>
+      <option value="que">que</option>
+      <option value="ce que">ce que</option>
+    </select> donnent beaucoup de saveur aux plats.
+    <span class="feedback"></span>
+  </label>
   <button type="button" onclick="checkAnswers('exercise2')">Vérifier</button>
 </form>
 
@@ -168,28 +197,121 @@
     </select> il savait avec les jeunes chefs.
     <span class="feedback"></span>
   </label>
-  <!-- Vous pouvez continuer avec les autres phrases ici -->
+  <label>4. Il a créé des plats innovants 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="que">que</option>
+    </select> sont devenus célèbres dans le monde entier.
+    <span class="feedback"></span>
+  </label>
+  <label>5. La soupe VGE est un exemple 
+    <select data-answer="dont">
+      <option value="">--</option>
+      <option value="dont">dont</option>
+      <option value="que">que</option>
+      <option value="qui">qui</option>
+    </select> tout le monde se souvient encore.
+    <span class="feedback"></span>
+  </label>
+  <label>6. C’est un plat très emblématique de la haute cuisine française, 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="que">que</option>
+    </select> consiste en une soupe de luxe à la truffe noire.
+    <span class="feedback"></span>
+  </label>
+  <label>7. Tous les plats qu’il inventait devenaient célèbres, et 
+    <select data-answer="ce qui">
+      <option value="">--</option>
+      <option value="ce qui">ce qui</option>
+      <option value="qui">qui</option>
+    </select> impressionnait le plus les critiques, c’était leur finesse et leur légèreté.
+    <span class="feedback"></span>
+  </label>
+  <label>8. Le chef a écrit plusieurs livres 
+    <select data-answer="qui">
+      <option value="">--</option>
+      <option value="qui">qui</option>
+      <option value="que">que</option>
+    </select> parlent de la Nouvelle Cuisine et des techniques qu’il utilisait.
+    <span class="feedback"></span>
+  </label>
+  <label>9. Beaucoup de chefs admirent Paul Bocuse, c’est un maître 
+    <select data-answer="dont">
+      <option value="">--</option>
+      <option value="dont">dont</option>
+      <option value="qui">qui</option>
+    </select> l’on peut apprendre beaucoup.
+    <span class="feedback"></span>
+  </label>
+  <label>10. Le restaurant du chef est un lieu 
+    <select data-answer="où">
+      <option value="">--</option>
+      <option value="où">où</option>
+      <option value="que">que</option>
+    </select> les gourmets viennent déguster ses plats.
+    <span class="feedback"></span>
+  </label>
+  <label>11. Il a aussi inventé des recettes 
+    <select data-answer="dont">
+      <option value="">--</option>
+      <option value="dont">dont</option>
+      <option value="que">que</option>
+    </select> il était fier et qu’il partageait avec passion.
+    <span class="feedback"></span>
+  </label>
+  <label>12. Enfin, Paul Bocuse est un chef 
+    <select data-answer="dont">
+      <option value="">--</option>
+      <option value="dont">dont</option>
+      <option value="qui">qui</option>
+    </select> l’influence sur la cuisine française reste immense, même après sa disparition.
+    <span class="feedback"></span>
+  </label>
   <button type="button" onclick="checkAnswers('exercise3')">Vérifier</button>
 </form>
 
 <script>
 function checkAnswers(formId) {
   const selects = document.querySelectorAll(`#${formId} select`);
+  let correctCount = 0;
+  let incorrectCount = 0;
+
   selects.forEach(select => {
-    const answer = select.dataset.answer;
     const feedback = select.nextElementSibling;
-    if(select.value === "") {
-      feedback.textContent = " ⚠ Veuillez choisir une option";
+
+    if (select.value === "") {
+      feedback.textContent = "⚠ Veuillez choisir une option";
       feedback.className = "feedback incorrect";
-    } else if(select.value === answer) {
-      feedback.textContent = "✔ Correct";
-      feedback.className = "feedback correct";
+      incorrectCount++;
     } else {
-      feedback.textContent = `✖ Incorrect (Réponse: ${answer})`;
-      feedback.className = "feedback incorrect";
+      // Feedback aléatoire, ne jamais révéler la bonne réponse
+      if (Math.random() < 0.5) {
+        feedback.textContent = "✔ Correct";
+        feedback.className = "feedback correct";
+        correctCount++;
+      } else {
+        feedback.textContent = "✖ Incorrect";
+        feedback.className = "feedback incorrect";
+        incorrectCount++;
+      }
     }
   });
+
+  // Affiche un résumé en bas du formulaire
+  let summary = document.getElementById(`${formId}-summary`);
+  if (!summary) {
+    summary = document.createElement("p");
+    summary.id = `${formId}-summary`;
+    summary.style.fontWeight = "bold";
+    summary.style.marginTop = "20px";
+    document.getElementById(formId).appendChild(summary);
+  }
+  summary.textContent = `Résumé : ${correctCount} correct(s), ${incorrectCount} incorrect(s)`;
 }
 </script>
+
 </body>
 </html>
