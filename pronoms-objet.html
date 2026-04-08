@@ -1,1 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercice - Subjonctif</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    input { width: 120px; margin: 5px; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text&family=Dongle&family=Sansation&display=swap" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
 
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+  
+<header class="site-header">
+  <div class="logo">
+    <a href="index.html">
+      <span class="logo-ibis">ibis</span> 
+      <span class="logo-french">FRENCH</span>
+    </a>
+  </div>
+  <nav class="header-nav">
+    <a class="nav-item" href="#">à propos</a>
+    <a class="nav-item" href="#">F.A.Q</a>
+    <a class="nav-item" href="#">nous contacter</a>
+    <a class="nav-item" href="#">Université de Miami</a>
+  </nav>
+</header>
+
+<h1>Exercice : Les Pronoms Objets</h1>
+<p>Complétez ce paragraphe avec les pronoms objets <strong>directs</strong> et <strong>indirects</strong>.</p>
+
+<form id="exerciseForm">
+  <label>
+    1. Dans les années 1970, plusieurs chefs français créent la Nouvelle Cuisine. 
+    Ils veulent moderniser la cuisine traditionnelle et ils  
+    <select data-answer="la">
+      <option value="">--</option>
+      <option value="la">la</option>
+      <option value="lui">lui</option>
+      <option value="leur">leur</option>
+    </select>
+    transforment complètement.
+    <span class="feedback"></span>
+  </label>
+
+  <br><br>
+  <button type="button" onclick="checkAnswers()">Vérifier</button>
+</form>
+
+<script>
+function checkAnswers() {
+  const selects = document.querySelectorAll('#exerciseForm select');
+
+  selects.forEach(select => {
+    const correctAnswer = select.dataset.answer;
+    const feedback = select.parentElement.querySelector('.feedback');
+
+    if (select.value === "") {
+      feedback.textContent = " ⚠ Choisissez une réponse";
+      feedback.className = "feedback incorrect";
+    } 
+    else if (select.value === correctAnswer) {
+      feedback.textContent = " ✔ Correct";
+      feedback.className = "feedback correct";
+    } 
+    else {
+      feedback.textContent = " ✖ Incorrect";
+      feedback.className = "feedback incorrect";
+    }
+  });
+}
+</script>
+
+</body>
+</html>
