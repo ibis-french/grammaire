@@ -13,28 +13,66 @@
 
     <style> 
         body { 
-            font-family: 'Sensation', Arial, sans-serif; 
-            padding: 20px; 
+            /* Font changed to Sansation */
+            font-family: 'Sansation', sans-serif; 
+            background-color: #f4f7f6;
+            padding: 40px 20px; 
             line-height: 1.6;
             color: #333;
+            display: flex;
+            justify-content: center;
         } 
-        input { 
-            width: 120px; 
-            margin: 5px; 
-        }
+
         .contact-container {
-            max-width: 800px;
-            margin: 0 auto;
+            background: #ffffff;
+            max-width: 700px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-left: 6px solid #005030; /* University green accent */
         }
+
         h2 {
-            color: #2c3e50;
+            font-family: 'Sansation', sans-serif;
+            font-weight: 700;
+            color: #005030;
+            margin-top: 0;
+            font-size: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
         }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            color: #005030;
+            font-weight: 700;
+        }
+
         a {
             color: #0056b3;
             text-decoration: none;
+            font-weight: 700;
+            transition: color 0.2s;
         }
+
         a:hover {
+            color: #f47321; /* University orange hover */
             text-decoration: underline;
+        }
+
+        .lang-block {
+            padding: 10px 0;
+        }
+
+        .divider {
+            height: 1px;
+            background: #eee;
+            margin: 10px 0 20px 0;
         }
     </style>
 </head>
@@ -43,13 +81,19 @@
     <div class="contact-container">
         <h2>Nous contacter</h2>
         
-        <p>
-            <strong>FR :</strong> Pour toute question concernant le contenu du cours ou les devoirs, veuillez contacter votre professeur de français. Vous pouvez également contacter la Dre Viviana Pezzullo (directrice des études de premier cycle en français) à <a href="mailto:vxp478@miami.edu">vxp478@miami.edu</a> pour vos questions sur Ibis French.
-        </p>
+        <div class="lang-block">
+            <p>
+                <strong>FR :</strong> Pour toute question concernant le contenu du cours ou les devoirs, veuillez contacter votre professeur de français. Vous pouvez également contacter la Dre Viviana Pezzullo (directrice des études de premier cycle en français) à <a href="mailto:vxp478@miami.edu">vxp478@miami.edu</a> pour vos questions sur Ibis French.
+            </p>
+        </div>
+
+        <div class="divider"></div>
         
-        <p>
-            <strong>EN :</strong> For questions related to course content or assignments, please contact your French instructor. You may also reach out to Dr. Viviana Pezzullo (Director of Undergraduate Studies in French) at <a href="mailto:vxp478@miami.edu">vxp478@miami.edu</a> for your questions about Ibis French.
-        </p>
+        <div class="lang-block">
+            <p>
+                <strong>EN :</strong> For questions related to course content or assignments, please contact your French instructor. You may also reach out to Dr. Viviana Pezzullo (Director of Undergraduate Studies in French) at <a href="mailto:vxp478@miami.edu">vxp478@miami.edu</a> for your questions about Ibis French.
+            </p>
+        </div>
     </div>
 
 </body>
