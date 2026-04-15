@@ -5,12 +5,15 @@
   <title>Exercices - Subjonctif</title>
   <style>
     body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
-    p { margin-bottom: 18px; line-height: 1.6; font-size: large;}
-    input { width: 120px; margin: 0 5px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
     .correct { color: #008000; }
     .incorrect { color: #ff0000; }
-    button { margin-top: 0; padding: 10px 20px; font-size: 16px; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
-    .form-actions { display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-top: 20px; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
     .nav-buttons { display: flex; gap: 10px; }
     .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
     .nav-button:hover { background: #c8e6c9; }
@@ -36,188 +39,10 @@
         <!-- --------EXERCISES-------- -->
         <!-- EXERCISE 1 -->
         <div class="subjonctif-exercice1">
-            <h1>Exercise 1: Remplissez les blancs</h1>
-            <h2>Complétez avec le verbe au subjonctif.</h2>
-
-            <form id="quiz">
-
-            <p>1. Le chef répète la recette pour que vous 
-            <input type="text" id="q1"> (faire) le plat correctement.</p>
-
-            <p>2. Nous préparons les ingrédients avant que les invités 
-            <input type="text" id="q2"> (venir) dîner.</p>
-
-            <p>3. Il ajoute des épices afin que la soupe 
-            <input type="text" id="q3"> (avoir) plus de goût.</p>
-
-            <p>4. Je t’explique la recette pour que tu 
-            <input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
-
-            <p>5. Le chef parle lentement pour que tout le monde 
-            <input type="text" id="q5"> (pouvoir) comprendre.</p>
-
-            <p>6. Nous attendons jusqu’à ce que le gâteau 
-            <input type="text" id="q6"> (être) prêt.</p>
-
-            <p>7. Elle prépare plusieurs plats afin que les invités 
-            <input type="text" id="q7"> (vouloir) goûter à tout.</p>
-
-            <p>8. Avant que vous 
-            <input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
-
-            <p>9. Je ferme la cuisine pour que personne ne 
-            <input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
-
-            <p>10. Je goûte la soupe avant que nous 
-            <input type="text" id="q10"> (servir) le dîner.</p>
-
-            <p>11. Bien que vous 
-            <input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
-
-            <p>12. Nous mélangeons la sauce pour qu’elle 
-            <input type="text" id="q12"> (être) bien homogène.</p>
-
-            <p>13. Le professeur explique la recette afin que les étudiants 
-            <input type="text" id="q13"> (faire) le plat chez eux.</p>
-
-            <p>14. Il ajoute du sucre pour que le dessert 
-            <input type="text" id="q14"> (devenir) plus doux.</p>
-
-            <div class="form-actions">
-                <button type="button" onclick="checkAnswers()">Vérifier</button>
-            </div>
-
-            </form>
-
-            <h3 id="result"></h3>
-
-            <script>
-            function checkAnswers() {
-            const answers = {
-                q1: "fassiez",
-                q2: "viennent",
-                q3: "ait",
-                q4: "saches",
-                q5: "puisse",
-                q6: "soit",
-                q7: "veuillent",
-                q8: "alliez",
-                q9: "prenne",
-                q10: "servions",
-                q11: "ayez",
-                q12: "soit",
-                q13: "fassent",
-                q14: "devienne"
-            };
-
-            let score = 0;
-
-            for (let key in answers) {
-                let userAnswer = document.getElementById(key).value.toLowerCase().trim();
-                if (userAnswer === answers[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = "green";
-                } else {
-                document.getElementById(key).style.borderColor = "red";
-                }
-            }
-
-            document.getElementById("result").innerHTML =
-                "Score: " + score + " / 14";
-            }
-            </script>
-        </div>
-
-        <!-- EXERCISE 2 -->
-        <div class="subjonctif-exercice2">
-            <h1>Exercice 2: Subjonctif ou Indicatif?</h1>
-            <h2>Complétez chaque phrase avec la forme correcte du verbe entre parenthèses.</h2>
-        
-
-            <form id="exerciseForm">
-            <label>1. Je suis sûr qu’il (venir) 
-                <input type="text" data-answer="vient">
-                <span class="feedback"></span>
-            </label>
-
-            <label>2. Il faut que tu (faire) 
-                <input type="text" data-answer="fasses">
-                <span class="feedback"></span>
-            </label>
-
-            <label>3. Je crois qu’elle (comprendre) 
-                <input type="text" data-answer="comprend">
-                <span class="feedback"></span>
-            </label>
-
-            <label>4. Bien qu’il (pleuvoir) 
-                <input type="text" data-answer="pleuve">
-                <span class="feedback"></span>
-            </label>
-
-            <label>5. Il est évident que vous (être) 
-                <input type="text" data-answer="êtes">
-                <span class="feedback"></span>
-            </label>
-
-            <label>6. Il est possible que nous (avoir) 
-                <input type="text" data-answer="ayons">
-                <span class="feedback"></span>
-            </label>
-
-            <label>7. Je sais qu’ils (dire) 
-                <input type="text" data-answer="disent">
-                <span class="feedback"></span>
-            </label>
-
-            <label>8. Il est rare que cet élève (répondre) 
-                <input type="text" data-answer="réponde">
-                <span class="feedback"></span>
-            </label>
-
-            <label>9. Il me semble que tu (oublier) 
-                <input type="text" data-answer="oublies">
-                <span class="feedback"></span>
-            </label>
-
-            <label>10. Il est indispensable que vous (finir) 
-                <input type="text" data-answer="finissiez">
-                <span class="feedback"></span>
-            </label>
-
-            <div class="form-actions">
-                <button type="button" onclick="checkAnswers()">Vérifier</button>
-            </div>
-            </form>
-
-            <script>
-            function checkAnswers() {
-            const inputs = document.querySelectorAll('#exerciseForm input');
-            inputs.forEach(input => {
-                const answer = input.dataset.answer.toLowerCase();
-                const feedback = input.nextElementSibling;
-                const userValue = input.value.trim().toLowerCase();
-                if(userValue === "") {
-                feedback.textContent = " ⚠ Veuillez remplir le champ";
-                feedback.className = "feedback incorrect";
-                } else if(userValue === answer) {
-                feedback.textContent = "✔ Correct";
-                feedback.className = "feedback correct";
-                } else {
-                feedback.textContent = `✖ Incorrect (Réponse: ${answer})`;
-                feedback.className = "feedback incorrect";
-                }
-            });
-            }
-            </script>
-        </div>
-
-        <!-- EXERCISE 3 -->
-        <div class="subjonctif-exercice3">
-            <h1>Exercice : Subjonctif ou Indicatif ?</h1>
+            <h1>Exercice 1: Subjonctif ou Indicatif ?</h1>
             <h2>Ces expressions sont suivies d’un verbe. Choisissez si ce verbe doit être au <strong>subjonctif (S)</strong> ou à l’<strong>indicatif (I)</strong>.</h2>
 
-            <form id="exerciseForm">
+            <form id="exerciseForm1">
             <label>1. Je suis contente que… 
                 <select data-answer="S">
                 <option value="">--</option>
@@ -309,20 +134,38 @@
             </label>
 
             <div class="form-actions">
-                <button type="button" onclick="checkAnswers()">Vérifier</button>
+                <button type="button" onclick="checkAnswers1()">Vérifier</button>
             </div>
             </form>
 
+            <h3 id="result1"></h3>
+
             <script>
-            function checkAnswers() {
-            const selects = document.querySelectorAll('#exerciseForm select');
-            selects.forEach(select => {
-                const answer = select.dataset.answer;
+            function checkAnswers1() {
+            const answers = {
+                q1: "S",
+                q2: "I",
+                q3: "S",
+                q4: "I",
+                q5: "S",
+                q6: "I",
+                q7: "S",
+                q8: "S",
+                q9: "I",
+                q10: "S"
+            };
+
+            let score = 0;
+            const selects = document.querySelectorAll('#exerciseForm1 select');
+            selects.forEach((select, index) => {
+                const answerKey = 'q' + (index + 1);
+                const answer = answers[answerKey];
                 const feedback = select.nextElementSibling;
                 if(select.value === "") {
                 feedback.textContent = " ⚠ Choisissez S ou I";
                 feedback.className = "feedback incorrect";
                 } else if(select.value === answer) {
+                score++;
                 feedback.textContent = "✔ Correct";
                 feedback.className = "feedback correct";
                 } else {
@@ -330,12 +173,210 @@
                 feedback.className = "feedback incorrect";
                 }
             });
+            document.getElementById("result1").innerHTML = "Score: " + score + " / 10";
+            }
+            </script>
+        </div>
+        
+
+        <!-- EXERCISE 2 -->
+        <div class="subjonctif-exercice2">
+            <h1>Exercice 2: Subjonctif ou Indicatif?</h1>
+            <h2>Complétez chaque phrase avec la forme correcte du verbe entre parenthèses.</h2>
+        
+
+            <form id="exerciseForm2">
+            <label>1. Je suis sûr qu'il (venir) 
+                <input type="text" data-answer="vient">
+                <span class="feedback"></span>
+            </label>
+
+            <label>2. Il faut que tu (faire) 
+                <input type="text" data-answer="fasses">
+                <span class="feedback"></span>
+            </label>
+
+            <label>3. Je crois qu’elle (comprendre) 
+                <input type="text" data-answer="comprend">
+                <span class="feedback"></span>
+            </label>
+
+            <label>4. Bien qu’il (pleuvoir) 
+                <input type="text" data-answer="pleuve">
+                <span class="feedback"></span>
+            </label>
+
+            <label>5. Il est évident que vous (être) 
+                <input type="text" data-answer="êtes">
+                <span class="feedback"></span>
+            </label>
+
+            <label>6. Il est possible que nous (avoir) 
+                <input type="text" data-answer="ayons">
+                <span class="feedback"></span>
+            </label>
+
+            <label>7. Je sais qu’ils (dire) 
+                <input type="text" data-answer="disent">
+                <span class="feedback"></span>
+            </label>
+
+            <label>8. Il est rare que cet élève (répondre) 
+                <input type="text" data-answer="réponde">
+                <span class="feedback"></span>
+            </label>
+
+            <label>9. Il me semble que tu (oublier) 
+                <input type="text" data-answer="oublies">
+                <span class="feedback"></span>
+            </label>
+
+            <label>10. Il est indispensable que vous (finir) 
+                <input type="text" data-answer="finissiez">
+                <span class="feedback"></span>
+            </label>
+
+            <div class="form-actions">
+                <button type="button" onclick="checkAnswers2()">Vérifier</button>
+            </div>
+            </form>
+
+            <h3 id="result2"></h3>
+
+            <script>
+            function checkAnswers2() {
+            const answers = {
+                q1: "vient",
+                q2: "fasses",
+                q3: "comprend",
+                q4: "pleuve",
+                q5: "\u00eates",
+                q6: "ayons",
+                q7: "disent",
+                q8: "réponde",
+                q9: "oublies",
+                q10: "finissiez"
+            };
+
+            let score = 0;
+            const inputs = document.querySelectorAll('#exerciseForm2 input');
+            inputs.forEach((input, index) => {
+                const answerKey = 'q' + (index + 1);
+                const answer = answers[answerKey].toLowerCase();
+                const feedback = input.nextElementSibling;
+                const userValue = input.value.trim().toLowerCase();
+                if(userValue === "") {
+                feedback.textContent = " \u26a0 Veuillez remplir le champ";
+                feedback.className = "feedback incorrect";
+                } else if(userValue === answer) {
+                score++;
+                feedback.textContent = "\u2714 Correct";
+                feedback.className = "feedback correct";
+                document.getElementById(answerKey).style.borderColor = "green";
+                } else {
+                feedback.textContent = `\u2716 Incorrect (Réponse: ${answer})`;
+                feedback.className = "feedback incorrect";
+                document.getElementById(answerKey).style.borderColor = "red";
+                }
+            });
+            document.getElementById("result2").innerHTML = "Score: " + score + " / 10";
             }
             </script>
         </div>
 
-        <div class="nav-buttons">
-            <a class="nav-button" href="subjonctif-explication-grammaire.html">voir l'explication grammaticale</a>
+        <!-- EXERCISE 3 -->
+        <div class="subjonctif-exercice3">
+            <h1>Exercise 3: Remplissez les blancs</h1>
+            <h2>Complétez avec le verbe au subjonctif.</h2>
+
+            <form id="exerciseForm3">
+
+            <p>1. Le chef répète la recette pour que vous 
+            <input type="text" id="q1"> (faire) le plat correctement.</p>
+
+            <p>2. Nous préparons les ingrédients avant que les invités 
+            <input type="text" id="q2"> (venir) dîner.</p>
+
+            <p>3. Il ajoute des épices afin que la soupe 
+            <input type="text" id="q3"> (avoir) plus de goût.</p>
+
+            <p>4. Je t’explique la recette pour que tu 
+            <input type="text" id="q4"> (savoir) comment préparer la sauce.</p>
+
+            <p>5. Le chef parle lentement pour que tout le monde 
+            <input type="text" id="q5"> (pouvoir) comprendre.</p>
+
+            <p>6. Nous attendons jusqu’à ce que le gâteau 
+            <input type="text" id="q6"> (être) prêt.</p>
+
+            <p>7. Elle prépare plusieurs plats afin que les invités 
+            <input type="text" id="q7"> (vouloir) goûter à tout.</p>
+
+            <p>8. Avant que vous 
+            <input type="text" id="q8"> (aller) au marché, vérifiez les ingrédients nécessaires.</p>
+
+            <p>9. Je ferme la cuisine pour que personne ne 
+            <input type="text" id="q9"> (prendre) de nourriture avant le dîner.</p>
+
+            <p>10. Je goûte la soupe avant que nous 
+            <input type="text" id="q10"> (servir) le dîner.</p>
+
+            <p>11. Bien que vous 
+            <input type="text" id="q11"> (avoir) peu de temps, vous préparez un bon repas.</p>
+
+            <p>12. Nous mélangeons la sauce pour qu’elle 
+            <input type="text" id="q12"> (être) bien homogène.</p>
+
+            <p>13. Le professeur explique la recette afin que les étudiants 
+            <input type="text" id="q13"> (faire) le plat chez eux.</p>
+
+            <p>14. Il ajoute du sucre pour que le dessert 
+            <input type="text" id="q14"> (devenir) plus doux.</p>
+
+            <div class="form-actions">
+                <button type="button" onclick="checkAnswers3()">Vérifier</button>
+                <a href="subjonctif-explication-grammaire.html" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px; background: #274820; color: #fff; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 1.2rem;">voir l'explication grammaticale</a>
+            </div>
+
+            </form>
+
+            <h3 id="result"></h3>
+
+            <script>
+            function checkAnswers3() {
+            const answers = {
+                q1: "fassiez",
+                q2: "viennent",
+                q3: "ait",
+                q4: "saches",
+                q5: "puisse",
+                q6: "soit",
+                q7: "veuillent",
+                q8: "alliez",
+                q9: "prenne",
+                q10: "servions",
+                q11: "ayez",
+                q12: "soit",
+                q13: "fassent",
+                q14: "devienne"
+            };
+
+            let score = 0;
+
+            for (let key in answers) {
+                let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+                if (userAnswer === answers[key]) {
+                score++;
+                document.getElementById(key).style.borderColor = "green";
+                } else {
+                document.getElementById(key).style.borderColor = "red";
+                }
+            }
+
+            document.getElementById("result").innerHTML =
+                "Score: " + score + " / 14";
+            }
+            </script>
         </div>
     </main>
 </body>
