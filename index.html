@@ -8,6 +8,57 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+  /* 1. Make images responsive */
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* 2. Base flexbox for the hero section */
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+
+  /* 3. Mobile Layout adjustments */
+  @media (max-width: 768px) {
+    .site-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 15px;
+      padding: 15px;
+    }
+
+    .header-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .nav-divider {
+      display: none; /* Hides the "|" divider on small screens */
+    }
+
+    .hero {
+      flex-direction: column-reverse; /* Puts the title on top of the image */
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-title {
+      font-size: 42px; 
+      margin-bottom: 15px;
+    }
+  }
+</style>
+    
   </head>
   <body>
     <div class="site">
