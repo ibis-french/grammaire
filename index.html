@@ -9,27 +9,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-    <style>
-  /* Mobile adjustments for the top banner ONLY */
+  <style>
+  /* Mobile adjustments for the navigation links ONLY */
   @media (max-width: 768px) {
-    .site-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 15px;
-      padding: 15px;
-    }
-
     .header-nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
+      margin-top: 10px; /* Adds a little space between logo and nav if they stack */
     }
 
     .nav-divider {
-      display: none; /* Hides the "|" divider on small screens */
+      display: none; /* Hides the "|" divider on small screens so it doesn't look awkward when wrapped */
     }
   }
 </style>
