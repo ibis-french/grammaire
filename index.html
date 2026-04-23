@@ -9,19 +9,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
 
-  <style>
-  /* Mobile adjustments for the navigation links ONLY */
+ <style>
+  /* Mobile adjustments for the logo AND navigation */
   @media (max-width: 768px) {
+    /* Stacks the logo and navigation vertically */
+    .site-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Centers the logo and adds breathing room */
+    .logo {
+      display: block;
+      text-align: center;
+      margin-bottom: 15px;
+      width: 100%;
+    }
+
+    /* Slightly scales down the logo text to prevent cutoff */
+    .logo-ibis, 
+    .logo-french {
+      font-size: 85%; 
+    }
+
+    /* Allows navigation links to wrap to a new line if needed */
     .header-nav {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
-      margin-top: 10px; /* Adds a little space between logo and nav if they stack */
     }
 
+    /* Hides the vertical pipe "|" on small screens */
     .nav-divider {
-      display: none; /* Hides the "|" divider on small screens so it doesn't look awkward when wrapped */
+      display: none; 
     }
   }
 </style>
