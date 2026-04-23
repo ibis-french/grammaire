@@ -6,84 +6,6 @@
 <title>À Propos - Ibis French</title>
 
 <style>
-
-/* Make images responsive so they don't break containers */
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Allow the header and navigation to wrap cleanly on small screens */
-.site-header {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 30px;
-  gap: 15px;
-}
-
-.header-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-/* New classes to replace the hardcoded inline styles at the bottom */
-.bottom-info {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  font-size: 20px;
-}
-
-.bottom-info p {
-  font-size: 32px;
-  margin: 0;
-}
-
-figure {
-  margin: 0;
-  flex-shrink: 0;
-  max-width: 100%;
-}
-
-/* Mobile Media Query: Adjusts layout and font sizes for tablets/phones */
-@media (max-width: 768px) {
-  body {
-    padding: 15px;
-  }
-  
-  .site-header {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .header-nav {
-    justify-content: center;
-  }
-
-  h2 {
-    font-size: 38px;
-  }
-
-  .q-title {
-    font-size: 28px;
-  }
-
-  .answer {
-    font-size: 24px;
-  }
-
-  .bottom-info {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  .bottom-info p {
-    font-size: 26px; /* Scaled down from 32px to prevent text crowding */
-  }
-}
   
 body {
   /* Dongle is a condensed font, so it needs a larger base size */
@@ -212,17 +134,15 @@ h2 {
       </div>
     </div>
 
-    <div class="bottom-info"> 
-  <figure>
-    <img src="img/vivianafatima.jpeg" oncontextmenu="return false;" alt="Viviana et Fatima" height=500px;">
+    <div class="about-footer">
+    </div>
+<div style="display: flex; align-items: center; gap: 20px; font-size: 20px;"> 
+<figure>
+  <img src="img/vivianafatima.jpeg" oncontextmenu="return false;" height="500" alt="Viviana et Fatima">
     <figcaption>
-      Dr. Viviana Pezzullo et Fatima en avril 2026. <br><i>Yes, girls can code.</i>
-    </figcaption>
-  </figure>
-  
-  <p>
-    Ibis French est une plateforme conçue par les étudiants, pour les étudiants. Elle a été entièrement imaginée et développée par Fatima Kane, avec l’aide de Yadiel Cruz, au printemps 2026 dans le cadre de leur stage en français sous la direction de Dr. Viviana Pezzullo. <br>L’objectif de la plateforme est d’offrir un accompagnement et des outils de pratique en grammaire française aux étudiants inscrits aux cours de français intermédiaire à l’Université de Miami.
-  </p>
+Dr. Viviana Pezzullo et Fatima en avril 2026. <br><i>Yes, girls can code.</i></figcaption></p></figure>
+  <p style="font-size: 32px;">
+  Ibis French est une plateforme conçue par les étudiants, pour les étudiants. Elle a été entièrement imaginée et développée par Fatima Kane, avec l’aide de Yadiel Cruz, au printemps 2026 dans le cadre de leur stage en français sous la direction de Dr. Viviana Pezzullo. <br>L’objectif de la plateforme est d’offrir un accompagnement et des outils de pratique en grammaire française aux étudiants inscrits aux cours de français intermédiaire à l’Université de Miami.</p>
 </div>
 <p>Si vous êtes intéressé.e par un stage combinant votre expertise et les études de langues, <a href="https://mll.as.miami.edu/undergraduate/internships/index.html" target="_blank" rel="noopener noreferrer">cliquez ici !</a></p>
     
@@ -242,3 +162,4 @@ document.querySelectorAll(".question").forEach(item => {
 
 </body>
 </html>
+
