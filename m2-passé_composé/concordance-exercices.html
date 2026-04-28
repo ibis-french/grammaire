@@ -1,1 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Subjonctif</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
 
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+    </header>
+
+    <!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - La Concordance des Temps et Francophonie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Dongle', 'Sansation', sans-serif;
+      padding: 23px;
+      background: #DCE8DB;
+      color: #111;
+      font-size: 25px;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 38px;
+      color: #274820;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      color: #2e7d32;
+      font-size: 28px;
+      border-bottom: 2px solid #e8f5e9;
+      padding-bottom: 8px;
+      margin-top: 0;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid #c8d9c6;
+      border-radius: 12px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    }
+
+    /* DRAG AND DROP STYLES */
+    .drag-list {
+      list-style-type: none;
+      padding: 0;
+      margin: 15px 0;
+      background: #f9f9f9;
+      border-radius: 8px;
+      padding: 10px;
+      min-height: 200px;
+    }
+
+    .draggable-item {
+      background: #fff;
+      border: 2px solid #c8d9c6;
+      margin-bottom: 10px;
+      padding: 12px 15px;
+      border-radius: 6px;
+      cursor: grab;
+      font-size: 24px;
+      display: flex;
+      align-items: center;
+      transition: background 0.2s;
+    }
+
+    .draggable-item:active {
+      cursor: grabbing;
+    }
+
+    .draggable-item.dragging {
+      opacity: 0.5;
+      background: #e8f5e9;
+    }
+
+    .drag-icon {
+      margin-right: 15px;
+      color: #888;
+      font-size: 20px;
+    }
+
+    /* FILL IN THE BLANKS STYLES */
+    .text-hole {
+      font-size: 24px;
+      padding: 4px 8px;
+      width: 140px;
+      text-align: center;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      margin: 0 5px;
+      font-family: 'Dongle', 'Sansation', sans-serif;
+    }
+
+    .text-hole:focus {
+      outline: none;
+      border-color: #2e7d32;
+    }
+
+    /* BUTTONS AND RESULTS */
+    .btn-verify {
+      background: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 22px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: bold;
+      transition: background 0.3s;
+      margin-top: 15px;
+    }
+
+    .btn-verify:hover {
+      background: #388E3C;
+    }
+
+    .score-display {
+      display: inline-block;
+      margin-left: 15px;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #final-results {
+      margin-top: 25px;
+      font-size: 26px;
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<main class="container">
+  <h1>🌍 Exercices : La Concordance des Temps</h1>
+
+  <div class="card">
+    <h2>Exercice 1 : Mettre en ordre les actions</h2>
+    <p><em>Lisez les textes et glissez-déposez les phrases ci-dessous pour les remettre dans l'ordre chronologique (de l'action la plus ancienne à la plus récente).</em></p>
+    
+    <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
+      <strong>Texte A : L'engagement de Senghor</strong><br>
+      Léopold Sédar Senghor est devenu le premier président du Sénégal indépendant en 1960, parce qu'il avait milité pendant des années pour la Négritude à Paris. Pendant son mandat, il a fortement encouragé la coopération linguistique jusqu'à ce que l'Organisation internationale de la Francophonie (OIF) ait officiellement vu le jour en 1970.
+    </div>
+
+    <ul class="drag-list" id="list-A">
+      <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Il est devenu président du Sénégal.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> L'OIF a officiellement vu le jour.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Il avait milité pour la Négritude.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Il a encouragé la coopération linguistique.</li>
+    </ul>
+
+    <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
+      <strong>Texte B : Le courage des Acadiens</strong><br>
+      Les Acadiens ont été déportés lors du « Grand Dérangement » en 1755, alors qu'ils s'étaient installés pacifiquement en Nouvelle-Écosse depuis des générations. Plus tard, ils ont lutté avec acharnement pour préserver leur culture avant que le gouvernement canadien n'ait finalement reconnu leurs droits linguistiques.
+    </div>
+
+    <ul class="drag-list" id="list-B">
+      <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> Le gouvernement canadien a reconnu leurs droits.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Ils s'étaient installés pacifiquement.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Ils ont lutté pour préserver leur culture.</li>
+      <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Ils ont été déportés.</li>
+    </ul>
+
+    <button class="btn-verify" onclick="checkEx1()">Vérifier l'Exercice 1</button>
+    <div id="score-ex1" class="score-display"></div>
+  </div>
+
+  <div class="card">
+    <h2>Exercice 2 : Complétez le texte historique</h2>
+    <p><em>Complétez les espaces en conjuguant les verbes entre parenthèses au temps qui convient : <strong>passé composé, imparfait, plus-que-parfait</strong> ou <strong>subjonctif passé</strong>.</em></p>
+
+    <p style="line-height: 2;">
+      Au XVIIIe siècle, après la conquête britannique, les Canadiens français <input type="text" class="text-hole" data-answer="ont dû"> <em>(devoir)</em> lutter farouchement pour conserver leur langue. Les nouveaux dirigeants anglophones <input type="text" class="text-hole" data-answer="voulaient"> <em>(vouloir)</em> assimiler la population, mais les francophones <input type="text" class="text-hole" data-answer="ont organisé"> <em>(organiser)</em> une forte résistance culturelle. Quand l'Acte d'Union <input type="text" class="text-hole" data-answer="a été signé"> <em>(être signé)</em> en 1840, le gouvernement de Londres <input type="text" class="text-hole" data-answer="avait déjà tenté"> <em>(déjà / tenter)</em> d'imposer l'anglais dans les institutions à plusieurs reprises.
+    </p>
+    <p style="line-height: 2;">
+      Plus tard, dans les années 1960, le Québec <input type="text" class="text-hole" data-answer="a connu"> <em>(connaître)</em> une période de grands bouleversements appelée la Révolution tranquille. Les historiens sont aujourd'hui très fiers que la province <input type="text" class="text-hole" data-answer="ait réussi"> <em>(réussir)</em> à moderniser sa société, bien que ce changement <input type="text" class="text-hole" data-answer="ait provoqué"> <em>(provoquer)</em> de grandes tensions politiques à l'époque. Dans ces années-là, beaucoup de jeunes Québécois <input type="text" class="text-hole" data-answer="rêvaient"> <em>(rêver)</em> d'un système entièrement francophone. Les intellectuels et les politiciens <input type="text" class="text-hole" data-answer="avaient déjà préparé"> <em>(déjà / préparer)</em> le terrain pour des lois linguistiques importantes bien avant que la célèbre Loi 101 <input type="text" class="text-hole" data-answer="ait été adoptée"> <em>(être adoptée)</em> en 1977. 
+    </p>
+    <p style="line-height: 2;">
+      Aujourd'hui, la francophonie mondiale est admirative que cette culture <input type="text" class="text-hole" data-answer="ait survécu"> <em>(survivre)</em> avec autant de dynamisme en Amérique du Nord !
+    </p>
+
+    <button class="btn-verify" onclick="checkEx2()">Vérifier l'Exercice 2</button>
+    <div id="score-ex2" class="score-display"></div>
+  </div>
+
+  <div class="card" id="final-results">
+    </div>
+
+  <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+      <h2 style="font-size: 1.5rem; color:#111; border:none; padding:0; margin-bottom: 15px;">Télécharger votre rapport</h2>
+      <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+      <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+      <br>
+      <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
+  </div>
+</main>
+
+<script>
+  // --- VARIABLES GLOBALES ---
+  const maxScoreEx1 = 8; // 8 phrases au total
+  let maxScoreEx2 = 0;   // Sera calculé dynamiquement
+  let scoreEx1 = 0;
+  let scoreEx2 = 0;
+
+  // --- LOGIQUE GLISSER-DÉPOSER ---
+  const draggables = document.querySelectorAll('.draggable-item');
+  const dragLists = document.querySelectorAll('.drag-list');
+
+  draggables.forEach(draggable => {
+    draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
+    draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); });
+  });
+
+  dragLists.forEach(list => {
+    list.addEventListener('dragover', e => {
+      e.preventDefault();
+      const afterElement = getDragAfterElement(list, e.clientY);
+      const draggable = document.querySelector('.dragging');
+      if (afterElement == null) {
+        list.appendChild(draggable);
+      } else {
+        list.insertBefore(draggable, afterElement);
+      }
+    });
+  });
+
+  function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+    return draggableElements.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset: offset, element: child };
+      } else {
+        return closest;
+      }
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  // --- LOGIQUE D'ÉVALUATION EXERCICE 1 ---
+  function evaluateEx1() {
+    let currentScore = 0;
+    
+    // Texte A
+    const listAItems = document.querySelectorAll('#list-A .draggable-item');
+    listAItems.forEach((item, index) => {
+      if (parseInt(item.getAttribute('data-correct-order')) === (index + 1)) {
+        currentScore++;
+        item.style.borderColor = "#2e7d32";
+        item.style.backgroundColor = "#e8f5e9";
+      } else {
+        item.style.borderColor = "#d32f2f";
+        item.style.backgroundColor = "#ffebee";
+      }
+    });
+
+    // Texte B
+    const listBItems = document.querySelectorAll('#list-B .draggable-item');
+    listBItems.forEach((item, index) => {
+      if (parseInt(item.getAttribute('data-correct-order')) === (index + 1)) {
+        currentScore++;
+        item.style.borderColor = "#2e7d32";
+        item.style.backgroundColor = "#e8f5e9";
+      } else {
+        item.style.borderColor = "#d32f2f";
+        item.style.backgroundColor = "#ffebee";
+      }
+    });
+    
+    return currentScore;
+  }
+
+  function checkEx1() {
+    scoreEx1 = evaluateEx1();
+    const display = document.getElementById("score-ex1");
+    display.innerHTML = `${scoreEx1} / ${maxScoreEx1}`;
+    display.style.color = (scoreEx1 === maxScoreEx1) ? "#2e7d32" : "#d32f2f";
+  }
+
+  // --- LOGIQUE D'ÉVALUATION EXERCICE 2 ---
+  function evaluateEx2() {
+    let currentScore = 0;
+    const inputsEx2 = document.querySelectorAll('.text-hole');
+    maxScoreEx2 = inputsEx2.length;
+
+    inputsEx2.forEach(input => {
+      const rawAnswer = input.value.split(" (Corr:")[0].trim().toLowerCase();
+      const correctAnswer = input.getAttribute('data-answer').toLowerCase();
+      
+      if (rawAnswer === correctAnswer) {
+        currentScore++;
+        input.style.borderColor = "#2e7d32";
+        input.style.backgroundColor = "#e8f5e9";
+        input.value = rawAnswer; 
+      } else {
+        input.style.borderColor = "#d32f2f";
+        input.style.backgroundColor = "#ffebee";
+        if (!input.value.includes("(Corr:")) {
+          input.value = `${rawAnswer} (Corr: ${correctAnswer})`;
+        }
+      }
+    });
+    return currentScore;
+  }
+
+  function checkEx2() {
+    scoreEx2 = evaluateEx2();
+    const display = document.getElementById("score-ex2");
+    display.innerHTML = `${scoreEx2} / ${maxScoreEx2}`;
+    display.style.color = (scoreEx2 === maxScoreEx2) ? "#2e7d32" : "#d32f2f";
+  }
+
+  // --- GÉNÉRATION DU CSV ---
+  function downloadCSV() {
+    const studentName = document.getElementById("studentName").value.trim();
+    if (!studentName) {
+      alert("⚠️ Veuillez entrer votre nom avant de télécharger le rapport.");
+      document.getElementById("studentName").focus();
+      return;
+    }
+
+    // Calcul final des scores
+    scoreEx1 = evaluateEx1();
+    scoreEx2 = evaluateEx2();
+    checkEx1(); 
+    checkEx2(); 
+
+    const totalScore = scoreEx1 + scoreEx2;
+    const maxTotal = maxScoreEx1 + maxScoreEx2;
+    const resultsDiv = document.getElementById("final-results");
+    
+    // Affichage des résultats
+    resultsDiv.style.display = "block";
+    resultsDiv.innerHTML = `
+      <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
+      <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
+      <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalScore} / ${maxTotal}</p>
+      <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé.</p>
+    `;
+
+    // Création du CSV
+    let csvContent = "\uFEFF"; // BOM
+    csvContent += "Nom de l'etudiant,Score Ex 1 (Ordre),Score Ex 2 (Conjugaison),Score Total,Sur\n";
+    csvContent += `"${studentName}",${scoreEx1},${scoreEx2},${totalScore},${maxTotal}\n`;
+
+    // Téléchargement
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    
+    const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    link.setAttribute("href", url);
+    link.setAttribute("download", `Rapport_${safeName}.csv`);
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
+</script>
+
+</body>
+</html>
