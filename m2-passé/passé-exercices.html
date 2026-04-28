@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Pronoms Objets</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    label { font-size: 1.3rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/" target="_blank" rel="noopener noreferrer">Étudier le français à UM</a>
+        </nav>
+    </header>
+
+<main class="container">
+
+<h1>🌍 Exercices : Concordance des temps</h1>
+
+<!-- EXERCICE 1 -->
+<div class="card">
+<h2>Exercice 1 : Ordre chronologique</h2>
+
+<ul class="drag-list" id="list-A">
+<li class="draggable-item" draggable="true" data-correct-order="2">Il est devenu président</li>
+<li class="draggable-item" draggable="true" data-correct-order="4">L’OIF a été créée</li>
+<li class="draggable-item" draggable="true" data-correct-order="1">Il avait milité</li>
+<li class="draggable-item" draggable="true" data-correct-order="3">Il a encouragé</li>
+</ul>
+
+<ul class="drag-list" id="list-B">
+<li class="draggable-item" draggable="true" data-correct-order="4">Le gouvernement a reconnu</li>
+<li class="draggable-item" draggable="true" data-correct-order="1">Ils s’étaient installés</li>
+<li class="draggable-item" draggable="true" data-correct-order="3">Ils ont lutté</li>
+<li class="draggable-item" draggable="true" data-correct-order="2">Ils ont été déportés</li>
+</ul>
+
+<div id="score-ex1"></div>
+</div>
+
+<!-- EXERCICE 2 -->
+<div class="card">
+<h2>Exercice 2 : Complétez</h2>
+
+<p>
+Les Canadiens 
+<input class="text-hole" data-answer="ont dû"><span class="feedback"></span>
+lutter.
+</p>
+
+<p>
+Les dirigeants 
+<input class="text-hole" data-answer="voulaient"><span class="feedback"></span>
+assimiler.
+</p>
+
+<button onclick="checkEx2()">Vérifier</button>
+<div id="score-ex2"></div>
+</div>
+
+</main>
+
+<script>
+// DRAG SYSTEM
+let dragged = null;
+
+document.querySelectorAll('.draggable-item').forEach(item => {
+  item.addEventListener('dragstart', () => {
+    dragged = item;
+    item.classList.add('dragging');
+  });
+
+  item.addEventListener('dragend', () => {
+    item.classList.remove('dragging');
+  });
+});
+
+document.querySelectorAll('.drag-list').forEach(list => {
+  list.addEventListener('dragover', e => {
+    e.preventDefault();
+    const after = getAfterElement(list, e.clientY);
+    if (after == null) {
+      list.appendChild(dragged);
+    } else {
+      list.insertBefore(dragged, after);
+    }
+  });
+
+  list.addEventListener('drop', autoGrade);
+});
+
+function getAfterElement(container, y) {
+  const els = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+
+  return els.reduce((closest, child) => {
+    const box = child.getBoundingClientRect();
+    const offset = y - box.top - box.height / 2;
+
+    if (offset < 0 && offset > closest.offset) {
+      return { offset: offset, element: child };
+    } else {
+      return closest;
+    }
+  }, { offset: Number.NEGATIVE_INFINITY }).element;
+}
+
+// AUTO-GRADE
+function autoGrade() {
+  let score = 0;
+
+  document.querySelectorAll('.drag-list').forEach(list => {
+    const items = list.querySelectorAll('.draggable-item');
+
+    items.forEach((item, index) => {
+      const correct = parseInt(item.dataset.correctOrder);
+
+      let old = item.querySelector('.feedback');
+      if (old) old.remove();
+
+      let fb = document.createElement("span");
+      fb.classList.add("feedback");
+
+      if (index + 1 === correct) {
+        score++;
+        item.style.borderColor = "green";
+        fb.textContent = "✔";
+        fb.classList.add("correct");
+      } else {
+        item.style.borderColor = "red";
+        fb.textContent = "✖";
+        fb.classList.add("incorrect");
+      }
+
+      item.appendChild(fb);
+    });
+  });
+
+  document.getElementById("score-ex1").innerHTML = "Score: " + score + " / 8";
+}
+
+// EX 2
+function checkEx2() {
+  let score = 0;
+
+  document.querySelectorAll('.text-hole').forEach(input => {
+    const user = input.value.trim().toLowerCase();
+    const correct = input.dataset.answer.toLowerCase();
+    const fb = input.nextElementSibling;
+
+    if (user === correct) {
+      score++;
+      fb.textContent = "✔";
+      fb.className = "feedback correct";
+      input.style.borderColor = "green";
+    } else {
+      fb.textContent = "✖";
+      fb.className = "feedback incorrect";
+      input.style.borderColor = "red";
+    }
+  });
+
+  document.getElementById("score-ex2").innerHTML = "Score: " + score;
+}
+</script>
+
+</body>
+</html>
