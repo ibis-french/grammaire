@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Exercices - Subjonctif</title>
+  <title>Exercices - Concordance des temps</title>
   <style>
     body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
     p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
@@ -138,23 +138,22 @@
       border-color: #2e7d32;
     }
 
-    /* BUTTONS AND RESULTS */
+    /* UNIFIED BUTTON STYLES */
     .btn-verify {
-      background: #4CAF50;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      font-size: 22px;
-      border-radius: 6px;
-      cursor: pointer;
+      padding: 12px 24px; 
+      font-size: 1.2rem; 
+      cursor: pointer; 
+      background: #2e7d32; 
+      color: #fff; 
+      border: none; 
+      border-radius: 4px;
       font-family: inherit;
-      font-weight: bold;
       transition: background 0.3s;
       margin-top: 15px;
     }
 
     .btn-verify:hover {
-      background: #388E3C;
+      background: #1b5e20;
     }
 
     .score-display {
@@ -236,7 +235,7 @@
       <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
       <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
       <br>
-      <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
+      <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
   </div>
 </main>
 
@@ -318,7 +317,7 @@
   function checkEx1() {
     scoreEx1 = evaluateEx1();
     const display = document.getElementById("score-ex1");
-    display.innerHTML = `${scoreEx1} / ${maxScoreEx1}`;
+    display.innerHTML = `Score : ${scoreEx1} / ${maxScoreEx1}`;
     display.style.color = (scoreEx1 === maxScoreEx1) ? "#2e7d32" : "#d32f2f";
   }
 
@@ -329,20 +328,18 @@
     maxScoreEx2 = inputsEx2.length;
 
     inputsEx2.forEach(input => {
-      const rawAnswer = input.value.split(" (Corr:")[0].trim().toLowerCase();
+      // Nettoyage de la saisie utilisateur
+      const rawAnswer = input.value.trim().toLowerCase();
       const correctAnswer = input.getAttribute('data-answer').toLowerCase();
       
       if (rawAnswer === correctAnswer) {
         currentScore++;
         input.style.borderColor = "#2e7d32";
         input.style.backgroundColor = "#e8f5e9";
-        input.value = rawAnswer; 
       } else {
         input.style.borderColor = "#d32f2f";
         input.style.backgroundColor = "#ffebee";
-        if (!input.value.includes("(Corr:")) {
-          input.value = `${rawAnswer} (Corr: ${correctAnswer})`;
-        }
+        // La bonne réponse n'est plus affichée
       }
     });
     return currentScore;
@@ -351,7 +348,7 @@
   function checkEx2() {
     scoreEx2 = evaluateEx2();
     const display = document.getElementById("score-ex2");
-    display.innerHTML = `${scoreEx2} / ${maxScoreEx2}`;
+    display.innerHTML = `Score : ${scoreEx2} / ${maxScoreEx2}`;
     display.style.color = (scoreEx2 === maxScoreEx2) ? "#2e7d32" : "#d32f2f";
   }
 
