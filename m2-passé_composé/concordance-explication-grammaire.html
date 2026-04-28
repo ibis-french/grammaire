@@ -138,207 +138,457 @@
 
     <main>
         <div class="container">
-<h1>⏳ La Concordance des Temps</h1>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Explication de Grammaire - La Concordance des Temps</title>
+  <style>
+  body {
+    font-family: 'Dongle', 'Sansation';
+    padding: 23px;
+    background: #DCE8DB;
+    color: #111;
+    font-size: 25px;
+  }
 
-<div class="card">
-<h2>Qu’est-ce que la concordance des temps ?</h2>
-<p>C’est la relation entre le temps du verbe principal et le temps du verbe dans la subordonnée.</p>
+  /* MAIN CONTAINER */
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
 
-<ul>
-<li>On adapte le temps pour garder une logique dans le temps</li>
-<li>Très important avec <strong>que</strong></li>
-</ul>
+  /* HEADINGS */
+  h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+    color: #274820;
+  }
 
-<div class="example">
-Je pense qu’il vient. (présent + présent) ✅<br>
-Je pensais qu’il venait. (passé + imparfait) ✅
-</div>
-</div>
+  h2 {
+    margin-top: 0;
+    font-size: 28px;
+    color: #2e7d32;
+    border-bottom: 2px solid #e8f5e9;
+    padding-bottom: 8px;
+  }
 
-<div class="tip">
-💡 Le temps dépend du verbe principal<br>
-💡 On “recule” souvent le temps dans le passé
-</div>
+  /* CARDS */
+  .card {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 20px 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
 
-<div class="card">
-<h2>Présent → Présent / Futur / Passé composé</h2>
+  /* TIP BOX */
+  .tip {
+    background: #f7f7f7;
+    border-left: 5px solid #2e7d32;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border-radius: 0 6px 6px 0;
+    font-size: 24px;
+    line-height: 1.4;
+  }
 
-<ul>
-<li><strong>Présent + présent :</strong> action actuelle</li>
-<li><strong>Présent + futur :</strong> action future</li>
-<li><strong>Présent + passé composé :</strong> action terminée</li>
-</ul>
+  /* TABLES FOR GRAMMAR RULES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 23px;
+  }
 
-<div class="example">
-Je dis qu’il travaille. ✅<br>
-Je dis qu’il travaillera. ✅<br>
-Je dis qu’il a travaillé. ✅
-</div>
-</div>
+  th, td {
+    border: 1px solid #e6e6e6;
+    padding: 15px;
+    text-align: left;
+    vertical-align: middle;
+  }
 
-<div class="card">
-<h2>Passé → Imparfait / Conditionnel / Plus-que-parfait</h2>
+  th {
+    background-color: #e8f5e9;
+    color: #274820;
+    font-weight: bold;
+    font-size: 25px;
+  }
 
-<ul>
-<li><strong>Imparfait :</strong> action en cours dans le passé</li>
-<li><strong>Conditionnel :</strong> futur dans le passé</li>
-<li><strong>Plus-que-parfait :</strong> action déjà terminée</li>
-</ul>
+  tr:nth-child(even) {
+    background-color: #fafafa;
+  }
 
-<div class="example">
-Je disais qu’il travaillait. ✅<br>
-Je disais qu’il travaillerait. ✅<br>
-Je disais qu’il avait travaillé. ✅
-</div>
-</div>
+  /* HIGHLIGHTS & BADGES */
+  .badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
 
-<div class="tip">
-💡 Futur dans le passé → conditionnel<br>
-💡 Action avant le passé → plus-que-parfait
-</div>
+  .badge-sim { background-color: #2196F3; } /* Bleu pour "En même temps" */
+  .badge-ant { background-color: #FF9800; } /* Orange pour "Avant" */
+  .badge-post { background-color: #4CAF50; } /* Vert pour "Après" */
 
-<div class="card">
-<h2>Attention aux changements</h2>
+  .verb-highlight {
+    font-weight: bold;
+    color: #d32f2f;
+  }
 
-<ul>
-<li>présent → imparfait</li>
-<li>futur → conditionnel</li>
-<li>passé composé → plus-que-parfait</li>
-</ul>
+  /* HEADER NAV */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #c8d9c6;
+  }
 
-<div class="example">
-Il dit : “Je partirai” → Il a dit qu’il partirait.<br>
-Il dit : “Je finis” → Il a dit qu’il finissait.
-</div>
-</div>
+  .header-nav a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #333;
+    font-size: 22px;
+  }
 
-<div class="verbs">
-<div class="verb-box">
-<h3>Présent → Passé</h3>
-<p>Je pense qu’il vient</p>
-<p>→ Je pensais qu’il venait</p>
-</div>
+  .header-nav a:hover {
+    text-decoration: underline;
+    color: #2e7d32;
+  }
 
-<div class="verb-box">
-<h3>Futur → Conditionnel</h3>
-<p>Je pense qu’il viendra</p>
-<p>→ Je pensais qu’il viendrait</p>
-</div>
-</div>
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .site-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    table, th, td {
+      display: block;
+      width: 100%;
+    }
+    th {
+      display: none;
+    }
+    td {
+      position: relative;
+      padding-left: 50%;
+      text-align: left;
+    }
+    td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      width: 45%;
+      font-weight: bold;
+      white-space: nowrap;
+      color: #2e7d32;
+    }
+  }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
 
-<div class="card">
-<h2>⚠️ Pièges fréquents</h2>
+<body>
+    <header class="site-header">
+        <div class="logo" style="font-size: 30px; font-weight: bold; color: #2e7d32;">
+            <a href="../index.html" style="text-decoration: none; color: inherit;">
+                <span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span>
+            </a>
+        </div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/" target="_blank" rel="noopener noreferrer">Étudier le français à UM</a>
+        </nav>
+    </header>
 
-<ul>
-<li>Ne pas garder le futur après un verbe au passé ❌</li>
-<li>Attention aux traductions littérales de l’anglais</li>
-</ul>
+    <main>
+        <div class="container">
+            <h1>📚 La Concordance des Temps (Indicatif)</h1>
+        
+            <div class="tip">
+              <strong>💡 Qu'est-ce que c'est ?</strong><br>
+              La concordance des temps est la règle qui détermine <strong>quel temps du verbe</strong> utiliser dans une subordonnée en fonction du temps du verbe principal. Elle permet que les phrases restent logiques dans le temps (passé, présent, futur).
+            </div>
+        
+            <div class="card">
+              <h2>1. Action principale au PRÉSENT (ou Futur / Impératif)</h2>
+              <p>Si le verbe de la phrase principale est au <strong>présent</strong>, voici comment choisir le temps de la deuxième partie de la phrase :</p>
+              
+              <table>
+                <thead>
+                  <tr>
+                    <th>Chronologie de l'action</th>
+                    <th>Temps de la subordonnée</th>
+                    <th>Exemple</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-sim">En même temps</span><br>(Simultanéité)</td>
+                    <td data-label="Temps"><strong>Présent</strong></td>
+                    <td data-label="Exemple">Je pense qu’il <span class="verb-highlight">vient</span> avec moi.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-ant">Avant</span><br>(Antériorité)</td>
+                    <td data-label="Temps"><strong>Passé composé</strong><br>(ou Imparfait)</td>
+                    <td data-label="Exemple">Je pense qu’il <span class="verb-highlight">est</span> déjà <span class="verb-highlight">arrivé</span>.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-post">Après</span><br>(Postériorité)</td>
+                    <td data-label="Temps"><strong>Futur</strong></td>
+                    <td data-label="Exemple">Je pense qu’il <span class="verb-highlight">viendra</span> demain.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+        
+            <div class="card">
+              <h2>2. Action principale au PASSÉ (Passé composé, Imparfait, Passé simple)</h2>
+              <p>Si le verbe de la phrase principale est au <strong>passé</strong>, la logique temporelle bascule. Le présent devient de l'imparfait, le passé devient du plus-que-parfait, etc.</p>
+              
+              <table>
+                <thead>
+                  <tr>
+                    <th>Chronologie de l'action</th>
+                    <th>Temps de la subordonnée</th>
+                    <th>Exemple</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-sim">En même temps</span><br>(Simultanéité)</td>
+                    <td data-label="Temps"><strong>Imparfait</strong></td>
+                    <td data-label="Exemple">Elle a dit qu’elle <span class="verb-highlight">était</span> fatiguée.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-ant">Avant</span><br>(Antériorité)</td>
+                    <td data-label="Temps"><strong>Plus-que-parfait</strong></td>
+                    <td data-label="Exemple">Elle disait qu’elle <span class="verb-highlight">avait</span> déjà <span class="verb-highlight">vu</span> ce film.</td>
+                  </tr>
+                  <tr>
+                    <td data-label="Chronologie"><span class="badge badge-post">Après</span><br>(Postériorité)</td>
+                    <td data-label="Temps"><strong>Conditionnel</strong><br><em>(Futur dans le passé)</em></td>
+                    <td data-label="Exemple">Elle a dit qu’elle <span class="verb-highlight">regarderait</span> ce film prochainement.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
 
-<div class="example">
-❌ Il a dit qu’il viendra<br>
-✅ Il a dit qu’il viendrait
-</div>
-</div>
+            <div class="card" style="text-align: center; background: #f3f8f3; border-color: #c8e6c9;">
+                <h3 style="margin-top: 0; color: #274820; font-size: 26px;">🔄 Résumé de la transformation (Discours Indirect)</h3>
+                <p style="font-size: 24px;">Quand la principale passe au passé :</p>
+                <p style="font-size: 24px;">
+                    Présent ➡️ <strong>Imparfait</strong><br>
+                    Passé composé ➡️ <strong>Plus-que-parfait</strong><br>
+                    Futur ➡️ <strong>Conditionnel présent</strong>
+                </p>
+            </div>
 
-</div>
+        </div> 
 
 <style>
-.exercise-wrapper {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
-}
+  .exercise-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
 
-.box {
-  max-width: 700px;
-  width: 100%;
-  border: 1px solid #e6e6e6;
-  border-radius: 12px;
-  padding: 25px;
-  background: #fff;
-  text-align: center;
-}
+  .box {
+    max-width: 800px;
+    width: 100%;
+    border: 1px solid #c8d9c6;
+    border-radius: 12px;
+    padding: 30px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
 
-.sentence {
-  font-size: 28px;
-  margin: 20px 0;
-}
+  .box h2 {
+    color: #274820;
+    border-bottom: none;
+    padding-bottom: 0;
+  }
 
-input {
-  font-size: 20px;
-  padding: 8px;
-  width: 220px;
-  text-align: center;
-}
+  .sentence {
+    font-size: 28px;
+    margin: 25px 0;
+    line-height: 1.5;
+  }
 
-button {
-  margin-top: 10px;
-  padding: 8px 14px;
-  font-size: 18px;
-  cursor: pointer;
-}
+  .clue-badge {
+    display: inline-block;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 22px;
+    font-weight: bold;
+    margin: 0 5px;
+  }
 
-.result {
-  margin-top: 15px;
-  font-weight: bold;
-}
+  .input-zone {
+    margin-bottom: 20px;
+  }
+
+  .input-zone input {
+    font-size: 22px;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+  }
+
+  .input-zone input:focus {
+    outline: none;
+    border-color: #2e7d32;
+  }
+
+  .btn-action {
+    margin: 5px;
+    padding: 12px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Dongle', 'Sansation', sans-serif;
+  }
+
+  .btn-action:hover {
+    background: #1b5e20;
+  }
+
+  .btn-new {
+    background: #555;
+  }
+
+  .btn-new:hover {
+    background: #333;
+  }
+
+  .result {
+    margin-top: 20px;
+    font-size: 26px;
+    font-weight: bold;
+  }
 </style>
 
 <div class="exercise-wrapper">
-<div class="box">
+  <div class="box">
+    <h2>Entraînez-vous avec la Concordance</h2>
+    <p style="font-size: 22px; margin-top: -10px; color: #555;">Conjuguez le verbe selon la chronologie indiquée.</p>
 
-<h2>Entraînez-vous</h2>
+    <div class="sentence" id="exercise"></div>
 
-<div class="sentence" id="exercise"></div>
+    <div class="input-zone">
+      <input type="text" id="answer" placeholder="Votre réponse">
+    </div>
 
-<input type="text" id="answer" placeholder="Votre réponse">
-<br>
+    <button class="btn-action" onclick="checkAnswer()">Vérifier</button>
+    <button class="btn-action btn-new" onclick="newExercise()">Nouvelle phrase</button>
 
-<button onclick="checkAnswer()">Vérifier</button>
-<button onclick="newExercise()">Nouvel exercice</button>
-
-<div class="result" id="result"></div>
-
-</div>
+    <div class="result" id="result"></div>
+  </div>
 </div>
 
 <script>
-const exercises = [
-  { q: "Il dit qu’il ______ (venir)", a: "vient" },
-  { q: "Il a dit qu’il ______ (venir)", a: "viendrait" },
-  { q: "Je pensais qu’il ______ (être)", a: "était" },
-  { q: "Elle dit qu’elle ______ (finir)", a: "finira" },
-  { q: "Elle disait qu’elle ______ (finir)", a: "finirait" }
-];
+  // Base de données de phrases pré-construites pour garantir une grammaire française parfaite
+  const exercisesDB = [
+    // --- PRINCIPALE AU PRÉSENT ---
+    { text: "Je sais qu'elle ______ avec nous ce soir.", verb: "venir", clue: "En même temps", answer: "vient" },
+    { text: "Il pense que tu ______ déjà tes devoirs.", verb: "finir", clue: "Avant", answer: "as fini" },
+    { text: "Nous affirmons qu'ils ______ demain matin.", verb: "partir", clue: "Après", answer: "partiront" },
+    { text: "Elle dit que vous ______ très sympathiques.", verb: "être", clue: "En même temps", answer: "êtes" },
+    { text: "Tu crois que j' ______ mon portefeuille à la maison.", verb: "oublier", clue: "Avant", answer: "ai oublié" },
+    
+    // --- PRINCIPALE AU PASSÉ ---
+    { text: "Je savais qu'elle ______ avec nous ce soir-là.", verb: "venir", clue: "En même temps", answer: "venait" },
+    { text: "Il pensait que tu ______ déjà tes devoirs.", verb: "finir", clue: "Avant", answer: "avais fini" },
+    { text: "Nous avons affirmé qu'ils ______ le lendemain.", verb: "partir", clue: "Après", answer: "partiraient" },
+    { text: "Elle a dit que vous ______ très sympathiques.", verb: "être", clue: "En même temps", answer: "étiez" },
+    { text: "Tu croyais que j' ______ mon portefeuille.", verb: "oublier", clue: "Avant", answer: "avais oublié" },
+    { text: "Le professeur a vu que nous ______ la réponse.", verb: "savoir", clue: "En même temps", answer: "savions" },
+    { text: "Ils espéraient que le beau temps ______.", verb: "revenir", clue: "Après", answer: "reviendrait" },
+    { text: "J'ai remarqué qu'il ______ beaucoup de progrès.", verb: "faire", clue: "Avant", answer: "avait fait" }
+  ];
 
-let currentAnswer = "";
+  let currentAnswer = "";
 
-function newExercise() {
-  const e = exercises[Math.floor(Math.random() * exercises.length)];
-  currentAnswer = e.a;
-  document.getElementById("exercise").innerHTML = e.q;
-  document.getElementById("answer").value = "";
-  document.getElementById("result").innerHTML = "";
-}
+  function newExercise() {
+    // Choisir une phrase au hasard
+    const randomIndex = Math.floor(Math.random() * exercisesDB.length);
+    const ex = exercisesDB[randomIndex];
+    
+    currentAnswer = ex.answer;
 
-function checkAnswer() {
-  const user = document.getElementById("answer").value.trim().toLowerCase();
-  const correct = currentAnswer.toLowerCase();
+    // Construire l'affichage avec le badge pour l'indice
+    const displaySentence = ex.text.replace(
+      "______", 
+      `______ (<span class="verb-highlight">${ex.verb}</span> - <span class="clue-badge">${ex.clue}</span>)`
+    );
 
-  if (user === correct) {
-    document.getElementById("result").innerHTML = "✅ Correct !";
-    document.getElementById("result").style.color = "green";
-  } else {
-    document.getElementById("result").innerHTML =
-      `❌ Incorrect. Réponse correcte : <strong>${currentAnswer}</strong>`;
-    document.getElementById("result").style.color = "red";
+    document.getElementById("exercise").innerHTML = displaySentence;
+    
+    // Réinitialiser les champs
+    const inputField = document.getElementById("answer");
+    inputField.value = "";
+    inputField.style.borderColor = "#ccc";
+    document.getElementById("result").innerHTML = "";
   }
-}
 
-newExercise();
+  function checkAnswer() {
+    const inputField = document.getElementById("answer");
+    // Normaliser la réponse de l'utilisateur (minuscules, enlever les espaces)
+    const user = inputField.value.trim().toLowerCase();
+    const correct = currentAnswer.toLowerCase();
+
+    if (user === "") {
+        document.getElementById("result").innerHTML = "⚠️ Veuillez écrire une réponse.";
+        document.getElementById("result").style.color = "#FF9800";
+        return;
+    }
+
+    if (user === correct) {
+      document.getElementById("result").innerHTML = "✅ Correct !";
+      document.getElementById("result").style.color = "#2e7d32";
+      inputField.style.borderColor = "#2e7d32";
+    } else {
+      document.getElementById("result").innerHTML = 
+        `❌ Incorrect. La bonne réponse était : <strong>${currentAnswer}</strong>`;
+      document.getElementById("result").style.color = "#d32f2f";
+      inputField.style.borderColor = "#d32f2f";
+    }
+  }
+
+  // Permet de valider avec la touche "Entrée"
+  document.getElementById("answer").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      checkAnswer();
+    }
+  });
+
+  // Charger le premier exercice au démarrage
+  newExercise();
 </script>
-
-</main>
-</body>
-</html>        
       
+    </main>
+</body>
+</html>
