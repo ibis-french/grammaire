@@ -2,13 +2,13 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Exercices - Concordance des temps</title>
+  <title>Exercices - Passé</title>
   <style>
     body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
     p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
-    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
     input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
     select { font-size: 1.1rem; }
+    label { font-size: 1.3rem; }
     .correct { color: #008000; }
     .incorrect { color: #ff0000; }
     button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
@@ -31,310 +31,254 @@
           <a class="nav-item" href="../a-propos.html">à propos</a>
           <a class="nav-item" href="../faq.html">F.A.Q</a>
           <a class="nav-item" href="../contact.html">nous contacter</a>
-          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/" target="_blank" rel="noopener noreferrer">Étudier le français à UM</a>
         </nav>
     </header>
 
-    <!DOCTYPE html>
-<html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <title>Exercices - La Concordance des Temps et Francophonie</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Dongle', 'Sansation', sans-serif;
-      padding: 23px;
-      background: #DCE8DB;
-      color: #111;
-      font-size: 25px;
-      line-height: 1.4;
-    }
+  <main class="container">
+    <h1>🌍 Exercices : La Concordance des Temps</h1>
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-    }
+    <div class="card">
+      <h2>Exercice 1 : Mettre en ordre les actions</h2>
+      <p><em>Lisez les textes et glissez-déposez les phrases ci-dessous pour les remettre dans l'ordre chronologique (de l'action la plus ancienne à la plus récente).</em></p>
+      
+      <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
+        <strong>Texte A : L'engagement de Senghor</strong><br>
+        Léopold Sédar Senghor est devenu le premier président du Sénégal indépendant en 1960, parce qu'il avait milité pendant des années pour la Négritude à Paris. Pendant son mandat, il a fortement encouragé la coopération linguistique jusqu'à ce que l'Organisation internationale de la Francophonie (OIF) ait officiellement vu le jour en 1970.
+      </div>
 
-    h1 {
-      font-size: 38px;
-      color: #274820;
-      text-align: center;
-      margin-bottom: 30px;
-    }
+      <ul class="drag-list" id="list-A">
+        <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Il est devenu président du Sénégal.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> L'OIF a officiellement vu le jour.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Il avait milité pour la Négritude.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Il a encouragé la coopération linguistique.</li>
+      </ul>
 
-    h2 {
-      color: #2e7d32;
-      font-size: 28px;
-      border-bottom: 2px solid #e8f5e9;
-      padding-bottom: 8px;
-      margin-top: 0;
-    }
+      <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
+        <strong>Texte B : Le courage des Acadiens</strong><br>
+        Les Acadiens ont été déportés lors du « Grand Dérangement » en 1755, alors qu'ils s'étaient installés pacifiquement en Nouvelle-Écosse depuis des générations. Plus tard, ils ont lutté avec acharnement pour préserver leur culture avant que le gouvernement canadien n'ait finalement reconnu leurs droits linguistiques.
+      </div>
 
-    .card {
-      background: #fff;
-      border: 1px solid #c8d9c6;
-      border-radius: 12px;
-      padding: 25px;
-      margin-bottom: 25px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    }
+      <ul class="drag-list" id="list-B">
+        <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> Le gouvernement canadien a reconnu leurs droits.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Ils s'étaient installés pacifiquement.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Ils ont lutté pour préserver leur culture.</li>
+        <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Ils ont été déportés.</li>
+      </ul>
 
-    /* DRAG AND DROP STYLES */
-    .drag-list {
-      list-style-type: none;
-      padding: 0;
-      margin: 15px 0;
-      background: #f9f9f9;
-      border-radius: 8px;
-      padding: 10px;
-      min-height: 200px;
-    }
-
-    .draggable-item {
-      background: #fff;
-      border: 2px solid #c8d9c6;
-      margin-bottom: 10px;
-      padding: 12px 15px;
-      border-radius: 6px;
-      cursor: grab;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-      transition: background 0.2s;
-    }
-
-    .draggable-item:active {
-      cursor: grabbing;
-    }
-
-    .draggable-item.dragging {
-      opacity: 0.5;
-      background: #e8f5e9;
-    }
-
-    .drag-icon {
-      margin-right: 15px;
-      color: #888;
-      font-size: 20px;
-    }
-
-    /* FILL IN THE BLANKS STYLES */
-    .text-hole {
-      font-size: 24px;
-      padding: 4px 8px;
-      width: 140px;
-      text-align: center;
-      border: 2px solid #ccc;
-      border-radius: 100px;
-      margin: 0 5px;
-      font-family: 'Dongle', 'Sansation', sans-serif;
-    }
-
-    .text-hole:focus {
-      outline: none;
-      border-color: #2e7d32;
-    }
-
-    /* UNIFIED BUTTON STYLES */
-    .btn-verify {
-      padding: 12px 24px; 
-      font-size: 1.2rem; 
-      cursor: pointer; 
-      background: #2e7d32; 
-      color: #fff; 
-      border: none; 
-      border-radius: 4px;
-      font-family: inherit;
-      transition: background 0.3s;
-      margin-top: 15px;
-    }
-
-    .btn-verify:hover {
-      background: #1b5e20;
-    }
-
-    .score-display {
-      display: inline-block;
-      margin-left: 15px;
-      font-size: 24px;
-      font-weight: bold;
-    }
-
-    #final-results {
-      margin-top: 25px;
-      font-size: 26px;
-      text-align: center;
-      font-weight: bold;
-      display: none;
-    }
-  </style>
-</head>
-<body>
-
-<main class="container">
-  <h1>🌍 Exercices : La Concordance des Temps</h1>
-
-  <div class="card">
-    <h2>Exercice 1 : Mettre en ordre les actions</h2>
-    <p><em>Lisez les textes et glissez-déposez les phrases ci-dessous pour les remettre dans l'ordre chronologique (de l'action la plus ancienne à la plus récente).</em></p>
-    
-    <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
-      <strong>Texte A : L'engagement de Senghor</strong><br>
-      Léopold Sédar Senghor est devenu le premier président du Sénégal indépendant en 1960, parce qu'il avait milité pendant des années pour la Négritude à Paris. Pendant son mandat, il a fortement encouragé la coopération linguistique jusqu'à ce que l'Organisation internationale de la Francophonie (OIF) ait officiellement vu le jour en 1970.
+      <button class="btn-verify" onclick="checkEx1()">Vérifier l'Exercice 1</button>
+      <div id="score-ex1" class="score-display"></div>
     </div>
 
-    <ul class="drag-list" id="list-A">
-      <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Il est devenu président du Sénégal.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> L'OIF a officiellement vu le jour.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Il avait milité pour la Négritude.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Il a encouragé la coopération linguistique.</li>
-    </ul>
+    <div class="card">
+      <h2>Exercice 2 : Complétez le texte historique</h2>
+      <p><em>Complétez les espaces en conjuguant les verbes entre parenthèses au temps qui convient : <strong>passé composé, imparfait, plus-que-parfait</strong> ou <strong>subjonctif passé</strong>.</em></p>
 
-    <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
-      <strong>Texte B : Le courage des Acadiens</strong><br>
-      Les Acadiens ont été déportés lors du « Grand Dérangement » en 1755, alors qu'ils s'étaient installés pacifiquement en Nouvelle-Écosse depuis des générations. Plus tard, ils ont lutté avec acharnement pour préserver leur culture avant que le gouvernement canadien n'ait finalement reconnu leurs droits linguistiques.
+      <p style="line-height: 2;">
+        Au XVIIIe siècle, après la conquête britannique, les Canadiens français <input type="text" class="text-hole" data-answer="ont dû"> <em>(devoir)</em> lutter farouchement pour conserver leur langue. Les nouveaux dirigeants anglophones <input type="text" class="text-hole" data-answer="voulaient"> <em>(vouloir)</em> assimiler la population, mais les francophones <input type="text" class="text-hole" data-answer="ont organisé"> <em>(organiser)</em> une forte résistance culturelle. Quand l'Acte d'Union <input type="text" class="text-hole" data-answer="a été signé"> <em>(être signé)</em> en 1840, le gouvernement de Londres <input type="text" class="text-hole" data-answer="avait déjà tenté"> <em>(déjà / tenter)</em> d'imposer l'anglais dans les institutions à plusieurs reprises.
+      </p>
+      <p style="line-height: 2;">
+        Plus tard, dans les années 1960, le Québec <input type="text" class="text-hole" data-answer="a connu"> <em>(connaître)</em> une période de grands bouleversements appelée la Révolution tranquille. Les historiens sont aujourd'hui très fiers que la province <input type="text" class="text-hole" data-answer="ait réussi"> <em>(réussir)</em> à moderniser sa société, bien que ce changement <input type="text" class="text-hole" data-answer="ait provoqué"> <em>(provoquer)</em> de grandes tensions politiques à l'époque. Dans ces années-là, beaucoup de jeunes Québécois <input type="text" class="text-hole" data-answer="rêvaient"> <em>(rêver)</em> d'un système entièrement francophone. Les intellectuels et les politiciens <input type="text" class="text-hole" data-answer="avaient déjà préparé"> <em>(déjà / préparer)</em> le terrain pour des lois linguistiques importantes bien avant que la célèbre Loi 101 <input type="text" class="text-hole" data-answer="ait été adoptée"> <em>(être adoptée)</em> en 1977. 
+      </p>
+      <p style="line-height: 2;">
+        Aujourd'hui, la francophonie mondiale est admirative que cette culture <input type="text" class="text-hole" data-answer="ait survécu"> <em>(survivre)</em> avec autant de dynamisme en Amérique du Nord !
+      </p>
+
+      <button class="btn-verify" onclick="checkEx2()">Vérifier l'Exercice 2</button>
+      <div id="score-ex2" class="score-display"></div>
     </div>
 
-    <ul class="drag-list" id="list-B">
-      <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> Le gouvernement canadien a reconnu leurs droits.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Ils s'étaient installés pacifiquement.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Ils ont lutté pour préserver leur culture.</li>
-      <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Ils ont été déportés.</li>
-    </ul>
+    <div class="card" id="final-results"></div>
 
-    <button class="btn-verify" onclick="checkEx1()">Vérifier l'Exercice 1</button>
-    <div id="score-ex1" class="score-display"></div>
-  </div>
-
-  <div class="card">
-    <h2>Exercice 2 : Complétez le texte historique</h2>
-    <p><em>Complétez les espaces en conjuguant les verbes entre parenthèses au temps qui convient : <strong>passé composé, imparfait, plus-que-parfait</strong> ou <strong>subjonctif passé</strong>.</em></p>
-
-    <p style="line-height: 2;">
-      Au XVIIIe siècle, après la conquête britannique, les Canadiens français <input type="text" class="text-hole" data-answer="ont dû"> <em>(devoir)</em> lutter farouchement pour conserver leur langue. Les nouveaux dirigeants anglophones <input type="text" class="text-hole" data-answer="voulaient"> <em>(vouloir)</em> assimiler la population, mais les francophones <input type="text" class="text-hole" data-answer="ont organisé"> <em>(organiser)</em> une forte résistance culturelle. Quand l'Acte d'Union <input type="text" class="text-hole" data-answer="a été signé"> <em>(être signé)</em> en 1840, le gouvernement de Londres <input type="text" class="text-hole" data-answer="avait déjà tenté"> <em>(déjà / tenter)</em> d'imposer l'anglais dans les institutions à plusieurs reprises.
-    </p>
-    <p style="line-height: 2;">
-      Plus tard, dans les années 1960, le Québec <input type="text" class="text-hole" data-answer="a connu"> <em>(connaître)</em> une période de grands bouleversements appelée la Révolution tranquille. Les historiens sont aujourd'hui très fiers que la province <input type="text" class="text-hole" data-answer="ait réussi"> <em>(réussir)</em> à moderniser sa société, bien que ce changement <input type="text" class="text-hole" data-answer="ait provoqué"> <em>(provoquer)</em> de grandes tensions politiques à l'époque. Dans ces années-là, beaucoup de jeunes Québécois <input type="text" class="text-hole" data-answer="rêvaient"> <em>(rêver)</em> d'un système entièrement francophone. Les intellectuels et les politiciens <input type="text" class="text-hole" data-answer="avaient déjà préparé"> <em>(déjà / préparer)</em> le terrain pour des lois linguistiques importantes bien avant que la célèbre Loi 101 <input type="text" class="text-hole" data-answer="ait été adoptée"> <em>(être adoptée)</em> en 1977. 
-    </p>
-    <p style="line-height: 2;">
-      Aujourd'hui, la francophonie mondiale est admirative que cette culture <input type="text" class="text-hole" data-answer="ait survécu"> <em>(survivre)</em> avec autant de dynamisme en Amérique du Nord !
-    </p>
-
-    <button class="btn-verify" onclick="checkEx2()">Vérifier l'Exercice 2</button>
-    <div id="score-ex2" class="score-display"></div>
-  </div>
-
-  <div class="card" id="final-results">
-    </div>
-
-  <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+    <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
       <h2 style="font-size: 1.5rem; color:#111; border:none; padding:0; margin-bottom: 15px;">Télécharger votre rapport</h2>
       <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
       <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
       <br>
       <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
-  </div>
-</main>
+    </div>
+  </main>
 
-<script>
-  function downloadCSV() {
-    const studentNameInput = document.getElementById("studentName");
-    const studentName = studentNameInput ? studentNameInput.value.trim() || "Étudiant" : "Étudiant";
+  <script>
+    // --- DRAG AND DROP LOGIC ---
+    const draggables = document.querySelectorAll('.draggable-item');
+    const dragLists = document.querySelectorAll('.drag-list');
 
-    // Initialisation des données avec BOM pour forcer l'UTF-8 sur Excel
-    const data = [
-      ["Nom de l'étudiant", studentName],
-      ["Date", new Date().toLocaleString()],
-      [],
-      ["Exercice 1: Mettre en ordre les actions"]
-    ];
-
-    let currentScoreEx1 = 0;
-    data.push(["Section", "Phrase", "Ordre donné par l'étudiant", "Ordre correct"]);
-
-    // Fonction utilitaire pour traiter les listes de l'Exercice 1
-    function processDragList(listId, sectionName) {
-      const list = document.querySelector(listId);
-      if (!list) return;
-      
-      const items = list.querySelectorAll('.draggable-item');
-      items.forEach((item, index) => {
-        let userOrder = index + 1;
-        let correctOrder = parseInt(item.getAttribute('data-correct-order'));
-        // Récupérer le texte de la phrase sans l'icône de glissement (☰)
-        let phraseText = item.innerText.replace("☰", "").trim(); 
-        
-        if (userOrder === correctOrder) currentScoreEx1++;
-        
-        data.push([sectionName, phraseText, userOrder, correctOrder]);
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging');
       });
-    }
 
-    // Traitement du Texte A et du Texte B
-    processDragList('#list-A', "Texte A : L'engagement de Senghor");
-    processDragList('#list-B', "Texte B : Le courage des Acadiens");
-    data.push(["Score Exercice 1", currentScoreEx1 + " / 8"]);
-    data.push([]);
-
-    // Exercice 2
-    data.push(["Exercice 2: Complétez le texte historique"]);
-    let currentScoreEx2 = 0;
-    data.push(["Position du champ", "Réponse de l'étudiant", "Réponse correcte"]);
-    
-    const inputsEx2 = document.querySelectorAll('.text-hole');
-    const maxScoreEx2 = inputsEx2.length;
-    
-    inputsEx2.forEach((input, index) => {
-      let user = input.value.trim();
-      let correct = input.getAttribute('data-answer');
-      
-      if (user.toLowerCase() === correct.toLowerCase()) currentScoreEx2++;
-      
-      data.push(["Trou n°" + (index + 1), user, correct]);
+      draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+      });
     });
-    data.push(["Score Exercice 2", currentScoreEx2 + " / " + maxScoreEx2]);
-    data.push([]);
 
-    // Total
-    const totalPoints = currentScoreEx1 + currentScoreEx2;
-    const totalMax = 8 + maxScoreEx2;
-    data.push(["SCORE TOTAL", totalPoints + " / " + totalMax]);
+    dragLists.forEach(list => {
+      list.addEventListener('dragover', e => {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(list, e.clientY);
+        const draggable = document.querySelector('.dragging');
+        if (afterElement == null) {
+          list.appendChild(draggable);
+        } else {
+          list.insertBefore(draggable, afterElement);
+        }
+      });
+    });
 
-    // Formatage du contenu CSV
-    // Le préfixe \uFEFF garantit une bonne lecture des accents sous Excel
-    const csvContent = "\uFEFF" + data.map(row => 
-      row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(",")
-    ).join("\n");
-
-    // Création et déclenchement du téléchargement
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const url = URL.createObjectURL(blob);
-
-    const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "Rapport_Concordance_" + safeName + ".csv";
-    
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    // Optionnel : Afficher le résultat sur la page web également
-    const resultsDiv = document.getElementById("final-results");
-    if (resultsDiv) {
-      resultsDiv.style.display = "block";
-      resultsDiv.innerHTML = `
-        <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
-        <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
-        <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalPoints} / ${totalMax}</p>
-        <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé avec tous les détails.</p>
-      `;
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
     }
-  }
-</script>
+
+    // --- VERIFIER FUNCTIONS ---
+    
+    // Global scores to be used by the CSV downloader
+    let globalScoreEx1 = 0;
+    let globalScoreEx2 = 0;
+
+    function checkEx1() {
+      let score = 0;
+      let total = 8; // 4 items for list A, 4 for list B
+
+      const checkList = (listId) => {
+        const listItems = document.querySelectorAll(`${listId} .draggable-item`);
+        listItems.forEach((item, index) => {
+          const correctOrder = parseInt(item.getAttribute('data-correct-order'));
+          if (index + 1 === correctOrder) {
+            item.style.borderColor = '#2e7d32'; // Green border
+            item.style.backgroundColor = '#e8f5e9'; // Light green background
+            score++;
+          } else {
+            item.style.borderColor = '#d32f2f'; // Red border
+            item.style.backgroundColor = '#ffebee'; // Light red background
+          }
+        });
+      };
+
+      checkList('#list-A');
+      checkList('#list-B');
+
+      globalScoreEx1 = score;
+      document.getElementById('score-ex1').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
+    }
+
+    function checkEx2() {
+      let score = 0;
+      const inputs = document.querySelectorAll('.text-hole');
+      const total = inputs.length;
+
+      inputs.forEach(input => {
+        const correctAnswer = input.getAttribute('data-answer').toLowerCase();
+        const userAnswer = input.value.trim().toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+          input.style.borderColor = '#2e7d32'; // Green border
+          input.style.backgroundColor = '#e8f5e9'; // Light green background
+          score++;
+        } else {
+          input.style.borderColor = '#d32f2f'; // Red border
+          input.style.backgroundColor = '#ffebee'; // Light red background
+        }
+      });
+
+      globalScoreEx2 = score;
+      document.getElementById('score-ex2').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
+    }
+
+    // --- CSV EXPORT LOGIC ---
+    function downloadCSV() {
+      // Ensure exercises are checked before downloading
+      checkEx1();
+      checkEx2();
+
+      const studentNameInput = document.getElementById("studentName");
+      const studentName = studentNameInput ? studentNameInput.value.trim() || "Étudiant" : "Étudiant";
+
+      const data = [
+        ["Nom de l'étudiant", studentName],
+        ["Date", new Date().toLocaleString()],
+        [],
+        ["Exercice 1: Mettre en ordre les actions"]
+      ];
+
+      data.push(["Section", "Phrase", "Ordre donné par l'étudiant", "Ordre correct"]);
+
+      function processDragList(listId, sectionName) {
+        const list = document.querySelector(listId);
+        if (!list) return;
+        
+        const items = list.querySelectorAll('.draggable-item');
+        items.forEach((item, index) => {
+          let userOrder = index + 1;
+          let correctOrder = parseInt(item.getAttribute('data-correct-order'));
+          let phraseText = item.innerText.replace("☰", "").trim(); 
+          
+          data.push([sectionName, phraseText, userOrder, correctOrder]);
+        });
+      }
+
+      processDragList('#list-A', "Texte A : L'engagement de Senghor");
+      processDragList('#list-B', "Texte B : Le courage des Acadiens");
+      data.push(["Score Exercice 1", globalScoreEx1 + " / 8"]);
+      data.push([]);
+
+      data.push(["Exercice 2: Complétez le texte historique"]);
+      data.push(["Position du champ", "Réponse de l'étudiant", "Réponse correcte"]);
+      
+      const inputsEx2 = document.querySelectorAll('.text-hole');
+      const maxScoreEx2 = inputsEx2.length;
+      
+      inputsEx2.forEach((input, index) => {
+        let user = input.value.trim();
+        let correct = input.getAttribute('data-answer');
+        data.push(["Trou n°" + (index + 1), user, correct]);
+      });
+      data.push(["Score Exercice 2", globalScoreEx2 + " / " + maxScoreEx2]);
+      data.push([]);
+
+      const totalPoints = globalScoreEx1 + globalScoreEx2;
+      const totalMax = 8 + maxScoreEx2;
+      data.push(["SCORE TOTAL", totalPoints + " / " + totalMax]);
+
+      const csvContent = "\uFEFF" + data.map(row => 
+        row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(",")
+      ).join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Rapport_Concordance_" + safeName + ".csv";
+      
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      const resultsDiv = document.getElementById("final-results");
+      if (resultsDiv) {
+        resultsDiv.style.display = "block";
+        resultsDiv.innerHTML = `
+          <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
+          <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
+          <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalPoints} / ${totalMax}</p>
+          <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé avec tous les détails.</p>
+        `;
+      }
+    }
+  </script>
 </body>
 </html>
+
