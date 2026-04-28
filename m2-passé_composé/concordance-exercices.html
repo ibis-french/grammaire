@@ -240,165 +240,101 @@
 </main>
 
 <script>
-  // --- VARIABLES GLOBALES ---
-  const maxScoreEx1 = 8; // 8 phrases au total
-  let maxScoreEx2 = 0;   // Sera calculé dynamiquement
-  let scoreEx1 = 0;
-  let scoreEx2 = 0;
-
-  // --- LOGIQUE GLISSER-DÉPOSER ---
-  const draggables = document.querySelectorAll('.draggable-item');
-  const dragLists = document.querySelectorAll('.drag-list');
-
-  draggables.forEach(draggable => {
-    draggable.addEventListener('dragstart', () => { draggable.classList.add('dragging'); });
-    draggable.addEventListener('dragend', () => { draggable.classList.remove('dragging'); });
-  });
-
-  dragLists.forEach(list => {
-    list.addEventListener('dragover', e => {
-      e.preventDefault();
-      const afterElement = getDragAfterElement(list, e.clientY);
-      const draggable = document.querySelector('.dragging');
-      if (afterElement == null) {
-        list.appendChild(draggable);
-      } else {
-        list.insertBefore(draggable, afterElement);
-      }
-    });
-  });
-
-  function getDragAfterElement(container, y) {
-    const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
-    return draggableElements.reduce((closest, child) => {
-      const box = child.getBoundingClientRect();
-      const offset = y - box.top - box.height / 2;
-      if (offset < 0 && offset > closest.offset) {
-        return { offset: offset, element: child };
-      } else {
-        return closest;
-      }
-    }, { offset: Number.NEGATIVE_INFINITY }).element;
-  }
-
-  // --- LOGIQUE D'ÉVALUATION EXERCICE 1 ---
-  function evaluateEx1() {
-    let currentScore = 0;
-    
-    // Texte A
-    const listAItems = document.querySelectorAll('#list-A .draggable-item');
-    listAItems.forEach((item, index) => {
-      if (parseInt(item.getAttribute('data-correct-order')) === (index + 1)) {
-        currentScore++;
-        item.style.borderColor = "#2e7d32";
-        item.style.backgroundColor = "#e8f5e9";
-      } else {
-        item.style.borderColor = "#d32f2f";
-        item.style.backgroundColor = "#ffebee";
-      }
-    });
-
-    // Texte B
-    const listBItems = document.querySelectorAll('#list-B .draggable-item');
-    listBItems.forEach((item, index) => {
-      if (parseInt(item.getAttribute('data-correct-order')) === (index + 1)) {
-        currentScore++;
-        item.style.borderColor = "#2e7d32";
-        item.style.backgroundColor = "#e8f5e9";
-      } else {
-        item.style.borderColor = "#d32f2f";
-        item.style.backgroundColor = "#ffebee";
-      }
-    });
-    
-    return currentScore;
-  }
-
-  function checkEx1() {
-    scoreEx1 = evaluateEx1();
-    const display = document.getElementById("score-ex1");
-    display.innerHTML = `Score : ${scoreEx1} / ${maxScoreEx1}`;
-    display.style.color = (scoreEx1 === maxScoreEx1) ? "#2e7d32" : "#d32f2f";
-  }
-
-  // --- LOGIQUE D'ÉVALUATION EXERCICE 2 ---
-  function evaluateEx2() {
-    let currentScore = 0;
-    const inputsEx2 = document.querySelectorAll('.text-hole');
-    maxScoreEx2 = inputsEx2.length;
-
-    inputsEx2.forEach(input => {
-      // Nettoyage de la saisie utilisateur
-      const rawAnswer = input.value.trim().toLowerCase();
-      const correctAnswer = input.getAttribute('data-answer').toLowerCase();
-      
-      if (rawAnswer === correctAnswer) {
-        currentScore++;
-        input.style.borderColor = "#2e7d32";
-        input.style.backgroundColor = "#e8f5e9";
-      } else {
-        input.style.borderColor = "#d32f2f";
-        input.style.backgroundColor = "#ffebee";
-        // La bonne réponse n'est plus affichée
-      }
-    });
-    return currentScore;
-  }
-
-  function checkEx2() {
-    scoreEx2 = evaluateEx2();
-    const display = document.getElementById("score-ex2");
-    display.innerHTML = `Score : ${scoreEx2} / ${maxScoreEx2}`;
-    display.style.color = (scoreEx2 === maxScoreEx2) ? "#2e7d32" : "#d32f2f";
-  }
-
-  // --- GÉNÉRATION DU CSV ---
   function downloadCSV() {
-    const studentName = document.getElementById("studentName").value.trim();
-    if (!studentName) {
-      alert("⚠️ Veuillez entrer votre nom avant de télécharger le rapport.");
-      document.getElementById("studentName").focus();
-      return;
+    const studentNameInput = document.getElementById("studentName");
+    const studentName = studentNameInput ? studentNameInput.value.trim() || "Étudiant" : "Étudiant";
+
+    // Initialisation des données avec BOM pour forcer l'UTF-8 sur Excel
+    const data = [
+      ["Nom de l'étudiant", studentName],
+      ["Date", new Date().toLocaleString()],
+      [],
+      ["Exercice 1: Mettre en ordre les actions"]
+    ];
+
+    let currentScoreEx1 = 0;
+    data.push(["Section", "Phrase", "Ordre donné par l'étudiant", "Ordre correct"]);
+
+    // Fonction utilitaire pour traiter les listes de l'Exercice 1
+    function processDragList(listId, sectionName) {
+      const list = document.querySelector(listId);
+      if (!list) return;
+      
+      const items = list.querySelectorAll('.draggable-item');
+      items.forEach((item, index) => {
+        let userOrder = index + 1;
+        let correctOrder = parseInt(item.getAttribute('data-correct-order'));
+        // Récupérer le texte de la phrase sans l'icône de glissement (☰)
+        let phraseText = item.innerText.replace("☰", "").trim(); 
+        
+        if (userOrder === correctOrder) currentScoreEx1++;
+        
+        data.push([sectionName, phraseText, userOrder, correctOrder]);
+      });
     }
 
-    // Calcul final des scores
-    scoreEx1 = evaluateEx1();
-    scoreEx2 = evaluateEx2();
-    checkEx1(); 
-    checkEx2(); 
+    // Traitement du Texte A et du Texte B
+    processDragList('#list-A', "Texte A : L'engagement de Senghor");
+    processDragList('#list-B', "Texte B : Le courage des Acadiens");
+    data.push(["Score Exercice 1", currentScoreEx1 + " / 8"]);
+    data.push([]);
 
-    const totalScore = scoreEx1 + scoreEx2;
-    const maxTotal = maxScoreEx1 + maxScoreEx2;
-    const resultsDiv = document.getElementById("final-results");
+    // Exercice 2
+    data.push(["Exercice 2: Complétez le texte historique"]);
+    let currentScoreEx2 = 0;
+    data.push(["Position du champ", "Réponse de l'étudiant", "Réponse correcte"]);
     
-    // Affichage des résultats
-    resultsDiv.style.display = "block";
-    resultsDiv.innerHTML = `
-      <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
-      <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
-      <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalScore} / ${maxTotal}</p>
-      <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé.</p>
-    `;
+    const inputsEx2 = document.querySelectorAll('.text-hole');
+    const maxScoreEx2 = inputsEx2.length;
+    
+    inputsEx2.forEach((input, index) => {
+      let user = input.value.trim();
+      let correct = input.getAttribute('data-answer');
+      
+      if (user.toLowerCase() === correct.toLowerCase()) currentScoreEx2++;
+      
+      data.push(["Trou n°" + (index + 1), user, correct]);
+    });
+    data.push(["Score Exercice 2", currentScoreEx2 + " / " + maxScoreEx2]);
+    data.push([]);
 
-    // Création du CSV
-    let csvContent = "\uFEFF"; // BOM
-    csvContent += "Nom de l'etudiant,Score Ex 1 (Ordre),Score Ex 2 (Conjugaison),Score Total,Sur\n";
-    csvContent += `"${studentName}",${scoreEx1},${scoreEx2},${totalScore},${maxTotal}\n`;
+    // Total
+    const totalPoints = currentScoreEx1 + currentScoreEx2;
+    const totalMax = 8 + maxScoreEx2;
+    data.push(["SCORE TOTAL", totalPoints + " / " + totalMax]);
 
-    // Téléchargement
-    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-    const link = document.createElement("a");
+    // Formatage du contenu CSV
+    // Le préfixe \uFEFF garantit une bonne lecture des accents sous Excel
+    const csvContent = "\uFEFF" + data.map(row => 
+      row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(",")
+    ).join("\n");
+
+    // Création et déclenchement du téléchargement
+    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
     const url = URL.createObjectURL(blob);
-    
+
     const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
-    link.setAttribute("href", url);
-    link.setAttribute("download", `Rapport_${safeName}.csv`);
-    link.style.visibility = 'hidden';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "Rapport_Concordance_" + safeName + ".csv";
+    
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+
+    // Optionnel : Afficher le résultat sur la page web également
+    const resultsDiv = document.getElementById("final-results");
+    if (resultsDiv) {
+      resultsDiv.style.display = "block";
+      resultsDiv.innerHTML = `
+        <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
+        <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
+        <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalPoints} / ${totalMax}</p>
+        <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé avec tous les détails.</p>
+      `;
+    }
   }
 </script>
-
 </body>
 </html>
