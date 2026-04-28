@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Subjonctif</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="subjonctif-exercice1">
+            <h1>Exercice 1: Le Subjonctif Passé</h1>
+            <h2>Complétez les phrases suivantes en conjuguant les verbes entre parenthèses au <strong>subjonctif passé</strong>. Faites attention au choix de l'auxiliaire et à l'accord du participe passé. <em>(Pour la question 8, utilisez l'accord au masculin).</em></h2>
+
+            <form id="exerciseForm1">
+            <label>1. Je suis ravi que Léopold Sédar Senghor et Aimé Césaire (créer) 
+                <input type="text" data-answer="aient créé" id="e1q1">
+                <span class="feedback"></span> le mouvement littéraire de la Négritude dans les années 1930.
+            </label>
+
+            <label>2. Il est regrettable que de nombreuses langues autochtones (disparaître) 
+                <input type="text" data-answer="aient disparu" id="e1q2">
+                <span class="feedback"></span> au cours des derniers siècles dans l'espace francophone.
+            </label>
+
+            <label>3. Bien que l'Ordonnance de Villers-Cotterêts (faire) 
+                <input type="text" data-answer="ait fait" id="e1q3">
+                <span class="feedback"></span> du français la langue officielle de la France en 1539, les langues régionales sont restées populaires.
+            </label>
+
+            <label>4. Nous sommes extrêmement fiers que la romancière sénégalaise Mariama Bâ (écrire) 
+                <input type="text" data-answer="ait écrit" id="e1q4">
+                <span class="feedback"></span> une œuvre aussi puissante.
+            </label>
+
+            <label>5. Il se peut que les premiers colons français (arriver) 
+                <input type="text" data-answer="soient arrivés" id="e1q5">
+                <span class="feedback"></span> en Acadie bien avant que la ville de Québec ne soit fondée.
+            </label>
+
+            <label>6. Je ne crois pas que les habitants de la Louisiane (oublier) 
+                <input type="text" data-answer="aient oublié" id="e1q6">
+                <span class="feedback"></span> leurs racines francophones.
+            </label>
+
+            <label>7. C'est formidable que l'Organisation Internationale de la Francophonie (réussir) 
+                <input type="text" data-answer="ait réussi" id="e1q7">
+                <span class="feedback"></span> à rassembler 88 États et gouvernements.
+            </label>
+
+            <label>8. Je suis surpris que tu (ne jamais aller) 
+                <input type="text" data-answer="ne sois jamais allé" id="e1q8">
+                <span class="feedback"></span> au Festival d'été de Québec.
+            </label>
+
+            <div class="form-actions">
+                <button type="button" onclick="checkAnswers1()">Vérifier</button>
+            </div>
+            </form>
+
+            <h3 id="result1"></h3>
+
+            <script>
+            function checkAnswers1() {
+                const answers = {
+                    e1q1: "aient créé",
+                    e1q2: "aient disparu",
+                    e1q3: "ait fait",
+                    e1q4: "ait écrit",
+                    e1q5: "soient arrivés",
+                    e1q6: "aient oublié",
+                    e1q7: "ait réussi",
+                    e1q8: "ne sois jamais allé"
+                };
+
+                let score = 0;
+                const inputs = document.querySelectorAll('#exerciseForm1 input');
+                inputs.forEach((input) => {
+                    const answerKey = input.id;
+                    const answer = answers[answerKey].toLowerCase();
+                    const feedback = input.nextElementSibling;
+                    const userValue = input.value.trim().toLowerCase();
+                    
+                    if(userValue === "") {
+                        feedback.textContent = " ⚠ Veuillez remplir le champ";
+                        feedback.className = "feedback incorrect";
+                        input.style.borderColor = "red";
+                    } else if(userValue === answer) {
+                        score++;
+                        feedback.textContent = "✔ Correct";
+                        feedback.className = "feedback correct";
+                        input.style.borderColor = "green";
+                    } else {
+                        feedback.textContent = `✖ Incorrect (Réponse: ${answers[answerKey]})`;
+                        feedback.className = "feedback incorrect";
+                        input.style.borderColor = "red";
+                    }
+                });
+                document.getElementById("result1").innerHTML = "Score: " + score + " / 8";
+            }
+            </script>
+        </div>
+        
+
+        <div class="subjonctif-exercice2" style="margin-top: 50px;">
+            <h1>Exercice 2: Subjonctif Présent ou Subjonctif Passé ?</h1>
+            <h2>Choisissez la bonne forme verbale dans le menu déroulant pour compléter chaque phrase.</h2>
+
+            <form id="exerciseForm2">
+            <label>1. Il est essentiel que nous 
+                <select data-answer="protégions">
+                    <option value="">--</option>
+                    <option value="protégions">protégions</option>
+                    <option value="ayons protégé">ayons protégé</option>
+                </select>
+                <span class="feedback"></span> la diversité culturelle et linguistique dans tous les pays francophones aujourd'hui.
+            </label>
+
+            <label>2. C'est tragique que le terrible séisme de 2010 en Haïti 
+                <select data-answer="ait détruit">
+                    <option value="">--</option>
+                    <option value="détruise">détruise</option>
+                    <option value="ait détruit">ait détruit</option>
+                </select>
+                <span class="feedback"></span> une si grande partie du patrimoine de Port-au-Prince.
+            </label>
+
+            <label>3. Pour que le cinéma québécois 
+                <select data-answer="continue">
+                    <option value="">--</option>
+                    <option value="continue">continue</option>
+                    <option value="ait continué">ait continué</option>
+                </select>
+                <span class="feedback"></span> de briller à l'international, il faut que le gouvernement finance les jeunes réalisateurs.
+            </label>
+
+            <label>4. Je doute fortement que le roi François 1er 
+                <select data-answer="ait réalisé">
+                    <option value="">--</option>
+                    <option value="réalise">réalise</option>
+                    <option value="ait réalisé">ait réalisé</option>
+                </select>
+                <span class="feedback"></span> l'impact mondial qu'aurait la langue française des siècles plus tard.
+            </label>
+
+            <label>5. Bien que la Belgique 
+                <select data-answer="soit">
+                    <option value="">--</option>
+                    <option value="soit">soit</option>
+                    <option value="ait été">ait été</option>
+                </select>
+                <span class="feedback"></span> un pays multilingue de nos jours, la communauté francophone y joue un rôle majeur.
+            </label>
+
+            <label>6. Je suis tellement heureux que vous 
+                <select data-answer="ayez découvert">
+                    <option value="">--</option>
+                    <option value="découvriez">découvriez</option>
+                    <option value="ayez découvert">ayez découvert</option>
+                </select>
+                <span class="feedback"></span> la poutine lors de votre voyage à Montréal le mois dernier !
+            </label>
+
+            <label>7. Il faut que les étudiants 
+                <select data-answer="apprennent">
+                    <option value="">--</option>
+                    <option value="apprennent">apprennent</option>
+                    <option value="aient appris">aient appris</option>
+                </select>
+                <span class="feedback"></span> l'histoire de la décolonisation en Afrique de l'Ouest pour mieux comprendre la francophonie.
+            </label>
+
+            <label>8. Les historiens sont étonnés que les Acadiens 
+                <select data-answer="aient survécu">
+                    <option value="">--</option>
+                    <option value="survivent">survivent</option>
+                    <option value="aient survécu">aient survécu</option>
+                </select>
+                <span class="feedback"></span> au "Grand Dérangement" de 1755 avec une culture encore si vivante.
+            </label>
+
+            <div class="form-actions">
+                <button type="button" onclick="checkAnswers2()">Vérifier</button>
+            </div>
+            </form>
+
+            <h3 id="result2"></h3>
+
+            <script>
+            function checkAnswers2() {
+                const answers = [
+                    "protégions",
+                    "ait détruit",
+                    "continue",
+                    "ait réalisé",
+                    "soit",
+                    "ayez découvert",
+                    "apprennent",
+                    "aient survécu"
+                ];
+
+                let score = 0;
+                const selects = document.querySelectorAll('#exerciseForm2 select');
+                selects.forEach((select, index) => {
+                    const answer = answers[index];
+                    const feedback = select.nextElementSibling;
+                    
+                    if(select.value === "") {
+                        feedback.textContent = " ⚠ Choisissez une option";
+                        feedback.className = "feedback incorrect";
+                    } else if(select.value === answer) {
+                        score++;
+                        feedback.textContent = "✔ Correct";
+                        feedback.className = "feedback correct";
+                    } else {
+                        feedback.textContent = "✖ Incorrect";
+                        feedback.className = "feedback incorrect";
+                    }
+                });
+                document.getElementById("result2").innerHTML = "Score: " + score + " / 8";
+            }
+            </script>
+        </div>
+
+        <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+            <h2 style="font-size: 1.5rem;">Télécharger votre rapport</h2>
+            <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+            <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+            <br>
+            <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
+        </div>
+    </main>
+    
+<script>
+    function downloadCSV() {
+      const studentName = document.getElementById("studentName").value || "Étudiant";
+
+      const data = [
+        ["Nom de l'étudiant", studentName],
+        ["Date", new Date().toLocaleString()],
+        [],
+        ["Exercice 1: Le Subjonctif Passé"]
+      ];
+
+      // Ex 1
+      const answers1 = [
+        "aient créé", "aient disparu", "ait fait", "ait écrit", 
+        "soient arrivés", "aient oublié", "ait réussi", "ne sois jamais allé"
+      ];
+
+      let score1 = 0;
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const inputs1 = document.querySelectorAll('#exerciseForm1 input');
+      inputs1.forEach((input, index) => {
+        let user = input.value || "";
+        let correct = answers1[index];
+        if(user.toLowerCase().trim() === correct.toLowerCase()) score1++;
+        data.push(["Question " + (index + 1), user, correct]);
+      });
+      data.push(["Score Exercice 1", score1 + " / 8"]);
+      data.push([]);
+
+      // Ex 2
+      data.push(["Exercice 2: Subjonctif Présent ou Subjonctif Passé ?"]);
+
+      const answers2 = [
+        "protégions", "ait détruit", "continue", "ait réalisé", 
+        "soit", "ayez découvert", "apprennent", "aient survécu"
+      ];
+
+      let score2 = 0;
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const selects2 = document.querySelectorAll('#exerciseForm2 select');
+      selects2.forEach((select, index) => {
+        let user = select.value || "";
+        let correct = answers2[index];
+        if(user === correct) score2++;
+        data.push(["Question " + (index + 1), user, correct]);
+      });
+      data.push(["Score Exercice 2", score2 + " / 8"]);
+      data.push([]); 
+
+      // Total
+      const totalPoints = score1 + score2;
+      const totalMax = 16;
+      data.push(["Score total", totalPoints + " / " + totalMax]);
+
+      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "francophonie_subjonctif_" + studentName.replace(/\s+/g, '_') + ".csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    </script>
+</body>
+</html>
