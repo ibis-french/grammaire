@@ -36,53 +36,55 @@
     </header>
 
   <main class="container">
-    <h1>🌍 Exercices : La Concordance des Temps</h1>
+    <h1>🌍 Exercices : Le Passé dans la Francophonie</h1>
 
-    <div class="card">
-      <h2>Exercice 1 : Mettre en ordre les actions</h2>
-      <p><em>Lisez les textes et glissez-déposez les phrases ci-dessous pour les remettre dans l'ordre chronologique (de l'action la plus ancienne à la plus récente).</em></p>
-      
-      <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
-        <strong>Texte A : L'engagement de Senghor</strong><br>
-        Léopold Sédar Senghor est devenu le premier président du Sénégal indépendant en 1960, parce qu'il avait milité pendant des années pour la Négritude à Paris. Pendant son mandat, il a fortement encouragé la coopération linguistique jusqu'à ce que l'Organisation internationale de la Francophonie (OIF) ait officiellement vu le jour en 1970.
+    <div class="card" id="card-ex1">
+      <h2>Exercice 1 : Passé Composé ou Imparfait ?</h2>
+      <p><em>Choisissez entre le passé composé (actions précises) et l'imparfait (descriptions, habitudes).</em></p>
+
+      <div id="ex1-content">
+        <p>1. Quand nous <input type="text" class="text-hole-ex1" data-answer="avons visité"> (visiter) le Sénégal pour la première fois, le soleil <input type="text" class="text-hole-ex1" data-answer="brillait"> (briller) très fort sur l'île de Gorée.</p>
+        
+        <p>2. Hier, j' <input type="text" class="text-hole-ex1" data-answer="ai goûté"> (goûter) une gaufre à Bruxelles pendant qu’il <input type="text" class="text-hole-ex1" data-answer="pleuvoit"> (pleuvoir) légèrement.</p>
+        
+        <p>3. Pendant que les Suisses <input type="text" class="text-hole-ex1" data-answer="skiaient"> (skier) dans les Alpes, ils <input type="text" class="text-hole-ex1" data-answer="ont vu"> (voir) un chamois traverser la piste.</p>
+        
+        <p>4. Au Vietnam, l'architecture coloniale de Hanoï <input type="text" class="text-hole-ex1" data-answer="était"> (être) impressionnante quand je l' <input type="text" class="text-hole-ex1" data-answer="ai aperçue"> (apercevoir) du taxi.</p>
+        
+        <p>5. La Côte d'Ivoire <input type="text" class="text-hole-ex1" data-answer="est devenue"> (devenir) le premier producteur de cacao pendant que l'économie <input type="text" class="text-hole-ex1" data-answer="croissait"> (croître).</p>
+        
+        <p>6. En Haïti, les gens <input type="text" class="text-hole-ex1" data-answer="dansaient"> (danser) dans les rues lorsque la fête <input type="text" class="text-hole-ex1" data-answer="a commencé"> (commencer).</p>
+        
+        <p>7. Le Luxembourg <input type="text" class="text-hole-ex1" data-answer="semblait"> (sembler) si petit quand nous le <input type="text" class="text-hole-ex1" data-answer="avons traversé"> (traverser) en train l'été dernier.</p>
+        
+        <p>8. À Madagascar, je <input type="text" class="text-hole-ex1" data-answer="ai pris"> (prendre) une photo d'un lémurien qui <input type="text" class="text-hole-ex1" data-answer="mangeait"> (manger) tranquillement.</p>
       </div>
-
-      <ul class="drag-list" id="list-A">
-        <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Il est devenu président du Sénégal.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> L'OIF a officiellement vu le jour.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Il avait milité pour la Négritude.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Il a encouragé la coopération linguistique.</li>
-      </ul>
-
-      <div style="background: #f3f8f3; padding: 15px; border-radius: 6px; margin-bottom: 15px; font-size: 22px;">
-        <strong>Texte B : Le courage des Acadiens</strong><br>
-        Les Acadiens ont été déportés lors du « Grand Dérangement » en 1755, alors qu'ils s'étaient installés pacifiquement en Nouvelle-Écosse depuis des générations. Plus tard, ils ont lutté avec acharnement pour préserver leur culture avant que le gouvernement canadien n'ait finalement reconnu leurs droits linguistiques.
-      </div>
-
-      <ul class="drag-list" id="list-B">
-        <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> Le gouvernement canadien a reconnu leurs droits.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Ils s'étaient installés pacifiquement.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Ils ont lutté pour préserver leur culture.</li>
-        <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Ils ont été déportés.</li>
-      </ul>
 
       <button class="btn-verify" onclick="checkEx1()">Vérifier l'Exercice 1</button>
       <div id="score-ex1" class="score-display"></div>
     </div>
 
-    <div class="card">
-      <h2>Exercice 2 : Complétez le texte historique</h2>
-      <p><em>Complétez les espaces en conjuguant les verbes entre parenthèses au temps qui convient : <strong>passé composé, imparfait, plus-que-parfait</strong> ou <strong>subjonctif passé</strong>.</em></p>
+    <div class="card" id="card-ex2">
+      <h2>Exercice 2 : Le Plus-que-parfait</h2>
+      <p><em>Conjuguez les verbes au plus-que-parfait pour indiquer une action antérieure à une autre action passée.</em></p>
 
-      <p style="line-height: 2;">
-        Au XVIIIe siècle, après la conquête britannique, les Canadiens français <input type="text" class="text-hole" data-answer="ont dû"> <em>(devoir)</em> lutter farouchement pour conserver leur langue. Les nouveaux dirigeants anglophones <input type="text" class="text-hole" data-answer="voulaient"> <em>(vouloir)</em> assimiler la population, mais les francophones <input type="text" class="text-hole" data-answer="ont organisé"> <em>(organiser)</em> une forte résistance culturelle. Quand l'Acte d'Union <input type="text" class="text-hole" data-answer="a été signé"> <em>(être signé)</em> en 1840, le gouvernement de Londres <input type="text" class="text-hole" data-answer="avait déjà tenté"> <em>(déjà / tenter)</em> d'imposer l'anglais dans les institutions à plusieurs reprises.
-      </p>
-      <p style="line-height: 2;">
-        Plus tard, dans les années 1960, le Québec <input type="text" class="text-hole" data-answer="a connu"> <em>(connaître)</em> une période de grands bouleversements appelée la Révolution tranquille. Les historiens sont aujourd'hui très fiers que la province <input type="text" class="text-hole" data-answer="ait réussi"> <em>(réussir)</em> à moderniser sa société, bien que ce changement <input type="text" class="text-hole" data-answer="ait provoqué"> <em>(provoquer)</em> de grandes tensions politiques à l'époque. Dans ces années-là, beaucoup de jeunes Québécois <input type="text" class="text-hole" data-answer="rêvaient"> <em>(rêver)</em> d'un système entièrement francophone. Les intellectuels et les politiciens <input type="text" class="text-hole" data-answer="avaient déjà préparé"> <em>(déjà / préparer)</em> le terrain pour des lois linguistiques importantes bien avant que la célèbre Loi 101 <input type="text" class="text-hole" data-answer="ait été adoptée"> <em>(être adoptée)</em> en 1977. 
-      </p>
-      <p style="line-height: 2;">
-        Aujourd'hui, la francophonie mondiale est admirative que cette culture <input type="text" class="text-hole" data-answer="ait survécu"> <em>(survivre)</em> avec autant de dynamisme en Amérique du Nord !
-      </p>
+      <div id="ex2-content">
+        <p>1. Au Mali, nous avons visité la mosquée de Djenné que les guides <input type="text" class="text-hole-ex2" data-answer="avaient décrite"> (décrire) dans tous les livres.</p>
+        
+        <p>2. Les musiciens en RDC <input type="text" class="text-hole-ex2" data-answer="avaient répété"> (répéter) pendant des heures avant le début du concert.</p>
+        
+        <p>3. Quand je suis arrivé au souk de Marrakech, les marchands <input type="text" class="text-hole-ex2" data-answer="avaient déjà installé"> (déjà / installer) toutes leurs épices.</p>
+        
+        <p>4. À Monaco, les préparatifs pour le Grand Prix <input type="text" class="text-hole-ex2" data-answer="avaient commencé"> (commencer) bien avant l'arrivée des touristes.</p>
+        
+        <p>5. Les Lions Indomptables du Cameroun ont gagné parce qu'ils <input type="text" class="text-hole-ex2" data-answer="s'étaient entraînés"> (s'entraîner) sans relâche.</p>
+        
+        <p>6. En Guyane française, la fusée Ariane a décollé après que les techniciens <input type="text" class="text-hole-ex2" data-answer="avaient vérifié"> (vérifier) tous les systèmes.</p>
+        
+        <p>7. Avant la guerre, Beyrouth <input type="text" class="text-hole-ex2" data-answer="avait été"> (être) surnommée "le Paris du Moyen-Orient".</p>
+        
+        <p>8. À Djibouti, nous avons nagé avec des requins-baleines que nous <input type="text" class="text-hole-ex2" data-answer="n'avions jamais vus"> (ne jamais / voir) auparavant.</p>
+      </div>
 
       <button class="btn-verify" onclick="checkEx2()">Vérifier l'Exercice 2</button>
       <div id="score-ex2" class="score-display"></div>
@@ -95,78 +97,31 @@
       <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
       <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
       <br>
-      <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
+      <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger le CSV</button>
     </div>
   </main>
 
   <script>
-    // --- DRAG AND DROP LOGIC ---
-    const draggables = document.querySelectorAll('.draggable-item');
-    const dragLists = document.querySelectorAll('.drag-list');
-
-    draggables.forEach(draggable => {
-      draggable.addEventListener('dragstart', () => {
-        draggable.classList.add('dragging');
-      });
-
-      draggable.addEventListener('dragend', () => {
-        draggable.classList.remove('dragging');
-      });
-    });
-
-    dragLists.forEach(list => {
-      list.addEventListener('dragover', e => {
-        e.preventDefault();
-        const afterElement = getDragAfterElement(list, e.clientY);
-        const draggable = document.querySelector('.dragging');
-        if (afterElement == null) {
-          list.appendChild(draggable);
-        } else {
-          list.insertBefore(draggable, afterElement);
-        }
-      });
-    });
-
-    function getDragAfterElement(container, y) {
-      const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
-      return draggableElements.reduce((closest, child) => {
-        const box = child.getBoundingClientRect();
-        const offset = y - box.top - box.height / 2;
-        if (offset < 0 && offset > closest.offset) {
-          return { offset: offset, element: child };
-        } else {
-          return closest;
-        }
-      }, { offset: Number.NEGATIVE_INFINITY }).element;
-    }
-
-    // --- VERIFIER FUNCTIONS ---
-    
-    // Global scores to be used by the CSV downloader
     let globalScoreEx1 = 0;
     let globalScoreEx2 = 0;
 
     function checkEx1() {
       let score = 0;
-      let total = 8; // 4 items for list A, 4 for list B
+      const inputs = document.querySelectorAll('.text-hole-ex1');
+      const total = inputs.length;
 
-      const checkList = (listId) => {
-        const listItems = document.querySelectorAll(`${listId} .draggable-item`);
-        listItems.forEach((item, index) => {
-          const correctOrder = parseInt(item.getAttribute('data-correct-order'));
-          if (index + 1 === correctOrder) {
-            item.style.borderColor = '#2e7d32'; // Green border
-            item.style.backgroundColor = '#e8f5e9'; // Light green background
-            score++;
-          } else {
-            item.style.borderColor = '#d32f2f'; // Red border
-            item.style.backgroundColor = '#ffebee'; // Light red background
-          }
-        });
-      };
-
-      checkList('#list-A');
-      checkList('#list-B');
+      inputs.forEach(input => {
+        const correct = input.getAttribute('data-answer').toLowerCase();
+        const user = input.value.trim().toLowerCase();
+        if (user === correct) {
+          input.classList.remove('incorrect');
+          input.classList.add('correct');
+          score++;
+        } else {
+          input.classList.remove('correct');
+          input.classList.add('incorrect');
+        }
+      });
 
       globalScoreEx1 = score;
       document.getElementById('score-ex1').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
@@ -174,20 +129,19 @@
 
     function checkEx2() {
       let score = 0;
-      const inputs = document.querySelectorAll('.text-hole');
+      const inputs = document.querySelectorAll('.text-hole-ex2');
       const total = inputs.length;
 
       inputs.forEach(input => {
-        const correctAnswer = input.getAttribute('data-answer').toLowerCase();
-        const userAnswer = input.value.trim().toLowerCase();
-
-        if (userAnswer === correctAnswer) {
-          input.style.borderColor = '#2e7d32'; // Green border
-          input.style.backgroundColor = '#e8f5e9'; // Light green background
+        const correct = input.getAttribute('data-answer').toLowerCase();
+        const user = input.value.trim().toLowerCase();
+        if (user === correct) {
+          input.classList.remove('incorrect');
+          input.classList.add('correct');
           score++;
         } else {
-          input.style.borderColor = '#d32f2f'; // Red border
-          input.style.backgroundColor = '#ffebee'; // Light red background
+          input.classList.remove('correct');
+          input.classList.add('incorrect');
         }
       });
 
@@ -195,88 +149,56 @@
       document.getElementById('score-ex2').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
     }
 
-    // --- CSV EXPORT LOGIC ---
     function downloadCSV() {
-      // Ensure exercises are checked before downloading
       checkEx1();
       checkEx2();
 
-      const studentNameInput = document.getElementById("studentName");
-      const studentName = studentNameInput ? studentNameInput.value.trim() || "Étudiant" : "Étudiant";
-
+      const studentName = document.getElementById("studentName").value.trim() || "Etudiant";
       const data = [
         ["Nom de l'étudiant", studentName],
         ["Date", new Date().toLocaleString()],
         [],
-        ["Exercice 1: Mettre en ordre les actions"]
+        ["Exercice 1 (Passé Composé vs Imparfait)"],
+        ["Question", "Réponse élève", "Réponse correcte", "Résultat"]
       ];
 
-      data.push(["Section", "Phrase", "Ordre donné par l'étudiant", "Ordre correct"]);
-
-      function processDragList(listId, sectionName) {
-        const list = document.querySelector(listId);
-        if (!list) return;
-        
-        const items = list.querySelectorAll('.draggable-item');
-        items.forEach((item, index) => {
-          let userOrder = index + 1;
-          let correctOrder = parseInt(item.getAttribute('data-correct-order'));
-          let phraseText = item.innerText.replace("☰", "").trim(); 
-          
-          data.push([sectionName, phraseText, userOrder, correctOrder]);
-        });
-      }
-
-      processDragList('#list-A', "Texte A : L'engagement de Senghor");
-      processDragList('#list-B', "Texte B : Le courage des Acadiens");
-      data.push(["Score Exercice 1", globalScoreEx1 + " / 8"]);
-      data.push([]);
-
-      data.push(["Exercice 2: Complétez le texte historique"]);
-      data.push(["Position du champ", "Réponse de l'étudiant", "Réponse correcte"]);
-      
-      const inputsEx2 = document.querySelectorAll('.text-hole');
-      const maxScoreEx2 = inputsEx2.length;
-      
-      inputsEx2.forEach((input, index) => {
-        let user = input.value.trim();
-        let correct = input.getAttribute('data-answer');
-        data.push(["Trou n°" + (index + 1), user, correct]);
+      const inputs1 = document.querySelectorAll('.text-hole-ex1');
+      inputs1.forEach((input, i) => {
+        const user = input.value.trim();
+        const correct = input.getAttribute('data-answer');
+        data.push([`Trou ${i+1}`, user, correct, user.toLowerCase() === correct.toLowerCase() ? "Correct" : "Incorrect"]);
       });
-      data.push(["Score Exercice 2", globalScoreEx2 + " / " + maxScoreEx2]);
+      data.push(["SCORE EX 1", `${globalScoreEx1} / ${inputs1.length}`]);
       data.push([]);
 
-      const totalPoints = globalScoreEx1 + globalScoreEx2;
-      const totalMax = 8 + maxScoreEx2;
-      data.push(["SCORE TOTAL", totalPoints + " / " + totalMax]);
+      data.push(["Exercice 2 (Plus-que-parfait)"]);
+      data.push(["Question", "Réponse élève", "Réponse correcte", "Résultat"]);
+      const inputs2 = document.querySelectorAll('.text-hole-ex2');
+      inputs2.forEach((input, i) => {
+        const user = input.value.trim();
+        const correct = input.getAttribute('data-answer');
+        data.push([`Trou ${i+1}`, user, correct, user.toLowerCase() === correct.toLowerCase() ? "Correct" : "Incorrect"]);
+      });
+      data.push(["SCORE EX 2", `${globalScoreEx2} / ${inputs2.length}`]);
+      data.push([]);
+      data.push(["SCORE TOTAL", `${globalScoreEx1 + globalScoreEx2} / ${inputs1.length + inputs2.length}`]);
 
-      const csvContent = "\uFEFF" + data.map(row => 
+      const csvContent = "\\uFEFF" + data.map(row => 
         row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(",")
-      ).join("\n");
+      ).join("\\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
-
-      const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
       const a = document.createElement("a");
       a.href = url;
-      a.download = "Rapport_Concordance_" + safeName + ".csv";
-      
+      a.download = `Resultats_Francophonie_${studentName}.csv`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      URL.revokeObjectURL(url);
 
       const resultsDiv = document.getElementById("final-results");
-      if (resultsDiv) {
-        resultsDiv.style.display = "block";
-        resultsDiv.innerHTML = `
-          <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
-          <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
-          <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalPoints} / ${totalMax}</p>
-          <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé avec tous les détails.</p>
-        `;
-      }
+      resultsDiv.style.display = "block";
+      resultsDiv.innerHTML = `<h3>Bravo ${studentName} !</h3><p>Score : ${globalScoreEx1 + globalScoreEx2} / ${inputs1.length + inputs2.length}</p>`;
     }
   </script>
 </body>
