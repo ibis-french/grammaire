@@ -182,47 +182,93 @@
         <div class="example">Si tu avais écouté ses conseils, tu serais dans une meilleure situation aujourd'hui. ✅</div>
       </div>
 
-      <div class="card">
-        <h2>📊 Récapitulatif et Synthèse</h2>
-        <p>Voici un récapitulatif simple pour mémoriser rapidement la structure.</p>
-        <table class="styled-table">
-          <thead>
-            <tr>
-              <th>Type d'hypothèse</th>
-              <th>Condition (Si + ...)</th>
-              <th>Conséquence</th>
-              <th>Exemple</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><span class="badge badge-green">Réel / Probable</span></td>
-              <td><strong>Présent</strong></td>
-              <td>Présent / Futur / Impératif</td>
-              <td><em>S'il fait beau demain, nous irons au parc.</em></td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-orange">Irréel du Présent</span></td>
-              <td><strong>Imparfait</strong></td>
-              <td>Conditionnel Présent</td>
-              <td><em>Si j'avais de l'argent, je voyagerais autour du monde.</em></td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-red">Irréel du Passé</span></td>
-              <td><strong>Plus-que-parfait</strong></td>
-              <td>Conditionnel Passé</td>
-              <td><em>Si tu m'avais téléphoné, je serais venu t'aider.</em></td>
-            </tr>
-            <tr>
-              <td><span class="badge badge-purple">Cas Mixte</span></td>
-              <td><strong>Plus-que-parfait</strong></td>
-              <td>Conditionnel Présent</td>
-              <td><em>Si tu avais écouté ses conseils, tu serais dans une meilleure situation aujourd'hui.</em></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+     <style>
+  /* Badge Styles */
+  .badge {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+  }
+  .badge-green { background-color: #2e7d32; }
+  .badge-orange { background-color: #f57c00; }
+  .badge-red { background-color: #c62828; }
+  .badge-purple { background-color: #6a1b9a; }
 
+  /* Table Styles */
+  .styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 18px;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  }
+
+  .styled-table th, .styled-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .styled-table th {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    font-weight: 600;
+  }
+
+  /* Row Color-Coded Borders */
+  .row-green { border-left: 6px solid #2e7d32; }
+  .row-orange { border-left: 6px solid #f57c00; }
+  .row-red { border-left: 6px solid #c62828; }
+  .row-purple { border-left: 6px solid #6a1b9a; }
+</style>
+
+<div class="card">
+  <h2>Récapitulatif</h2>
+  <p>Voici un récapitulatif simple pour mémoriser rapidement la structure.</p>
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>Type d'hypothèse</th>
+        <th>Condition (Si + ...)</th>
+        <th>Conséquence</th>
+        <th>Exemple</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-green">
+        <td><span class="badge badge-green">Réel / Probable</span></td>
+        <td><strong>Présent</strong></td>
+        <td>Présent / Futur / Impératif</td>
+        <td><em>S'il fait beau demain, nous irons au parc.</em></td>
+      </tr>
+      <tr class="row-orange">
+        <td><span class="badge badge-orange">Irréel du Présent</span></td>
+        <td><strong>Imparfait</strong></td>
+        <td>Conditionnel Présent</td>
+        <td><em>Si j'avais de l'argent, je voyagerais autour du monde.</em></td>
+      </tr>
+      <tr class="row-red">
+        <td><span class="badge badge-red">Irréel du Passé</span></td>
+        <td><strong>Plus-que-parfait</strong></td>
+        <td>Conditionnel Passé</td>
+        <td><em>Si tu m'avais téléphoné, je serais venu t'aider.</em></td>
+      </tr>
+      <tr class="row-purple">
+        <td><span class="badge badge-purple">Cas Mixte</span></td>
+        <td><strong>Plus-que-parfait</strong></td>
+        <td>Conditionnel Présent</td>
+        <td><em>Si tu avais écouté ses conseils, tu serais dans une meilleure situation aujourd'hui.</em></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
       <div class="tip-box">
         <h3>💡 Règles d'or pour les étudiants :</h3>
         <ul>
