@@ -14,26 +14,26 @@
     button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
     form { width: 100%; }
 
-.clickable {
-    cursor: pointer;
-    padding: 2px 4px;
-    border-radius: 4px;
-}
+    .clickable {
+        cursor: pointer;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
 
-.clickable:hover { background: #c8e6c9; }
+    .clickable:hover { background: #c8e6c9; }
 
-.selected {
-    background: #81c784;
-    color: white;
-}
+    .selected {
+        background: #81c784;
+        color: white;
+    }
 
-.correct-choice {
-    background: #a5d6a7 !important;
-}
+    .correct-choice {
+        background: #a5d6a7 !important;
+    }
 
-.wrong {
-    background: #ef9a9a !important;
-}
+    .wrong {
+        background: #ef9a9a !important;
+    }
 
     .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
     .nav-buttons { display: flex; gap: 10px; }
@@ -57,7 +57,7 @@
         </nav>
     </header>
 
-<h1>Exercices : Les Adverbes</h1>
+    <h1>Exercices : Les Adverbes</h1>
 
     <div class="exercise-section">
         <h2>Exercice 1 : À partir de l'adjectif, écrivez l'adverbe</h2>
@@ -94,9 +94,11 @@
         <span id="result3"></span>
     </div>
 
-    <div class="exercise-section" style="background: #f9f9f9; border: 2px dashed #2e7d32;">
+    <div class="exercise-section" style="background: #f9f9f9; border: 2px dashed #2e7d32; margin-top: 60px; padding: 20px;">
         <h2>Enregistrer les résultats</h2>
-        <input id="studentName" placeholder="Votre nom" style="width: 300px;">
+        <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+        <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+        <br>
         <button onclick="downloadCSV()">Télécharger CSV</button>
     </div>
 
@@ -175,16 +177,78 @@
         }
 
         function downloadCSV() {
-            let name = document.getElementById("studentName").value || "Anonyme";
-            let csv = "\uFEFFNom," + name + "\n";
-            csv += "Ex1," + (document.getElementById("result1").textContent || "0") + "\n";
-            csv += "Ex2," + (document.getElementById("result2").textContent || "0") + "\n";
-            csv += "Ex3," + (document.getElementById("result3").textContent || "0") + "\n";
-            let blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
-            let a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "resultats_" + name.replace(/\s+/g, '_') + ".csv";
+            const studentName = document.getElementById("studentName").value || "Étudiant";
+
+            const data = [
+                ["Nom de l'étudiant", studentName],
+                ["Date", new Date().toLocaleString()],
+                [],
+                ["Exercice 1: À partir de l'adjectif, écrivez l'adverbe"]
+            ];
+
+            // Exercice 1
+            const answers1 = ["rapidement", "heureusement", "facilement", "poliment"];
+            let score1 = 0;
+            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+            const inputs1 = document.querySelectorAll('#exerciseForm1 input');
+            inputs1.forEach((input, index) => {
+                let user = input.value || "";
+                let correct = answers1[index];
+                if (user.toLowerCase().trim() === correct.toLowerCase()) score1++;
+                data.push(["Question " + (index + 1), user, correct]);
+            });
+            data.push(["Score Exercice 1", score1 + " / 4"]);
+            data.push([]);
+
+            // Exercice 2
+            data.push(["Exercice 2: À partir de l'adverbe, écrivez l'adjectif (masculin)"]);
+            const answers2 = ["amoureux", "honnête", "franc", "complet"];
+            let score2 = 0;
+            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+            const inputs2 = document.querySelectorAll('#exerciseForm2 input');
+            inputs2.forEach((input, index) => {
+                let user = input.value || "";
+                let correct = answers2[index];
+                if (user.toLowerCase().trim() === correct.toLowerCase()) score2++;
+                data.push(["Question " + (index + 1), user, correct]);
+            });
+            data.push(["Score Exercice 2", score2 + " / 4"]);
+            data.push([]);
+
+            // Exercice 3
+            data.push(["Exercice 3: Identification textuelle"]);
+            data.push(["Mots sélectionnés", "Statut"]);
+
+            let score3 = 0;
+            selectedWordsElements.forEach((wordEl) => {
+                let userWord = wordEl.textContent;
+                let isCorrect = adverbAnswers.includes(wordEl.dataset.clean);
+                let status = isCorrect ? "Correct" : "Incorrect";
+                if (isCorrect) score3++;
+                data.push([userWord, status]);
+            });
+            data.push(["Score Exercice 3", score3 + " / 10"]);
+            data.push([]);
+
+            // Score Total
+            const totalPoints = score1 + score2 + score3;
+            const totalMax = 18;
+            data.push(["Score total", totalPoints + " / " + totalMax]);
+
+            const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "resultats_" + studentName.replace(/\s+/g, '_') + ".csv";
+            document.body.appendChild(a);
             a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
     </script>
 </body>
