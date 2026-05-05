@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Explication de Grammaire - Pronoms</title>
+  <title>Explication de Grammaire - Conditionnel</title>
   <style>
   body {
     font-family: 'Dongle', 'Sansation';
@@ -137,7 +137,7 @@
         </nav>
     </header>
 
-      <main>
+   <main>
         <div class="container">
             <h1>📚 Le Conditionnel (Présent et Passé)</h1>
         
@@ -316,7 +316,9 @@
         const subject = subjects[Math.floor(Math.random() * subjects.length)];
         const tense = tenses[Math.floor(Math.random() * tenses.length)];
 
-        currentAnswer = verbObj.conjugations[subject][tense];
+        // Map accented tenses to the unaccented keys in verbsData
+        const tenseKey = tense === "présent" ? "present" : "passe";
+        currentAnswer = verbObj.conjugations[subject][tenseKey];
 
         // Handle elision if subject is "je" and the verb begins with a vowel
         let displaySubject = subject;
