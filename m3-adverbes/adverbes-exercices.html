@@ -59,187 +59,133 @@
 
 <h1>Exercices : Les Adverbes</h1>
 
-<!-- EX1 -->
-<div class="exercise-section">
-<h2>Exercice 1</h2>
+    <div class="exercise-section">
+        <h2>Exercice 1 : À partir de l'adjectif, écrivez l'adverbe</h2>
+        <form id="exerciseForm1">
+            <label>1. rapide → <input type="text" data-answer="rapidement"><span class="feedback"></span></label>
+            <label>2. heureux → <input type="text" data-answer="heureusement"><span class="feedback"></span></label>
+            <label>3. facile → <input type="text" data-answer="facilement"><span class="feedback"></span></label>
+            <label>4. poli → <input type="text" data-answer="poliment"><span class="feedback"></span></label>
+            <button type="button" onclick="validateInputs('exerciseForm1','result1')">Vérifier</button>
+            <span id="result1"></span>
+        </form>
+    </div>
 
-<form id="exerciseForm1">
-<label>rapide → <input type="text" data-answer="rapidement"><span class="feedback"></span></label>
-<label>heureux → <input type="text" data-answer="heureusement"><span class="feedback"></span></label>
-<label>facile → <input type="text" data-answer="facilement"><span class="feedback"></span></label>
-<label>poli → <input type="text" data-answer="poliment"><span class="feedback"></span></label>
+    <div class="exercise-section">
+        <h2>Exercice 2 : À partir de l'adverbe, écrivez l'adjectif (masculin)</h2>
+        <form id="exerciseForm2">
+            <label>1. amoureusement → <input type="text" data-answer="amoureux"><span class="feedback"></span></label>
+            <label>2. honnêtement → <input type="text" data-answer="honnête"><span class="feedback"></span></label>
+            <label>3. franchement → <input type="text" data-answer="franc"><span class="feedback"></span></label>
+            <label>4. complètement → <input type="text" data-answer="complet"><span class="feedback"></span></label>
+            <button type="button" onclick="validateInputs('exerciseForm2','result2')">Vérifier</button>
+            <span id="result2"></span>
+        </form>
+    </div>
 
-<button type="button" onclick="validateInputs('exerciseForm1','result1')">Vérifier</button>
-<span id="result1"></span>
-</form>
-</div>
+    <div class="exercise-section">
+        <h2>Exercice 3 : Identification textuelle</h2>
+        <p>Cliquez sur <strong>10 adverbes</strong> dans le texte ci-dessous :</p>
 
-<!-- EX2 -->
-<div class="exercise-section">
-<h2>Exercice 2</h2>
+        <div class="paragraph-box" id="textZone"></div>
 
-<form id="exerciseForm2">
-<label>amoureusement → <input type="text" data-answer="amoureux"><span class="feedback"></span></label>
-<label>honnêtement → <input type="text" data-answer="honnête"><span class="feedback"></span></label>
-<label>franchement → <input type="text" data-answer="franc"><span class="feedback"></span></label>
-<label>complètement → <input type="text" data-answer="complet"><span class="feedback"></span></label>
+        <p id="counter">Mots sélectionnés : 0 / 10</p>
+        <button type="button" onclick="checkAdverbs()">Vérifier ma sélection</button>
+        <span id="result3"></span>
+    </div>
 
-<button type="button" onclick="validateInputs('exerciseForm2','result2')">Vérifier</button>
-<span id="result2"></span>
-</form>
-</div>
+    <div class="exercise-section" style="background: #f9f9f9; border: 2px dashed #2e7d32;">
+        <h2>Enregistrer les résultats</h2>
+        <input id="studentName" placeholder="Votre nom" style="width: 300px;">
+        <button onclick="downloadCSV()">Télécharger CSV</button>
+    </div>
 
-<!-- EX3 -->
-<div class="exercise-section">
-<h2>Exercice 3 : Cliquez sur les adverbes</h2>
+    <script>
+        const fullText = "Le marché de l'art se transforme rapidement, mais il reste souvent difficile à comprendre. Les galeries exposent des œuvres fréquemment et les collectionneurs se déplacent partout. Ils analysent les tableaux précisément et réagissent émotionnellement. Les critiques jugent attentivement et influencent le prix. Les enchères se déroulent vite et les objets se vendent extrêmement cher. Heureusement, certaines galeries organisent des ventes. Les visiteurs regardent les couleurs longuement ou brièvement. Ils discutent calmement dans les salles. Les sculptures sont présentées rarement mais soigneusement.";
+        
+        const adverbAnswers = [
+            "rapidement", "souvent", "fréquemment", "partout", "précisément", 
+            "émotionnellement", "attentivement", "vite", "extrêmement", 
+            "heureusement", "longuement", "brièvement", "calmement", 
+            "rarement", "soigneusement"
+        ];
 
-<p>Cliquez sur 10 adverbes dans le texte :</p>
+        let selectedWordsElements = [];
 
-<div class="paragraph-box" id="textZone">
+        const textZone = document.getElementById('textZone');
+        fullText.split(' ').forEach(wordStr => {
+            const span = document.createElement('span');
+            span.className = 'word';
+            span.textContent = wordStr;
+            
+            const cleanWord = wordStr.toLowerCase().replace(/[.,]/g, "");
+            span.dataset.clean = cleanWord;
 
-Le <span class="clickable">marché</span> de l’art se 
-<span class="clickable">transforme</span> 
-<span class="clickable adverb">rapidement</span>, mais il reste 
-<span class="clickable adverb">souvent</span> difficile à comprendre.
+            span.onclick = () => {
+                if (span.classList.contains('selected')) {
+                    span.classList.remove('selected', 'wrong', 'correct-choice');
+                    selectedWordsElements = selectedWordsElements.filter(el => el !== span);
+                } else if (selectedWordsElements.length < 10) {
+                    span.classList.add('selected');
+                    selectedWordsElements.push(span);
+                }
+                updateCounter();
+            };
 
-Les <span class="clickable">galeries</span> exposent des œuvres 
-<span class="clickable adverb">fréquemment</span> et les collectionneurs se déplacent 
-<span class="clickable adverb">partout</span>.
+            textZone.appendChild(span);
+            textZone.appendChild(document.createTextNode(' '));
+        });
 
-Ils <span class="clickable">analysent</span> les œuvres 
-<span class="clickable adverb">précisément</span> et réagissent 
-<span class="clickable adverb">émotionnellement</span>.
-
-Les critiques <span class="clickable">jugent</span> 
-<span class="clickable adverb">attentivement</span> et influencent le marché.
-
-Les enchères se déroulent 
-<span class="clickable adverb">vite</span> et les œuvres se vendent 
-<span class="clickable adverb">extrêmement</span> cher.
-
-<span class="clickable adverb">Heureusement</span>, certaines galeries organisent des ventes 
-<span class="clickable">spéciales</span> et des expositions 
-<span class="clickable">temporaires</span>.
-
-Les visiteurs regardent les tableaux 
-<span class="clickable adverb">longuement</span> ou 
-<span class="clickable adverb">brièvement</span>.
-
-Ils discutent 
-<span class="clickable adverb">calmement</span> dans les salles 
-<span class="clickable">grandes</span> et 
-<span class="clickable">lumineuses</span>.
-
-Les œuvres sont exposées 
-<span class="clickable adverb">rarement</span> mais présentées 
-<span class="clickable adverb">soigneusement</span>.
-
-</div>
-
-<p id="counter">Sélectionnés : 0 / 10</p>
-
-<button type="button" onclick="checkAdverbs()">Vérifier</button>
-<span id="result3"></span>
-</div>
-
-<!-- DOWNLOAD -->
-<div class="exercise-section">
-<h2>Télécharger rapport</h2>
-
-<input id="studentName" placeholder="Nom étudiant">
-<button onclick="downloadCSV()">Télécharger CSV</button>
-</div>
-
-<script>
-
-/* EX1 + EX2 */
-function validateInputs(formId, resultId) {
-    let score = 0;
-    const inputs = document.querySelectorAll(`#${formId} input`);
-
-    inputs.forEach(input => {
-        const correct = input.dataset.answer;
-        const user = input.value.trim().toLowerCase();
-        const fb = input.nextElementSibling;
-
-        if (user === correct) {
-            score++;
-            fb.textContent = "✔";
-            fb.className = "feedback correct";
-        } else {
-            fb.textContent = "✖";
-            fb.className = "feedback incorrect";
-        }
-    });
-
-    document.getElementById(resultId).textContent = "Score: " + score;
-}
-
-/* EX3 */
-let selectedWords = [];
-
-document.querySelectorAll('#textZone .clickable').forEach(word => {
-    word.addEventListener('click', () => {
-
-        if (word.classList.contains('selected')) {
-            word.classList.remove('selected','wrong','correct-choice');
-            selectedWords = selectedWords.filter(w => w !== word);
-        } else {
-            if (selectedWords.length < 10) {
-                word.classList.add('selected');
-                selectedWords.push(word);
-            }
+        function updateCounter() {
+            document.getElementById("counter").textContent = "Mots sélectionnés : " + selectedWordsElements.length + " / 10";
         }
 
-        document.getElementById("counter").textContent =
-        "Sélectionnés : " + selectedWords.length + " / 10";
-    });
-});
-
-function checkAdverbs() {
-    const correct = [
-        "rapidement","souvent","fréquemment","partout",
-        "précisément","émotionnellement","attentivement",
-        "vite","extrêmement","heureusement",
-        "longuement","brièvement","calmement",
-        "rarement","soigneusement"
-    ];
-
-    let score = 0;
-
-    selectedWords.forEach(word => {
-        let text = word.textContent.toLowerCase();
-
-        if (correct.includes(text)) {
-            word.classList.add("correct-choice");
-            score++;
-        } else {
-            word.classList.add("wrong");
+        function validateInputs(formId, resultId) {
+            let score = 0;
+            const inputs = document.querySelectorAll(`#${formId} input`);
+            inputs.forEach(input => {
+                const correct = input.dataset.answer;
+                const user = input.value.trim().toLowerCase();
+                const fb = input.nextElementSibling;
+                if (user === correct) {
+                    score++;
+                    fb.textContent = "✔";
+                    fb.className = "feedback correct";
+                    input.style.borderColor = "#4caf50";
+                } else {
+                    fb.textContent = "✖";
+                    fb.className = "feedback incorrect";
+                    input.style.borderColor = "#f44336";
+                }
+            });
+            document.getElementById(resultId).textContent = "Score: " + score + " / " + inputs.length;
         }
-    });
 
-    document.getElementById("result3").textContent =
-    "Score: " + score + " / 10";
-}
+        function checkAdverbs() {
+            let score = 0;
+            selectedWordsElements.forEach(wordEl => {
+                if (adverbAnswers.includes(wordEl.dataset.clean)) {
+                    wordEl.classList.add("correct-choice");
+                    score++;
+                } else {
+                    wordEl.classList.add("wrong");
+                }
+            });
+            document.getElementById("result3").textContent = "Score: " + score + " / 10";
+        }
 
-/* CSV */
-function downloadCSV() {
-    let name = document.getElementById("studentName").value || "Anonyme";
-
-    let csv = "Nom," + name + "\n";
-    csv += "Ex1," + document.getElementById("result1").textContent + "\n";
-    csv += "Ex2," + document.getElementById("result2").textContent + "\n";
-    csv += "Ex3," + document.getElementById("result3").textContent + "\n";
-
-    let blob = new Blob([csv], {type:'text/csv'});
-    let a = document.createElement("a");
-
-    a.href = URL.createObjectURL(blob);
-    a.download = "resultats_adverbes.csv";
-    a.click();
-}
-
-</script>
-
+        function downloadCSV() {
+            let name = document.getElementById("studentName").value || "Anonyme";
+            let csv = "\uFEFFNom," + name + "\n";
+            csv += "Ex1," + (document.getElementById("result1").textContent || "0") + "\n";
+            csv += "Ex2," + (document.getElementById("result2").textContent || "0") + "\n";
+            csv += "Ex3," + (document.getElementById("result3").textContent || "0") + "\n";
+            let blob = new Blob([csv], {type: 'text/csv;charset=utf-8'});
+            let a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "resultats_" + name.replace(/\s+/g, '_') + ".csv";
+            a.click();
+        }
+    </script>
 </body>
 </html>
