@@ -38,7 +38,6 @@
     <main class="container">
         <h1>Exercices : Le Conditionnel</h1>
 
-        <!-- Exercice 1 -->
         <div class="exercise-section">
           <h2>Exercice 1 : Dans une ville idéale…</h2>
           <p>Complétez les phrases avec le bon verbe au <strong>conditionnel présent</strong>.</p>
@@ -53,13 +52,12 @@
               Les gouvernements locaux <input type="text" id="ex1_v9" placeholder="..."> (devoir) réduire la pollution et <input type="text" id="ex1_v10" placeholder="..."> (mettre) en place des solutions durables. Enfin, tout le monde <input type="text" id="ex1_v11" placeholder="..."> (pouvoir) profiter d’un environnement plus sain et plus agréable.
             </p>
             <div class="form-actions">
-              <button type="button" onclick="checkEx1()">Vérifier l'Exercice 1</button>
+              <button type="button" onclick="checkEx1()">Vérifier</button>
             </div>
           </form>
           <h3 id="result1"></h3>
         </div>
 
-        <!-- Exercice 2 -->
         <div class="exercise-section">
           <h2>Exercice 2 : Complétez au conditionnel passé</h2>
           <p>Complétez les phrases suivantes en utilisant le <strong>conditionnel passé</strong>.</p>
@@ -73,13 +71,12 @@
             <p>7. Vous <input type="text" id="ex2_v7" placeholder="..."> (pouvoir) finir vos devoirs hier, mais vous étiez très fatigué.</p>
             <p>8. Nous <input type="text" id="ex2_v8" placeholder="..."> (acheter) cette maison si elle avait été moins chère.</p>
             <div class="form-actions">
-              <button type="button" onclick="checkEx2()">Vérifier l'Exercice 2</button>
+              <button type="button" onclick="checkEx2()">Vérifier</button>
             </div>
           </form>
           <h3 id="result2"></h3>
         </div>
 
-        <!-- Exercice 3 -->
         <div class="exercise-section">
           <h2>Exercice 3 : Conditionnel présent ou passé ?</h2>
           <p>Choisissez la forme verbale adéquate selon le contexte.</p>
@@ -117,13 +114,12 @@
               apprendre le japonais plus tard, c'est un de mes projets.
             </p>
             <div class="form-actions">
-              <button type="button" onclick="checkEx3()">Vérifier l'Exercice 3</button>
+              <button type="button" onclick="checkEx3()">Vérifier</button>
             </div>
           </form>
           <h3 id="result3"></h3>
         </div>
 
-        <!-- Section Enregistrement -->
         <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
             <h2>Enregistrer les résultats</h2>
             <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
@@ -273,8 +269,7 @@
         data.push([key, user, ans3[key]]);
       }
 
-      const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("
-");
+      const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
