@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Subjonctif</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="exercise-block">
+            <h1>Exercice 1: Choisir entre les types d'hypothèse</h1>
+            <h2>Choisissez le type d'hypothèse correspondant à chaque phrase.</h2>
+            <form id="exerciseForm1">
+                <label>1. S'il fait beau cet après-midi, nous ferons le tour de la ville à vélo.
+                    <select id="q1">
+                        <option value="">--</option>
+                        <option value="reel">Réel</option>
+                        <option value="possible">Possible</option>
+                        <option value="impossible">Impossible</option>
+                    </select>
+                    <span class="feedback"></span>
+                </label>
+                <label>2. Si l'architecte avait conçu le projet différemment, le bâtiment ne serait pas détruit aujourd'hui.
+                    <select id="q2">
+                        <option value="">--</option>
+                        <option value="reel">Réel</option>
+                        <option value="possible">Possible</option>
+                        <option value="impossible">Impossible</option>
+                    </select>
+                    <span class="feedback"></span>
+                </label>
+                <label>3. Si les habitants utilisaient plus le tramway, la circulation serait plus fluide.
+                    <select id="q3">
+                        <option value="">--</option>
+                        <option value="reel">Réel</option>
+                        <option value="possible">Possible</option>
+                        <option value="impossible">Impossible</option>
+                    </select>
+                    <span class="feedback"></span>
+                </label>
+                <label>4. Si tu m'avais téléphoné hier, je serais venu t'aider à déménager.
+                    <select id="q4">
+                        <option value="">--</option>
+                        <option value="reel">Réel</option>
+                        <option value="possible">Possible</option>
+                        <option value="impossible">Impossible</option>
+                    </select>
+                    <span class="feedback"></span>
+                </label>
+                <div class="form-actions">
+                    <button type="button" onclick="checkAnswers1()">Vérifier</button>
+                </div>
+            </form>
+            <h3 id="result1"></h3>
+        </div>
+
+        <div class="exercise-block">
+            <h1>Exercice 2: Conjugaison</h1>
+            <h2>Complétez chaque phrase avec la forme correcte du verbe entre parenthèses. Séparez les deux parties par une virgule (ex: avait construit, aurait).</h2>
+            <form id="exerciseForm2">
+                <label>1. Si la municipalité <input type="text" id="ex2_q1"> (construire) des pistes cyclables plus tôt, il y <input type="text" id="ex2_q2"> (avoir) moins d’accidents.
+                    <span class="feedback"></span>
+                </label>
+                <label>2. Si le maire <input type="text" id="ex2_q3"> (planifier) mieux les rues, les habitants <input type="text" id="ex2_q4"> (pouvoir) se déplacer plus facilement dans l’avenir.
+                    <span class="feedback"></span>
+                </label>
+                <label>3. Si nous <input type="text" id="ex2_q5"> (vivre) dans ce quartier, nous <input type="text" id="ex2_q6"> (profiter) des nouveaux espaces verts possiblement.
+                    <span class="feedback"></span>
+                </label>
+                <label>4. Si les promoteurs immobiliers <input type="text" id="ex2_q7"> (préserver) les bâtiments historiques, le quartier <input type="text" id="ex2_q8"> (garder) son charme ancien, quel dommage !
+                    <span class="feedback"></span>
+                </label>
+                <label>5. Si la ville <input type="text" id="ex2_q9"> (mettre en place) des mesures contre la pollution à temps, les habitants <input type="text" id="ex2_q10"> (respirer) un air plus sain.
+                    <span class="feedback"></span>
+                </label>
+                <label>6. Si la ville <input type="text" id="ex2_q11"> (offrir) plus de transports en commun, les voitures désormais <input type="text" id="ex2_q12"> (diminuer) dans le centre-ville.
+                    <span class="feedback"></span>
+                </label>
+                <div class="form-actions">
+                    <button type="button" onclick="checkAnswers2()">Vérifier</button>
+                </div>
+            </form>
+            <h3 id="result2"></h3>
+        </div>
+
+        <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+            <h2>Télécharger votre rapport</h2>
+            <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+            <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+            <br>
+            <button type="button" onclick="downloadCSV()">Télécharger</button>
+        </div>
+    </main>
+
+    <script>
+        function checkAnswers1() {
+            const answers = {
+                q1: "reel",
+                q2: "impossible",
+                q3: "possible",
+                q4: "impossible"
+            };
+
+            let score = 0;
+            for (let key in answers) {
+                const select = document.getElementById(key);
+                const feedback = select.parentNode.querySelector('.feedback');
+                if (select.value === "") {
+                    feedback.textContent = " ⚠ Choisissez une option";
+                    feedback.className = "feedback incorrect";
+                } else if (select.value === answers[key]) {
+                    score++;
+                    feedback.textContent = " ✔ Correct";
+                    feedback.className = "feedback correct";
+                } else {
+                    feedback.textContent = " ✖ Incorrect";
+                    feedback.className = "feedback incorrect";
+                }
+            }
+            document.getElementById("result1").innerHTML = "Score: " + score + " / 4";
+        }
+
+        function checkAnswers2() {
+            const answers = {
+                ex2_q1: "avait construit",
+                ex2_q2: "aurait",
+                ex2_q3: "planifiait",
+                ex2_q4: "pourraient",
+                ex2_q5: "vivions",
+                ex2_q6: "profiterions",
+                ex2_q7: "avaient préservé",
+                ex2_q8: "aurait gardé",
+                ex2_q9: "avait mis en place",
+                ex2_q10: "respireraient",
+                ex2_q11: "offrait",
+                ex2_q12: "diminueraient"
+            };
+
+            let score = 0;
+            for (let key in answers) {
+                const input = document.getElementById(key);
+                const userVal = input.value.trim().toLowerCase();
+                if (userVal === answers[key]) {
+                    score++;
+                    input.style.borderColor = "green";
+                } else {
+                    input.style.borderColor = "red";
+                }
+            }
+            document.getElementById("result2").innerHTML = "Score: " + score + " / 12";
+        }
+
+        function downloadCSV() {
+            const studentName = document.getElementById("studentName").value || "Étudiant";
+            const data = [
+                ["Nom de l'étudiant", studentName],
+                ["Date", new Date().toLocaleString()],
+                [],
+                ["Exercice 1: Identifier le type d'hypothèse"]
+            ];
+
+            const answers1 = {
+                1: "reel", 2: "impossible", 3: "possible", 4: "impossible"
+            };
+
+            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+            for (let i = 1; i <= 4; i++) {
+                const select = document.getElementById("q" + i);
+                let userVal = select ? select.value : "";
+                data.push(["Question " + i, userVal, answers1[i]]);
+            }
+            data.push([]);
+
+            data.push(["Exercice 2: Conjugaison et cas mixtes"]);
+            const answers2 = {
+                ex2_q1: "avait construit", ex2_q2: "aurait",
+                ex2_q3: "planifiait", ex2_q4: "pourraient",
+                ex2_q5: "vivions", ex2_q6: "profiterions",
+                ex2_q7: "avaient préservé", ex2_q8: "aurait gardé",
+                ex2_q9: "avait mis en place", ex2_q10: "respireraient",
+                ex2_q11: "offrait", ex2_q12: "diminueraient"
+            };
+
+            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+            for (let i = 1; i <= 6; i++) {
+                let user1 = document.getElementById("ex2_q" + (2 * i - 1)).value;
+                let user2 = document.getElementById("ex2_q" + (2 * i)).value;
+                let userComb = user1 + ", " + user2;
+                let corr1 = answers2["ex2_q" + (2 * i - 1)];
+                let corr2 = answers2["ex2_q" + (2 * i)];
+                let corrComb = corr1 + ", " + corr2;
+                data.push(["Phrase " + i, userComb, corrComb]);
+            }
+            data.push([]);
+
+            const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "hypothese_exercises_" + studentName + ".csv";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
