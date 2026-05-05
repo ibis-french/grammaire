@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Subjonctif</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Exercices : Le Conditionnel</h1>
+
+        <!-- Exercice 1 -->
+        <div class="exercise-section">
+          <h2>Exercice 1 : Dans une ville idéale…</h2>
+          <p>Complétez les phrases avec le bon verbe au <strong>conditionnel présent</strong>.</p>
+          <form id="exerciseForm1">
+            <p>
+              Dans une ville idéale, il y <input type="text" id="ex1_v1" placeholder="..."> (avoir) plus d’espaces verts et les habitants <input type="text" id="ex1_v2" placeholder="..."> (pouvoir) se déplacer facilement sans voiture. Les autorités <input type="text" id="ex1_v3" placeholder="..."> (investir) davantage dans les transports publics et <input type="text" id="ex1_v4" placeholder="..."> (créer) des pistes cyclables sécurisées.
+            </p>
+            <p>
+              Les citoyens <input type="text" id="ex1_v5" placeholder="..."> (vivre) dans des logements abordables et <input type="text" id="ex1_v6" placeholder="..."> (avoir) accès à des services de qualité. La ville <input type="text" id="ex1_v7" placeholder="..."> (offrir) plus d’activités culturelles et <input type="text" id="ex1_v8" placeholder="..."> (encourager) la participation des habitants.
+            </p>
+            <p>
+              Les gouvernements locaux <input type="text" id="ex1_v9" placeholder="..."> (devoir) réduire la pollution et <input type="text" id="ex1_v10" placeholder="..."> (mettre) en place des solutions durables. Enfin, tout le monde <input type="text" id="ex1_v11" placeholder="..."> (pouvoir) profiter d’un environnement plus sain et plus agréable.
+            </p>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx1()">Vérifier l'Exercice 1</button>
+            </div>
+          </form>
+          <h3 id="result1"></h3>
+        </div>
+
+        <!-- Exercice 2 -->
+        <div class="exercise-section">
+          <h2>Exercice 2 : Complétez au conditionnel passé</h2>
+          <p>Complétez les phrases suivantes en utilisant le <strong>conditionnel passé</strong>.</p>
+          <form id="exerciseForm2">
+            <p>1. Si j’avais eu plus de temps, je <input type="text" id="ex2_v1" placeholder="..."> (partir) pour mon voyage plus tôt.</p>
+            <p>2. Ils <input type="text" id="ex2_v2" placeholder="..."> (vouloir) voyager, mais ils n’avaient pas assez d’argent.</p>
+            <p>3. Nous <input type="text" id="ex2_v3" placeholder="..."> (venir) plus tôt, mais nous étions coincés dans le trafic.</p>
+            <p>4. Agnes <input type="text" id="ex2_v4" placeholder="..."> (venir) à la réunion, mais elle était malade.</p>
+            <p>5. Si ils ont mieux compris les questions, ils <input type="text" id="ex2_v5" placeholder="..."> (répondre) correctement.</p>
+            <p>6. Elles <input type="text" id="ex2_v6" placeholder="..."> (prendre) le train, mais il était en retard.</p>
+            <p>7. Vous <input type="text" id="ex2_v7" placeholder="..."> (pouvoir) finir vos devoirs hier, mais vous étiez très fatigué.</p>
+            <p>8. Nous <input type="text" id="ex2_v8" placeholder="..."> (acheter) cette maison si elle avait été moins chère.</p>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx2()">Vérifier l'Exercice 2</button>
+            </div>
+          </form>
+          <h3 id="result2"></h3>
+        </div>
+
+        <!-- Exercice 3 -->
+        <div class="exercise-section">
+          <h2>Exercice 3 : Conditionnel présent ou passé ?</h2>
+          <p>Choisissez la forme verbale adéquate selon le contexte.</p>
+          <form id="exerciseForm3">
+            <p>1. Ah, quel dommage ! Nous 
+              <select id="ex3_v1">
+                <option value="">-- Choisissez --</option>
+                <option value="viendrions">viendrions</option>
+                <option value="serions venus">serions venus</option>
+              </select> 
+              à la fête si nous avions su que vous étiez là.
+            </p>
+            <p>2. Si tu avais le choix, où 
+              <select id="ex3_v2">
+                <option value="">-- Choisissez --</option>
+                <option value="habiterais-tu">habiterais-tu</option>
+                <option value="aurais-tu habité">aurais-tu habité</option>
+              </select> 
+              ?
+            </p>
+            <p>3. Le témoin affirme que le suspect 
+              <select id="ex3_v3">
+                <option value="">-- Choisissez --</option>
+                <option value="entrerait">entrerait</option>
+                <option value="serait entré">serait entré</option>
+              </select> 
+              par effraction.
+            </p>
+            <p>4. J' 
+              <select id="ex3_v4">
+                <option value="">-- Choisissez --</option>
+                <option value="aimerais">aimerais</option>
+                <option value="aurais aimé">aurais aimé</option>
+              </select> 
+              apprendre le japonais plus tard, c'est un de mes projets.
+            </p>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx3()">Vérifier l'Exercice 3</button>
+            </div>
+          </form>
+          <h3 id="result3"></h3>
+        </div>
+
+        <!-- Section Enregistrement -->
+        <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+            <h2>Enregistrer les résultats</h2>
+            <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+            <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+            <br>
+            <button type="button" onclick="downloadCSV()">Télécharger CSV</button>
+        </div>
+    </main>
+
+    <script>
+    function checkEx1() {
+      const answers = {
+        ex1_v1: "aurait",
+        ex1_v2: "pourraient",
+        ex1_v3: "investiraient",
+        ex1_v4: "créeraient",
+        ex1_v5: "vivraient",
+        ex1_v6: "auraient",
+        ex1_v7: "offrirait",
+        ex1_v8: "encouragerait",
+        ex1_v9: "devraient",
+        ex1_v10: "mettraient",
+        ex1_v11: "pourrait"
+      };
+
+      let score = 0;
+      for (const key in answers) {
+        const input = document.getElementById(key);
+        const userValue = input.value.trim().toLowerCase();
+        const correct = answers[key].toLowerCase();
+        
+        if (userValue === "") {
+          input.style.borderColor = "orange";
+        } else if (userValue === correct) {
+          score++;
+          input.style.borderColor = "green";
+        } else {
+          input.style.borderColor = "red";
+        }
+      }
+      document.getElementById("result1").innerHTML = "Score : " + score + " / 11";
+    }
+
+    function checkEx2() {
+      const answers = {
+        ex2_v1: "serais parti",
+        ex2_v2: "auraient voulu",
+        ex2_v3: "serions venus",
+        ex2_v4: "serait venue",
+        ex2_v5: "auraient répondu",
+        ex2_v6: "auraient pris",
+        ex2_v7: "auriez pu",
+        ex2_v8: "aurions acheté"
+      };
+
+      let score = 0;
+      for (const key in answers) {
+        const input = document.getElementById(key);
+        const userValue = input.value.trim().toLowerCase();
+        const correct = answers[key].toLowerCase();
+
+        if (userValue === "") {
+          input.style.borderColor = "orange";
+        } else if (userValue === correct) {
+          score++;
+          input.style.borderColor = "green";
+        } else {
+          input.style.borderColor = "red";
+        }
+      }
+      document.getElementById("result2").innerHTML = "Score : " + score + " / 8";
+    }
+
+    function checkEx3() {
+      const answers = {
+        ex3_v1: "serions venus",
+        ex3_v2: "habiterais-tu",
+        ex3_v3: "serait entré",
+        ex3_v4: "aimerais"
+      };
+
+      let score = 0;
+      for (const key in answers) {
+        const select = document.getElementById(key);
+        const userValue = select.value;
+
+        if (userValue === "") {
+          select.style.borderColor = "orange";
+        } else if (userValue === answers[key]) {
+          score++;
+          select.style.borderColor = "green";
+        } else {
+          select.style.borderColor = "red";
+        }
+      }
+      document.getElementById("result3").innerHTML = "Score : " + score + " / 4";
+    }
+
+    function downloadCSV() {
+      const studentName = document.getElementById("studentName").value || "Étudiant";
+      const data = [
+        ["Nom de l'étudiant", studentName],
+        ["Date", new Date().toLocaleString()],
+        [],
+        ["Exercice 1: Dans une ville idéale"],
+        ["Question", "Réponse de l'étudiant", "Réponse correcte"]
+      ];
+
+      const ans1 = {
+        ex1_v1: "aurait", ex1_v2: "pourraient", ex1_v3: "investiraient",
+        ex1_v4: "créeraient", ex1_v5: "vivraient", ex1_v6: "auraient",
+        ex1_v7: "offrirait", ex1_v8: "encouragerait", ex1_v9: "devraient",
+        ex1_v10: "mettraient", ex1_v11: "pourrait"
+      };
+
+      for (const key in ans1) {
+        let user = document.getElementById(key).value || "";
+        data.push([key, user, ans1[key]]);
+      }
+      data.push([]);
+
+      data.push(["Exercice 2: Complétez au conditionnel passé"]);
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const ans2 = {
+        ex2_v1: "serais parti", ex2_v2: "auraient voulu", ex2_v3: "serions venus",
+        ex2_v4: "serait venue", ex2_v5: "auraient répondu", ex2_v6: "auraient pris",
+        ex2_v7: "auriez pu", ex2_v8: "aurions acheté"
+      };
+
+      for (const key in ans2) {
+        let user = document.getElementById(key).value || "";
+        data.push([key, user, ans2[key]]);
+      }
+      data.push([]); 
+
+      data.push(["Exercice 3: Conditionnel Présent ou Passé"]);
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const ans3 = {
+        ex3_v1: "serions venus", ex3_v2: "habiterais-tu",
+        ex3_v3: "serait entré", ex3_v4: "aimerais"
+      };
+
+      for (const key in ans3) {
+        let user = document.getElementById(key).value || "";
+        data.push([key, user, ans3[key]]);
+      }
+
+      const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("
+");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "conditionnel_exercises_" + studentName + ".csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    </script>
+</body>
+</html>
