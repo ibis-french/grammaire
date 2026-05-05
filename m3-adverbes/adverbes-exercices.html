@@ -56,8 +56,7 @@
           <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
         </nav>
     </header>
-
-    <h1>Exercices : Les Adverbes</h1>
+  <h1>Exercices : Les Adverbes</h1>
 
     <div class="exercise-section">
         <h2>Exercice 1 : À partir de l'adjectif, écrivez l'adverbe</h2>
@@ -66,6 +65,8 @@
             <label>2. heureux → <input type="text" data-answer="heureusement"><span class="feedback"></span></label>
             <label>3. facile → <input type="text" data-answer="facilement"><span class="feedback"></span></label>
             <label>4. poli → <input type="text" data-answer="poliment"><span class="feedback"></span></label>
+            <label>5. patient → <input type="text" data-answer="patiemment"><span class="feedback"></span></label>
+            <label>6. lent → <input type="text" data-answer="lentement"><span class="feedback"></span></label>
             <button type="button" onclick="validateInputs('exerciseForm1','result1')">Vérifier</button>
             <span id="result1"></span>
         </form>
@@ -78,6 +79,8 @@
             <label>2. honnêtement → <input type="text" data-answer="honnête"><span class="feedback"></span></label>
             <label>3. franchement → <input type="text" data-answer="franc"><span class="feedback"></span></label>
             <label>4. complètement → <input type="text" data-answer="complet"><span class="feedback"></span></label>
+            <label>5. doucement → <input type="text" data-answer="doux"><span class="feedback"></span></label>
+            <label>6. sérieusement → <input type="text" data-answer="sérieux"><span class="feedback"></span></label>
             <button type="button" onclick="validateInputs('exerciseForm2','result2')">Vérifier</button>
             <span id="result2"></span>
         </form>
@@ -94,12 +97,12 @@
         <span id="result3"></span>
     </div>
 
-    <div class="exercise-section" style="background: #f9f9f9; border: 2px dashed #2e7d32; margin-top: 60px; padding: 20px;">
+    <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
         <h2>Enregistrer les résultats</h2>
         <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
         <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
         <br>
-        <button onclick="downloadCSV()">Télécharger CSV</button>
+        <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
     </div>
 
     <script>
@@ -187,7 +190,7 @@
             ];
 
             // Exercice 1
-            const answers1 = ["rapidement", "heureusement", "facilement", "poliment"];
+            const answers1 = ["rapidement", "heureusement", "facilement", "poliment", "patiemment", "lentement"];
             let score1 = 0;
             data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
 
@@ -198,12 +201,12 @@
                 if (user.toLowerCase().trim() === correct.toLowerCase()) score1++;
                 data.push(["Question " + (index + 1), user, correct]);
             });
-            data.push(["Score Exercice 1", score1 + " / 4"]);
+            data.push(["Score Exercice 1", score1 + " / 6"]);
             data.push([]);
 
             // Exercice 2
             data.push(["Exercice 2: À partir de l'adverbe, écrivez l'adjectif (masculin)"]);
-            const answers2 = ["amoureux", "honnête", "franc", "complet"];
+            const answers2 = ["amoureux", "honnête", "franc", "complet", "doux", "sérieux"];
             let score2 = 0;
             data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
 
@@ -214,7 +217,7 @@
                 if (user.toLowerCase().trim() === correct.toLowerCase()) score2++;
                 data.push(["Question " + (index + 1), user, correct]);
             });
-            data.push(["Score Exercice 2", score2 + " / 4"]);
+            data.push(["Score Exercice 2", score2 + " / 6"]);
             data.push([]);
 
             // Exercice 3
@@ -234,7 +237,7 @@
 
             // Score Total
             const totalPoints = score1 + score2 + score3;
-            const totalMax = 18;
+            const totalMax = 22;
             data.push(["Score total", totalPoints + " / " + totalMax]);
 
             const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
