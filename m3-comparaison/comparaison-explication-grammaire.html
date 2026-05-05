@@ -2,43 +2,123 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Exercices - Subjonctif</title>
+  <title>Explication de Grammaire - Adverbes</title>
   <style>
-    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
-    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
-    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
-    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
-    select { font-size: 1.1rem; }
-    .correct { color: #008000; }
-    .incorrect { color: #ff0000; }
-    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
-    form { width: 100%; }
+  body {
+    font-family: 'Dongle', 'Sansation';
+    padding: 23px;
+    background: #DCE8DB;;
+    color: #111;
+    font-size: 25px;
+  }
 
-    .clickable {
-        cursor: pointer;
-        padding: 2px 4px;
-        border-radius: 4px;
+  /* MAIN CONTAINER */
+  .container {
+    max-width: 900px;
+    margin: auto;
+  }
+
+  /* HEADINGS */
+  h1 {
+    font-size: 38px;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  /* CARDS */
+  .card {
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 18px 20px;
+    margin-bottom: 16px;
+  }
+
+  /* TIP BOX */
+  .tip {
+    background: #f7f7f7;
+    border-left: 4px solid #2e7d32;
+    padding: 12px 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+    font-size: 22px;
+  }
+
+  /* EXAMPLES */
+  .example {
+    background: #f3f8f3;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* LISTS */
+  ul {
+    padding-left: 20px;
+    margin-top: 8px;
+  }
+
+  li {
+    margin-bottom: 6px;
+  }
+
+  /* VERB SECTION */
+  .verbs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 10px;
+  }
+
+  .verb-box {
+    border: 1px solid #e6e6e6;
+    border-radius: 12px;
+    padding: 15px;
+    background: #fff;
+  }
+
+  .verb-box h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+
+  /* HEADER NAV IMPROVEMENT (subtle only) */
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+  }
+
+  .header-nav a {
+    margin-left: 12px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  .header-nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .verbs {
+      grid-template-columns: 1fr;
     }
 
-    .clickable:hover { background: #c8e6c9; }
-
-    .selected {
-        background: #81c784;
-        color: white;
+    .site-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
-
-    .correct-choice {
-        background: #a5d6a7 !important;
-    }
-
-    .wrong {
-        background: #ef9a9a !important;
-    }
-
-    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
-    .nav-buttons { display: flex; gap: 10px; }
-    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
-    .nav-button:hover { background: #c8e6c9; }
+  }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,16 +126,19 @@
   <link href="../css/style.css" rel="stylesheet">
 </head>
 
-<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+<body>
     <header class="site-header">
         <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
         <nav class="header-nav">
           <a class="nav-item" href="../a-propos.html">à propos</a>
           <a class="nav-item" href="../faq.html">F.A.Q</a>
           <a class="nav-item" href="../contact.html">nous contacter</a>
-          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/" target="_blank" rel="noopener noreferrer">Étudier le français à UM</a>          <a class="nav-item nav-divider">|</a>
         </nav>
     </header>
+
+<main>
+<div class="container">
 
 <main>
 <div class="container">
