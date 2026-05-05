@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Passé</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    label { font-size: 1.3rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/" target="_blank" rel="noopener noreferrer">Étudier le français à UM</a>
+        </nav>
+    </header>
+
+  <main class="container">
+    <h1>Exercices : Le comparatif et le superlatif</h1>
+
+    <div class="card">
+      <h2>Exercice 1 : Mettre en ordre les expressions</h2>
+      <p><em>Glissez-déposez les expressions pour les remettre dans l'ordre croissant (du moins intense au plus intense).</em></p>
+      
+      <ul class="drag-list" id="list-courage">
+        <li class="draggable-item" draggable="true" data-correct-order="1"><span class="drag-icon">☰</span> Beaucoup moins courageux</li>
+        <li class="draggable-item" draggable="true" data-correct-order="2"><span class="drag-icon">☰</span> Moins courageux</li>
+        <li class="draggable-item" draggable="true" data-correct-order="3"><span class="drag-icon">☰</span> Aussi courageux</li>
+        <li class="draggable-item" draggable="true" data-correct-order="4"><span class="drag-icon">☰</span> Plus courageux</li>
+        <li class="draggable-item" draggable="true" data-correct-order="5"><span class="drag-icon">☰</span> Beaucoup plus courageux</li>
+      </ul>
+
+      <button class="btn-verify" onclick="checkEx1()">Vérifier l'Exercice 1</button>
+      <div id="score-ex1" class="score-display"></div>
+    </div>
+
+    <div class="card">
+      <h2>Exercice 2 : Créer des comparaisons</h2>
+      <p><em>Complétez les espaces en utilisant les mots qui conviennent selon l'indication (+), (-) ou (=) :</em></p>
+
+      <p style="line-height: 2;">
+        1. Le Louvre a <input type="text" class="text-hole" data-answer="plus de"> tableaux <input type="text" class="text-hole" data-answer="que"> l'Orangerie. <em>(+)</em><br>
+        2. Monet peint <input type="text" class="text-hole" data-answer="plus"> rapidement <input type="text" class="text-hole" data-answer="que"> Renoir. <em>(+)</em><br>
+        3. Une galerie est <input type="text" class="text-hole" data-answer="moins"> grande <input type="text" class="text-hole" data-answer="qu'">un musée. <em>(-)</em><br>
+        4. Les sculptures de Rodin sont <input type="text" class="text-hole" data-answer="aussi"> détaillées <input type="text" class="text-hole" data-answer="que"> celles de Giacometti. <em>(=)</em><br>
+        5. Le musée expose <input type="text" class="text-hole" data-answer="moins"> rarement <input type="text" class="text-hole" data-answer="que"> la collection privée. <em>(-)</em><br>
+        6. Les couleurs de Cézanne sont <input type="text" class="text-hole" data-answer="aussi"> vives <input type="text" class="text-hole" data-answer="que"> celles de Monet. <em>(=)</em>
+      </p>
+
+      <button class="btn-verify" onclick="checkEx2()">Vérifier l'Exercice 2</button>
+      <div id="score-ex2" class="score-display"></div>
+    </div>
+
+    <div class="card" id="final-results" style="display:none;"></div>
+
+    <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+      <h2 style="font-size: 1.5rem; color:#111; border:none; padding:0; margin-bottom: 15px;">Télécharger votre rapport</h2>
+      <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom :</label>
+      <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+      <br>
+      <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
+    </div>
+  </main>
+
+  <script>
+    // --- DRAG AND DROP LOGIC ---
+    const draggables = document.querySelectorAll('.draggable-item');
+    const dragLists = document.querySelectorAll('.drag-list');
+
+    draggables.forEach(draggable => {
+      draggable.addEventListener('dragstart', () => {
+        draggable.classList.add('dragging');
+      });
+
+      draggable.addEventListener('dragend', () => {
+        draggable.classList.remove('dragging');
+      });
+    });
+
+    dragLists.forEach(list => {
+      list.addEventListener('dragover', e => {
+        e.preventDefault();
+        const afterElement = getDragAfterElement(list, e.clientY);
+        const draggable = document.querySelector('.dragging');
+        if (afterElement == null) {
+          list.appendChild(draggable);
+        } else {
+          list.insertBefore(draggable, afterElement);
+        }
+      });
+    });
+
+    function getDragAfterElement(container, y) {
+      const draggableElements = [...container.querySelectorAll('.draggable-item:not(.dragging)')];
+      return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+          return { offset: offset, element: child };
+        } else {
+          return closest;
+        }
+      }, { offset: Number.NEGATIVE_INFINITY }).element;
+    }
+
+    // --- VERIFIER FUNCTIONS ---
+    let globalScoreEx1 = 0;
+    let globalScoreEx2 = 0;
+
+    function checkEx1() {
+      let score = 0;
+      let total = 5; // 5 items in the list
+
+      const checkList = (listId) => {
+        const listItems = document.querySelectorAll(`${listId} .draggable-item`);
+        listItems.forEach((item, index) => {
+          const correctOrder = parseInt(item.getAttribute('data-correct-order'));
+          if (index + 1 === correctOrder) {
+            item.style.borderColor = '#2e7d32'; // Green border
+            item.style.backgroundColor = '#e8f5e9'; // Light green background
+            score++;
+          } else {
+            item.style.borderColor = '#d32f2f'; // Red border
+            item.style.backgroundColor = '#ffebee'; // Light red background
+          }
+        });
+      };
+
+      checkList('#list-courage');
+
+      globalScoreEx1 = score;
+      document.getElementById('score-ex1').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
+    }
+
+    function checkEx2() {
+      let score = 0;
+      const inputs = document.querySelectorAll('.card:nth-of-type(2) .text-hole');
+      const total = inputs.length;
+
+      inputs.forEach(input => {
+        const correctAnswer = input.getAttribute('data-answer').toLowerCase();
+        const userAnswer = input.value.trim().toLowerCase();
+
+        if (userAnswer === correctAnswer) {
+          input.style.borderColor = '#2e7d32'; // Green border
+          input.style.backgroundColor = '#e8f5e9'; // Light green background
+          score++;
+        } else {
+          input.style.borderColor = '#d32f2f'; // Red border
+          input.style.backgroundColor = '#ffebee'; // Light red background
+        }
+      });
+
+      globalScoreEx2 = score;
+      document.getElementById('score-ex2').innerHTML = `<span style="color: ${score === total ? '#2e7d32' : '#d32f2f'}">${score} / ${total}</span>`;
+    }
+
+    // --- CSV EXPORT LOGIC ---
+    function downloadCSV() {
+      // Ensure exercises are checked before downloading
+      checkEx1();
+      checkEx2();
+
+      const studentNameInput = document.getElementById("studentName");
+      const studentName = studentNameInput ? studentNameInput.value.trim() || "Étudiant" : "Étudiant";
+
+      const data = [
+        ["Nom de l'étudiant", studentName],
+        ["Date", new Date().toLocaleString()],
+        [],
+        ["Exercice 1: Mettre en ordre les expressions"]
+      ];
+
+      data.push(["Phrase", "Ordre donné par l'étudiant", "Ordre correct"]);
+
+      function processDragList(listId) {
+        const list = document.querySelector(listId);
+        if (!list) return;
+        
+        const items = list.querySelectorAll('.draggable-item');
+        items.forEach((item, index) => {
+          let userOrder = index + 1;
+          let correctOrder = parseInt(item.getAttribute('data-correct-order'));
+          let phraseText = item.innerText.replace("☰", "").trim(); 
+          
+          data.push([phraseText, userOrder, correctOrder]);
+        });
+      }
+
+      processDragList('#list-courage');
+      data.push(["Score Exercice 1", globalScoreEx1 + " / 5"]);
+      data.push([]);
+
+      data.push(["Exercice 2: Créer des comparaisons"]);
+      data.push(["Position du champ", "Réponse de l'étudiant", "Réponse correcte"]);
+      
+      const inputsEx2 = document.querySelectorAll('.card:nth-of-type(2) .text-hole');
+      const maxScoreEx2 = inputsEx2.length;
+      
+      inputsEx2.forEach((input, index) => {
+        let user = input.value.trim();
+        let correct = input.getAttribute('data-answer');
+        data.push(["Trou n°" + (index + 1), user, correct]);
+      });
+      data.push(["Score Exercice 2", globalScoreEx2 + " / " + maxScoreEx2]);
+      data.push([]);
+
+      const totalPoints = globalScoreEx1 + globalScoreEx2;
+      const totalMax = 5 + maxScoreEx2;
+      data.push(["SCORE TOTAL", totalPoints + " / " + totalMax]);
+
+      const csvContent = "\uFEFF" + data.map(row => 
+        row.map(field => `"${String(field).replace(/"/g, '""')}"`).join(",")
+      ).join("\n");
+
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+
+      const safeName = studentName.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "Rapport_Comparatifs_" + safeName + ".csv";
+      
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      const resultsDiv = document.getElementById("final-results");
+      if (resultsDiv) {
+        resultsDiv.style.display = "block";
+        resultsDiv.innerHTML = `
+          <h3 style="margin-top:0; color:#274820;">Bravo ${studentName} !</h3>
+          <hr style="border: 0; height: 1px; background: #c8d9c6; margin: 15px 0;">
+          <p style="font-size: 30px; color: #2e7d32; margin: 0;">Score Final : ${totalPoints} / ${totalMax}</p>
+          <p style="font-size: 20px; font-weight: normal; color: #555; margin-top: 5px;">Votre rapport a été téléchargé avec tous les détails.</p>
+        `;
+      }
+    }
+  </script>
+</body>
+</html>
