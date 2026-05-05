@@ -34,13 +34,10 @@
           <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
         </nav>
     </header>
-
-
 <main>
       <div class="container">
         <h1>Exercices : Futur Simple et Futur Antérieur</h1>
 
-        <!-- Exercice 1 -->
         <div class="card">
           <h2>1. Exercice - Le Futur Simple</h2>
           <p>Conjuguez les verbes entre parenthèses au futur simple.</p>
@@ -67,7 +64,6 @@
           <h3 id="result1"></h3>
         </div>
 
-        <!-- Exercice 2 -->
         <div class="card">
           <h2>2. Exercice - Le Futur Antérieur</h2>
           <p>Conjuguez les verbes entre parenthèses au futur antérieur.</p>
@@ -94,7 +90,6 @@
           <h3 id="result2"></h3>
         </div>
 
-        <!-- Exercice 3 -->
         <div class="card">
           <h2>3. Exercice - Quelle action est précédente ?</h2>
           <p>Sélectionnez l'action qui se déroule <strong>en premier</strong> (au futur antérieur) dans la phrase.</p>
@@ -154,13 +149,12 @@
           <h3 id="result3"></h3>
         </div>
 
-        <!-- CSV SECTION -->
         <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
           <h2 style="font-size: 1.5rem;">Télécharger votre rapport</h2>
           <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
           <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
           <br>
-          <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
+          <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #4caf50; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
         </div>
       </div>
     </main>
@@ -185,13 +179,14 @@
         if (userValue === "") {
           feedback.textContent = " ⚠ Veuillez remplir le champ";
           feedback.className = "feedback incorrect";
+          input.style.borderColor = "";
         } else if (userValue === correct) {
           score++;
           feedback.textContent = "✔ Correct";
           feedback.className = "feedback correct";
           input.style.borderColor = "green";
         } else {
-          feedback.textContent = "✖ Incorrect";
+          feedback.textContent = "✖ Incorrect. Votre réponse : \"" + input.value.trim() + "\" | Réponse correcte : \"" + answers[key] + "\"";
           feedback.className = "feedback incorrect";
           input.style.borderColor = "red";
         }
@@ -218,13 +213,14 @@
         if (userValue === "") {
           feedback.textContent = " ⚠ Veuillez remplir le champ";
           feedback.className = "feedback incorrect";
+          input.style.borderColor = "";
         } else if (userValue === correct) {
           score++;
           feedback.textContent = "✔ Correct";
           feedback.className = "feedback correct";
           input.style.borderColor = "green";
         } else {
-          feedback.textContent = "✖ Incorrect";
+          feedback.textContent = "✖ Incorrect. Votre réponse : \"" + input.value.trim() + "\" | Réponse correcte : \"" + answers[key] + "\"";
           feedback.className = "feedback incorrect";
           input.style.borderColor = "red";
         }
@@ -258,7 +254,15 @@
           feedback.textContent = "✔ Correct";
           feedback.className = "feedback correct";
         } else {
-          feedback.textContent = "✖ Incorrect";
+          const selectedText = select.options[select.selectedIndex].text;
+          let correctText = "";
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].value === answers[key]) {
+              correctText = select.options[i].text;
+              break;
+            }
+          }
+          feedback.textContent = "✖ Incorrect. Votre réponse : \"" + selectedText + "\" | Réponse correcte : \"" + correctText + "\"";
           feedback.className = "feedback incorrect";
         }
       }
@@ -325,8 +329,7 @@
       }
       data.push([]);
 
-      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("
-");
+      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
