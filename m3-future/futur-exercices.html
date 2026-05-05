@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercices - Subjonctif</title>
+  <style>
+    body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
+    p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
+    label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
+    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    select { font-size: 1.1rem; }
+    .correct { color: #008000; }
+    .incorrect { color: #ff0000; }
+    button { margin-top: 0; padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px; }
+    form { width: 100%; }
+    .form-actions { display: flex; justify-content: flex-start; align-items: center; gap: 10px; margin-top: 20px; width: 100%; }
+    .nav-buttons { display: flex; gap: 10px; }
+    .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
+    .nav-button:hover { background: #c8e6c9; }
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Almendra+Display&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Dongle:wght@300;400;700&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+  <link href="../css/style.css" rel="stylesheet">
+</head>
+
+<body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+    <header class="site-header">
+        <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
+        <nav class="header-nav">
+          <a class="nav-item" href="../a-propos.html">à propos</a>
+          <a class="nav-item" href="../faq.html">F.A.Q</a>
+          <a class="nav-item" href="../contact.html">nous contacter</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+        </nav>
+    </header>
+
+
+<main>
+      <div class="container">
+        <h1>Exercices : Futur Simple et Futur Antérieur</h1>
+
+        <!-- Exercice 1 -->
+        <div class="card">
+          <h2>1. Exercice - Le Futur Simple</h2>
+          <p>Conjuguez les verbes entre parenthèses au futur simple.</p>
+          <form id="exerciseForm1">
+            <label>1. Demain, le musée (ouvrir) <input type="text" id="ex1_q1"> ses portes à 9h pour la nouvelle exposition.
+              <span class="feedback"></span>
+            </label>
+            <label>2. L'artiste (exposer) <input type="text" id="ex1_q2"> ses nouvelles toiles à la galerie.
+              <span class="feedback"></span>
+            </label>
+            <label>3. Nous (visiter) <input type="text" id="ex1_q3"> cet atelier de peinture ce week-end.
+              <span class="feedback"></span>
+            </label>
+            <label>4. Elle (peindre) <input type="text" id="ex1_q4"> un magnifique paysage marin la semaine prochaine.
+              <span class="feedback"></span>
+            </label>
+            <label>5. Les visiteurs (admirer) <input type="text" id="ex1_q5"> la sculpture en bronze dans le hall.
+              <span class="feedback"></span>
+            </label>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx1()">Vérifier</button>
+            </div>
+          </form>
+          <h3 id="result1"></h3>
+        </div>
+
+        <!-- Exercice 2 -->
+        <div class="card">
+          <h2>2. Exercice - Le Futur Antérieur</h2>
+          <p>Conjuguez les verbes entre parenthèses au futur antérieur.</p>
+          <form id="exerciseForm2">
+            <label>1. Dès que l'artiste (terminer) <input type="text" id="ex2_q1"> son croquis, il commencera à peindre.
+              <span class="feedback"></span>
+            </label>
+            <label>2. Quand le critique (voir) <input type="text" id="ex2_q2"> l'exposition, il écrira un article.
+              <span class="feedback"></span>
+            </label>
+            <label>3. Elle vernira le tableau lorsqu'elle (peindre) <input type="text" id="ex2_q3"> le dernier détail.
+              <span class="feedback"></span>
+            </label>
+            <label>4. Aussitôt que nous (choisir) <input type="text" id="ex2_q4"> les cadres, nous les installerons.
+              <span class="feedback"></span>
+            </label>
+            <label>5. Ils (finir) <input type="text" id="ex2_q5"> de restaurer la toile avant la fin du mois.
+              <span class="feedback"></span>
+            </label>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx2()">Vérifier</button>
+            </div>
+          </form>
+          <h3 id="result2"></h3>
+        </div>
+
+        <!-- Exercice 3 -->
+        <div class="card">
+          <h2>3. Exercice - Quelle action est précédente ?</h2>
+          <p>Sélectionnez l'action qui se déroule <strong>en premier</strong> (au futur antérieur) dans la phrase.</p>
+          <form id="exerciseForm3">
+            <label>1. L’artiste peindra en aquarelle lorsqu’il aura terminé ses croquis.
+              <select id="ex3_q1">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="peindra">L’artiste peindra en aquarelle</option>
+                <option value="terminé">Il aura terminé ses croquis</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <label>2. Je visiterai le musée aussitôt que j’aurai acheté le billet en ligne.
+              <select id="ex3_q2">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="visiterai">Je visiterai le musée</option>
+                <option value="acheté">J’aurai acheté le billet en ligne</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <label>3. Nous animerons l’atelier de peinture dès que nous aurons préparé tous les pinceaux et les toiles.
+              <select id="ex3_q3">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="animerons">Nous animerons l’atelier de peinture</option>
+                <option value="préparé">Nous aurons préparé tous les pinceaux et les toiles</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <label>4. Elle présentera son tableau après qu’elle aura terminé de le vernir.
+              <select id="ex3_q4">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="présentera">Elle présentera son tableau</option>
+                <option value="vernir">Elle aura terminé de le vernir</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <label>5. Ils inaugureront la galerie lorsque toutes les œuvres auront été accrochées.
+              <select id="ex3_q5">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="inaugureront">Ils inaugureront la galerie</option>
+                <option value="accrochées">Toutes les œuvres auront été accrochées</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <label>6. Je prendrai des notes sur les sculptures dès que j’aurai fini la visite guidée.
+              <select id="ex3_q6">
+                <option value="">-- Sélectionnez l'action précédente --</option>
+                <option value="prendrai">Je prendrai des notes sur les sculptures</option>
+                <option value="fini">J’aurai fini la visite guidée</option>
+              </select>
+              <span class="feedback"></span>
+            </label>
+            <div class="form-actions">
+              <button type="button" onclick="checkEx3()">Vérifier</button>
+            </div>
+          </form>
+          <h3 id="result3"></h3>
+        </div>
+
+        <!-- CSV SECTION -->
+        <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
+          <h2 style="font-size: 1.5rem;">Télécharger votre rapport</h2>
+          <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
+          <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+          <br>
+          <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
+        </div>
+      </div>
+    </main>
+
+    <script>
+    function checkEx1() {
+      const answers = {
+        ex1_q1: "ouvrira",
+        ex1_q2: "exposera",
+        ex1_q3: "visiterons",
+        ex1_q4: "peindra",
+        ex1_q5: "admireront"
+      };
+
+      let score = 0;
+      for (const key in answers) {
+        const input = document.getElementById(key);
+        const feedback = input.nextElementSibling;
+        const userValue = input.value.trim().toLowerCase();
+        const correct = answers[key].toLowerCase();
+        
+        if (userValue === "") {
+          feedback.textContent = " ⚠ Veuillez remplir le champ";
+          feedback.className = "feedback incorrect";
+        } else if (userValue === correct) {
+          score++;
+          feedback.textContent = "✔ Correct";
+          feedback.className = "feedback correct";
+          input.style.borderColor = "green";
+        } else {
+          feedback.textContent = "✖ Incorrect";
+          feedback.className = "feedback incorrect";
+          input.style.borderColor = "red";
+        }
+      }
+      document.getElementById("result1").innerHTML = "Score : " + score + " / 5";
+    }
+
+    function checkEx2() {
+      const answers = {
+        ex2_q1: "aura terminé",
+        ex2_q2: "aura vu",
+        ex2_q3: "aura peint",
+        ex2_q4: "aurons choisis",
+        ex2_q5: "auront fini"
+      };
+
+      let score = 0;
+      for (const key in answers) {
+        const input = document.getElementById(key);
+        const feedback = input.nextElementSibling;
+        const userValue = input.value.trim().toLowerCase();
+        const correct = answers[key].toLowerCase();
+
+        if (userValue === "") {
+          feedback.textContent = " ⚠ Veuillez remplir le champ";
+          feedback.className = "feedback incorrect";
+        } else if (userValue === correct) {
+          score++;
+          feedback.textContent = "✔ Correct";
+          feedback.className = "feedback correct";
+          input.style.borderColor = "green";
+        } else {
+          feedback.textContent = "✖ Incorrect";
+          feedback.className = "feedback incorrect";
+          input.style.borderColor = "red";
+        }
+      }
+      document.getElementById("result2").innerHTML = "Score : " + score + " / 5";
+    }
+
+    function checkEx3() {
+      const answers = {
+        ex3_q1: "terminé",
+        ex3_q2: "acheté",
+        ex3_q3: "préparé",
+        ex3_q4: "vernir",
+        ex3_q5: "accrochées",
+        ex3_q6: "fini"
+      };
+
+      let score = 0;
+      let total = 6;
+
+      for (const key in answers) {
+        const select = document.getElementById(key);
+        const feedback = select.nextElementSibling;
+        const userValue = select.value;
+
+        if (userValue === "") {
+          feedback.textContent = " ⚠ Sélectionnez une action";
+          feedback.className = "feedback incorrect";
+        } else if (userValue === answers[key]) {
+          score++;
+          feedback.textContent = "✔ Correct";
+          feedback.className = "feedback correct";
+        } else {
+          feedback.textContent = "✖ Incorrect";
+          feedback.className = "feedback incorrect";
+        }
+      }
+      document.getElementById("result3").innerHTML = "Score : " + score + " / " + total;
+    }
+
+    function downloadCSV() {
+      const studentName = document.getElementById("studentName").value || "Étudiant";
+      const data = [
+        ["Nom de l'étudiant", studentName],
+        ["Date", new Date().toLocaleString()],
+        [],
+        ["Exercice 1: Le Futur Simple"]
+      ];
+
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const ans1 = {
+        1: "ouvrira",
+        2: "exposera",
+        3: "visiterons",
+        4: "peindra",
+        5: "admireront"
+      };
+
+      for (let i = 1; i <= 5; i++) {
+        let user = document.getElementById("ex1_q" + i).value || "";
+        data.push(["Question " + i, user, ans1[i]]);
+      }
+      data.push([]);
+
+      data.push(["Exercice 2: Le Futur Antérieur"]);
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const ans2 = {
+        1: "aura terminé",
+        2: "aura vu",
+        3: "aura peint",
+        4: "aurons choisis",
+        5: "auront fini"
+      };
+
+      for (let i = 1; i <= 5; i++) {
+        let user = document.getElementById("ex2_q" + i).value || "";
+        data.push(["Question " + i, user, ans2[i]]);
+      }
+      data.push([]);
+
+      data.push(["Exercice 3: Quelle action est précédente ?"]);
+      data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+
+      const ans3 = {
+        1: "terminé",
+        2: "acheté",
+        3: "préparé",
+        4: "vernir",
+        5: "accrochées",
+        6: "fini"
+      };
+
+      for (let i = 1; i <= 6; i++) {
+        let user = document.getElementById("ex3_q" + i).value || "";
+        data.push(["Question " + i, user, ans3[i]]);
+      }
+      data.push([]);
+
+      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("
+");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "futur_exercises_" + studentName + ".csv";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+    </script>
+</body>
+</html>
