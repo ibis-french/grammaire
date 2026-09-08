@@ -36,35 +36,32 @@
     }
 
 /* Character Map Toolbar Styling */
-    .char-toolbar {
-        position: sticky;
-        top: 10px;
-        z-index: 1000;
-        background: #f1f8e9;
-        padding: 10px;
-        border: 1px solid #a5d6a7;
-        border-radius: 8px;
-        display: flex;
-        gap: 6px;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-bottom: 20px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-    }
+   .char-toolbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;      /* Prevents buttons from wrapping to a second line */
+    gap: 6px;               /* Space between buttons */
+    align-items: center;
+    overflow-x: auto;       /* Adds a smooth horizontal scrollbar if the screen is too narrow */
+    padding: 8px;
+    margin-bottom: 20px;
+}
 
-    .char-btn {
-        padding: 4px 12px;
-        font-size: 1.2rem;
-        background: #ffffff;
-        color: #2e7d32;
-        border: 1px solid #81c784;
-        border-radius: 4px;
-        cursor: pointer;
-    }
+.char-btn {
+    flex-shrink: 0;         /* Prevents buttons from shrinking or squishing */
+    padding: 6px 12px;
+    font-size: 1.2rem;
+    background: #ffffff;
+    color: #2e7d32;
+    border: 1px solid #81c784;
+    border-radius: 4px;
+    cursor: pointer;
+    width: auto;
+}
 
-    .char-btn:hover {
-        background: #c8e6c9;
-    }
+.char-btn:hover {
+    background: #c8e6c9;
+}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
