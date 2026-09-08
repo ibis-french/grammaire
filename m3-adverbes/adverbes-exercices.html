@@ -36,32 +36,40 @@
     }
 
 /* Character Map Toolbar Styling */
-   .char-toolbar {
+  .char-toolbar {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;      /* Prevents buttons from wrapping to a second line */
-    gap: 6px;               /* Space between buttons */
+    flex-wrap: nowrap;
+    justify-content: flex-start; /* Groups all buttons together from the left */
     align-items: center;
-    overflow-x: auto;       /* Adds a smooth horizontal scrollbar if the screen is too narrow */
+    gap: 6px;                   /* Tight spacing between buttons */
+    width: fit-content;         /* Restricts container width to fit only the buttons */
+    max-width: 100%;            /* Prevents container from overflowing the screen */
+    overflow-x: auto;           /* Adds horizontal scroll if viewed on mobile */
     padding: 8px;
     margin-bottom: 20px;
 }
 
 .char-btn {
-    flex-shrink: 0;         /* Prevents buttons from shrinking or squishing */
-    padding: 6px 12px;
+    flex: 0 0 auto;             /* Prevents buttons from growing or shrinking */
+    width: 38px;                /* Uniform button width */
+    height: 38px;               /* Uniform button height */
+    padding: 0;
     font-size: 1.2rem;
     background: #ffffff;
     color: #2e7d32;
     border: 1px solid #81c784;
     border-radius: 4px;
     cursor: pointer;
-    width: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .char-btn:hover {
     background: #c8e6c9;
 }
+
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
