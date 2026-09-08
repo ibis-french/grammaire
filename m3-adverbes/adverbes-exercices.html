@@ -43,51 +43,152 @@
 </head>
 
 <style>
-/* Character Map Toolbar Styling */
+/* ==============================
+   FLOATING CHARACTER MAP
+   ============================== */
+
 .char-toolbar {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 20px;
-    width: 100%;
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    z-index: 9999 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    background: #ffffff !important;
+    padding: 10px 16px !important;
+
+    border-radius: 30px !important;
+    border: 2px solid #81c784 !important;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+
+    animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
+
+/* Character buttons */
 .char-btn {
-    display: inline-flex;
-    position: static;
-    flex: 0 0 auto;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    min-width: 40px;
-    padding: 6px 14px;
-    font-size: 1.2rem;
-    background: #ffffff;
-    color: #2e7d32;
-    border: 1px solid #81c784;
-    border-radius: 4px;
-    cursor: pointer;
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 36px !important;
+
+    width: 36px !important;
+    height: 36px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #f1f8e9 !important;
+    color: #2e7d32 !important;
+
+    border: 1px solid #81c784 !important;
+    border-radius: 50% !important;
+
+    font-family: inherit !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    cursor: pointer !important;
+
+    box-sizing: border-box !important;
+
+    transition: background 0.15s ease,
+                transform 0.15s ease !important;
 }
 
+
+/* Hover */
 .char-btn:hover {
-    background: #c8e6c9;
+    background: #c8e6c9 !important;
+    transform: translateY(-2px) !important;
 }
 
-  @keyframes floatIn {
-    0% {
+
+/* Click */
+.char-btn:active {
+    transform: translateY(0) !important;
+}
+
+
+/* Floating entrance animation */
+@keyframes floatIn {
+    from {
         opacity: 0;
-        transform: translate(-50%, 50px); /* Starts hidden 50px below position */
+        transform: translate(-50%, 50px);
     }
-    100% {
+
+    to {
         opacity: 1;
-        transform: translate(-50%, 0);    /* Floats up smoothly into view */
+        transform: translate(-50%, 0);
     }
 }
-  
+
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 600px) {
+
+    .char-toolbar {
+        bottom: 12px !important;
+        gap: 4px !important;
+        padding: 8px 10px !important;
+
+        max-width: calc(100vw - 20px) !important;
+        overflow-x: auto !important;
+    }
+
+    .char-btn {
+        flex: 0 0 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+
+        font-size: 1rem !important;
+    }
+}
 </style>
+
+
+<!-- ==============================
+     FLOATING CHARACTER MAP
+     ============================== -->
+
+<div class="char-toolbar">
+
+    <button type="button" class="char-btn">é</button>
+    <button type="button" class="char-btn">è</button>
+    <button type="button" class="char-btn">ê</button>
+    <button type="button" class="char-btn">ë</button>
+
+    <button type="button" class="char-btn">à</button>
+    <button type="button" class="char-btn">â</button>
+
+    <button type="button" class="char-btn">ù</button>
+    <button type="button" class="char-btn">û</button>
+
+    <button type="button" class="char-btn">ô</button>
+
+    <button type="button" class="char-btn">î</button>
+    <button type="button" class="char-btn">ï</button>
+
+    <button type="button" class="char-btn">ç</button>
+
+</div>
   
 <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
     <header class="site-header">
@@ -101,40 +202,6 @@
     </header>
 
     <h1>Exercices : Les Adverbes</h1>
-
-    <!-- Floating Character Map Toolbar -->
-<!-- Floating Animated Character Bar -->
-<div style="
-    position: fixed !important;
-    bottom: 20px !important;
-    left: 50% !important;
-    z-index: 9999 !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 6px !important;
-    background: #ffffff !important;
-    padding: 10px 16px !important;
-    border-radius: 30px !important;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
-    border: 2px solid #81c784 !important;
-    animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
-">
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">é</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">è</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ê</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ë</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">à</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">â</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ù</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">û</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ô</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">î</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ï</button>
-    <button type="button" class="char-btn" style="all: unset; display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: #f1f8e9; color: #2e7d32; border: 1px solid #81c784; border-radius: 50%; font-size: 1.2rem; cursor: pointer; box-sizing: border-box; font-weight: 600;">ç</button>
-</div>
 
     <div class="exercise-section">
         <h2>Exercice 1 : À partir de l'adjectif, écrivez l'adverbe</h2>
