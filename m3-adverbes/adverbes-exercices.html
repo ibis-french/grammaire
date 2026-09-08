@@ -87,19 +87,19 @@
 
     <!-- Floating Character Map Toolbar -->
     <div class="char-toolbar">
-        <button type="button" class="char-btn">é</button>
-        <button type="button" class="char-btn">è</button>
-        <button type="button" class="char-btn">ê</button>
-        <button type="button" class="char-btn">ë</button>
-        <button type="button" class="char-btn">à</button>
-        <button type="button" class="char-btn">â</button>
-        <button type="button" class="char-btn">ù</button>
-        <button type="button" class="char-btn">û</button>
-        <button type="button" class="char-btn">ô</button>
-        <button type="button" class="char-btn">î</button>
-        <button type="button" class="char-btn">ï</button>
-        <button type="button" class="char-btn">ç</button>
-    </div>
+    <button type="button" class="char-btn">é</button>
+    <button type="button" class="char-btn">è</button>
+    <button type="button" class="char-btn">ê</button>
+    <button type="button" class="char-btn">ë</button>
+    <button type="button" class="char-btn">à</button>
+    <button type="button" class="char-btn">â</button>
+    <button type="button" class="char-btn">ù</button>
+    <button type="button" class="char-btn">û</button>
+    <button type="button" class="char-btn">ô</button>
+    <button type="button" class="char-btn">î</button>
+    <button type="button" class="char-btn">ï</button>
+    <button type="button" class="char-btn">ç</button>
+</div>
 
     <div class="exercise-section">
         <h2>Exercice 1 : À partir de l'adjectif, écrivez l'adverbe</h2>
@@ -149,153 +149,182 @@
     </div>
 
     <script>
-        const fullText = "Le marché de l'art se transforme rapidement, mais il reste souvent difficile à comprendre. Les galeries exposent des œuvres fréquemment et les collectionneurs se déplacent partout. Ils analysent les tableaux précisément et réagissent émotionnellement. Les critiques jugent attentivement et influencent le prix. Les enchères se déroulent vite et les objets se vendent extrêmement cher. Heureusement, certaines galeries organisent des ventes. Les visiteurs regardent les couleurs longuement ou brièvement. Ils discutent calmement dans les salles. Les sculptures sont présentées rarement mais soigneusement.";
+    // Tracks the last input field touched by the student
+    let lastFocusedInput = document.querySelector('input');
+
+    document.addEventListener('focusin', (e) => {
+        if (e.target.tagName === 'INPUT') {
+            lastFocusedInput = e.target;
+        }
+    });
+
+    document.querySelectorAll('.char-btn').forEach(button => {
+        button.addEventListener('mousedown', (e) => {
+            e.preventDefault(); // Prevents input from losing focus on click
+            
+            // Target the active input or fall back to the last focused one
+            const target = (document.activeElement && document.activeElement.tagName === 'INPUT') 
+                ? document.activeElement 
+                : lastFocusedInput;
+
+            if (target) {
+                const char = button.textContent;
+                const start = target.selectionStart ?? target.value.length;
+                const end = target.selectionEnd ?? target.value.length;
+
+                // Programmatically insert character at cursor position
+                target.setRangeText(char, start, end, 'end');
+                target.focus();
+            }
+        });
+    });
+
+    const fullText = "Le marché de l'art se transforme rapidement, mais il reste souvent difficile à comprendre. Les galeries exposent des œuvres fréquemment et les collectionneurs se déplacent partout. Ils analysent les tableaux précisément et réagissent émotionnellement. Les critiques jugent attentivement et influencent le prix. Les enchères se déroulent vite et les objets se vendent extrêmement cher. Heureusement, certaines galeries organisent des ventes. Les visiteurs regardent les couleurs longuement ou brièvement. Ils discutent calmement dans les salles. Les sculptures sont présentées rarement mais soigneusement.";
+    
+    const adverbAnswers = [
+        "rapidement", "souvent", "fréquemment", "partout", "précisément", 
+        "émotionnellement", "attentivement", "vite", "extrêmement", 
+        "heureusement", "longuement", "brièvement", "calmement", 
+        "rarement", "soigneusement"
+    ];
+
+    let selectedWordsElements = [];
+
+    const textZone = document.getElementById('textZone');
+    fullText.split(' ').forEach(wordStr => {
+        const span = document.createElement('span');
+        span.className = 'word';
+        span.textContent = wordStr;
         
-        const adverbAnswers = [
-            "rapidement", "souvent", "fréquemment", "partout", "précisément", 
-            "émotionnellement", "attentivement", "vite", "extrêmement", 
-            "heureusement", "longuement", "brièvement", "calmement", 
-            "rarement", "soigneusement"
+        const cleanWord = wordStr.toLowerCase().replace(/[.,]/g, "");
+        span.dataset.clean = cleanWord;
+
+        span.onclick = () => {
+            if (span.classList.contains('selected')) {
+                span.classList.remove('selected', 'wrong', 'correct-choice');
+                selectedWordsElements = selectedWordsElements.filter(el => el !== span);
+            } else if (selectedWordsElements.length < 10) {
+                span.classList.add('selected');
+                selectedWordsElements.push(span);
+            }
+            updateCounter();
+        };
+
+        textZone.appendChild(span);
+        textZone.appendChild(document.createTextNode(' '));
+    });
+
+    function updateCounter() {
+        document.getElementById("counter").textContent = "Mots sélectionnés : " + selectedWordsElements.length + " / 10";
+    }
+
+    function validateInputs(formId, resultId) {
+        let score = 0;
+        const inputs = document.querySelectorAll(`#${formId} input`);
+        inputs.forEach(input => {
+            const correct = input.dataset.answer;
+            const user = input.value.trim().toLowerCase();
+            const fb = input.nextElementSibling;
+            if (user === correct) {
+                score++;
+                fb.textContent = "✔";
+                fb.className = "feedback correct";
+                input.style.borderColor = "#4caf50";
+            } else {
+                fb.textContent = "✖";
+                fb.className = "feedback incorrect";
+                input.style.borderColor = "#f44336";
+            }
+        });
+        document.getElementById(resultId).textContent = "Score: " + score + " / " + inputs.length;
+    }
+
+    function checkAdverbs() {
+        let score = 0;
+        selectedWordsElements.forEach(wordEl => {
+            if (adverbAnswers.includes(wordEl.dataset.clean)) {
+                wordEl.classList.add("correct-choice");
+                score++;
+            } else {
+                wordEl.classList.add("wrong");
+            }
+        });
+        document.getElementById("result3").textContent = "Score: " + score + " / 10";
+    }
+
+    function downloadCSV() {
+        const studentName = document.getElementById("studentName").value || "Étudiant";
+
+        const data = [
+            ["Nom de l'étudiant", studentName],
+            ["Date", new Date().toLocaleString()],
+            [],
+            ["Exercice 1: À partir de l'adjectif, écrivez l'adverbe"]
         ];
 
-        let selectedWordsElements = [];
+        // Exercice 1
+        const answers1 = ["rapidement", "heureusement", "facilement", "poliment", "patiemment", "lentement"];
+        let score1 = 0;
+        data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
 
-        const textZone = document.getElementById('textZone');
-        fullText.split(' ').forEach(wordStr => {
-            const span = document.createElement('span');
-            span.className = 'word';
-            span.textContent = wordStr;
-            
-            const cleanWord = wordStr.toLowerCase().replace(/[.,]/g, "");
-            span.dataset.clean = cleanWord;
-
-            span.onclick = () => {
-                if (span.classList.contains('selected')) {
-                    span.classList.remove('selected', 'wrong', 'correct-choice');
-                    selectedWordsElements = selectedWordsElements.filter(el => el !== span);
-                } else if (selectedWordsElements.length < 10) {
-                    span.classList.add('selected');
-                    selectedWordsElements.push(span);
-                }
-                updateCounter();
-            };
-
-            textZone.appendChild(span);
-            textZone.appendChild(document.createTextNode(' '));
+        const inputs1 = document.querySelectorAll('#exerciseForm1 input');
+        inputs1.forEach((input, index) => {
+            let user = input.value || "";
+            let correct = answers1[index];
+            if (user.toLowerCase().trim() === correct.toLowerCase()) score1++;
+            data.push(["Question " + (index + 1), user, correct]);
         });
+        data.push(["Score Exercice 1", score1 + " / 6"]);
+        data.push([]);
 
-        function updateCounter() {
-            document.getElementById("counter").textContent = "Mots sélectionnés : " + selectedWordsElements.length + " / 10";
-        }
+        // Exercice 2
+        data.push(["Exercice 2: À partir de l'adverbe, écrivez l'adjectif (masculin)"]);
+        const answers2 = ["amoureux", "honnête", "franc", "complet", "doux", "sérieux"];
+        let score2 = 0;
+        data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
 
-        function validateInputs(formId, resultId) {
-            let score = 0;
-            const inputs = document.querySelectorAll(`#${formId} input`);
-            inputs.forEach(input => {
-                const correct = input.dataset.answer;
-                const user = input.value.trim().toLowerCase();
-                const fb = input.nextElementSibling;
-                if (user === correct) {
-                    score++;
-                    fb.textContent = "✔";
-                    fb.className = "feedback correct";
-                    input.style.borderColor = "#4caf50";
-                } else {
-                    fb.textContent = "✖";
-                    fb.className = "feedback incorrect";
-                    input.style.borderColor = "#f44336";
-                }
-            });
-            document.getElementById(resultId).textContent = "Score: " + score + " / " + inputs.length;
-        }
+        const inputs2 = document.querySelectorAll('#exerciseForm2 input');
+        inputs2.forEach((input, index) => {
+            let user = input.value || "";
+            let correct = answers2[index];
+            if (user.toLowerCase().trim() === correct.toLowerCase()) score2++;
+            data.push(["Question " + (index + 1), user, correct]);
+        });
+        data.push(["Score Exercice 2", score2 + " / 6"]);
+        data.push([]);
 
-        function checkAdverbs() {
-            let score = 0;
-            selectedWordsElements.forEach(wordEl => {
-                if (adverbAnswers.includes(wordEl.dataset.clean)) {
-                    wordEl.classList.add("correct-choice");
-                    score++;
-                } else {
-                    wordEl.classList.add("wrong");
-                }
-            });
-            document.getElementById("result3").textContent = "Score: " + score + " / 10";
-        }
+        // Exercice 3
+        data.push(["Exercice 3: Identification textuelle"]);
+        data.push(["Mots sélectionnés", "Statut"]);
 
-        function downloadCSV() {
-            const studentName = document.getElementById("studentName").value || "Étudiant";
+        let score3 = 0;
+        selectedWordsElements.forEach((wordEl) => {
+            let userWord = wordEl.textContent;
+            let isCorrect = adverbAnswers.includes(wordEl.dataset.clean);
+            let status = isCorrect ? "Correct" : "Incorrect";
+            if (isCorrect) score3++;
+            data.push([userWord, status]);
+        });
+        data.push(["Score Exercice 3", score3 + " / 10"]);
+        data.push([]);
 
-            const data = [
-                ["Nom de l'étudiant", studentName],
-                ["Date", new Date().toLocaleString()],
-                [],
-                ["Exercice 1: À partir de l'adjectif, écrivez l'adverbe"]
-            ];
+        // Score Total
+        const totalPoints = score1 + score2 + score3;
+        const totalMax = 22;
+        data.push(["Score total", totalPoints + " / " + totalMax]);
 
-            // Exercice 1
-            const answers1 = ["rapidement", "heureusement", "facilement", "poliment", "patiemment", "lentement"];
-            let score1 = 0;
-            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
+        const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
 
-            const inputs1 = document.querySelectorAll('#exerciseForm1 input');
-            inputs1.forEach((input, index) => {
-                let user = input.value || "";
-                let correct = answers1[index];
-                if (user.toLowerCase().trim() === correct.toLowerCase()) score1++;
-                data.push(["Question " + (index + 1), user, correct]);
-            });
-            data.push(["Score Exercice 1", score1 + " / 6"]);
-            data.push([]);
+        const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
 
-            // Exercice 2
-            data.push(["Exercice 2: À partir de l'adverbe, écrivez l'adjectif (masculin)"]);
-            const answers2 = ["amoureux", "honnête", "franc", "complet", "doux", "sérieux"];
-            let score2 = 0;
-            data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
-
-            const inputs2 = document.querySelectorAll('#exerciseForm2 input');
-            inputs2.forEach((input, index) => {
-                let user = input.value || "";
-                let correct = answers2[index];
-                if (user.toLowerCase().trim() === correct.toLowerCase()) score2++;
-                data.push(["Question " + (index + 1), user, correct]);
-            });
-            data.push(["Score Exercice 2", score2 + " / 6"]);
-            data.push([]);
-
-            // Exercice 3
-            data.push(["Exercice 3: Identification textuelle"]);
-            data.push(["Mots sélectionnés", "Statut"]);
-
-            let score3 = 0;
-            selectedWordsElements.forEach((wordEl) => {
-                let userWord = wordEl.textContent;
-                let isCorrect = adverbAnswers.includes(wordEl.dataset.clean);
-                let status = isCorrect ? "Correct" : "Incorrect";
-                if (isCorrect) score3++;
-                data.push([userWord, status]);
-            });
-            data.push(["Score Exercice 3", score3 + " / 10"]);
-            data.push([]);
-
-            // Score Total
-            const totalPoints = score1 + score2 + score3;
-            const totalMax = 22;
-            data.push(["Score total", totalPoints + " / " + totalMax]);
-
-            const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
-
-            const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "resultats_" + studentName.replace(/\s+/g, '_') + ".csv";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
-    </script>
-</body>
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "resultats_" + studentName.replace(/\s+/g, '_') + ".csv";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+</script>
 </html>
