@@ -145,13 +145,11 @@
 }
 </style>
 
-
 <!-- ==============================
      FLOATING CHARACTER MAP
      ============================== -->
 
 <div class="char-toolbar">
-
     <button type="button" class="char-btn">é</button>
     <button type="button" class="char-btn">è</button>
     <button type="button" class="char-btn">ê</button>
@@ -169,9 +167,8 @@
     <button type="button" class="char-btn">ï</button>
 
     <button type="button" class="char-btn">ç</button>
-
 </div>
-  
+
 <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
     <header class="site-header">
         <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
@@ -224,74 +221,53 @@
     <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
       <h2 style="font-size: 1.5rem; color:#111; border:none; padding:0; margin-bottom: 15px;">Télécharger votre rapport</h2>
       <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom :</label>
-      <input id="studentName" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
+      <input id="studentName" type="text" placeholder="Entrez votre nom" style="margin-bottom:15px; padding:8px; font-size: 1.1rem; width: 250px;">
       <br>
       <button type="button" onclick="downloadCSV()" class="btn-verify" style="margin-top: 0;">Télécharger</button>
     </div>
   </main>
 
-// --- SPECIAL CHARACTER MAP LOGIC ---
+  <script>
+    // --- SPECIAL CHARACTER MAP LOGIC ---
+    let activeInput = null;
 
-let activeInput = null;
-let cursorPosition = 0;
-
-// Remember the last question field that was active
-document.querySelectorAll('input[type="text"]').forEach(input => {
-
-    input.addEventListener('focus', function () {
-        activeInput = this;
-        cursorPosition = this.selectionStart;
+    // Listen for focus on any text input across the document
+    document.addEventListener('focusin', function (e) {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+        activeInput = e.target;
+      }
     });
 
-    input.addEventListener('click', function () {
-        activeInput = this;
-        cursorPosition = this.selectionStart;
-    });
-
-    input.addEventListener('keyup', function () {
-        activeInput = this;
-        cursorPosition = this.selectionStart;
-    });
-});
-
-// Insert special character into the active field
-document.querySelectorAll('.char-btn').forEach(button => {
-
-    // Prevent the button from stealing focus from the input
-    button.addEventListener('mousedown', function (e) {
+    // Handle character button clicks
+    document.querySelectorAll('.char-btn').forEach(button => {
+      // Prevent button from stealing focus from input box
+      button.addEventListener('mousedown', function (e) {
         e.preventDefault();
-    });
+      });
 
-    button.addEventListener('click', function () {
+      button.addEventListener('click', function () {
+        if (!activeInput) return;
 
-        if (!activeInput) {
-            return;
-        }
+        const character = this.textContent.trim();
+        const start = activeInput.selectionStart ?? activeInput.value.length;
+        const end = activeInput.selectionEnd ?? activeInput.value.length;
 
-        const character = this.textContent;
-        const start = activeInput.selectionStart;
-        const end = activeInput.selectionEnd;
+        // Insert character at current cursor position
+        activeInput.value = 
+          activeInput.value.substring(0, start) + 
+          character + 
+          activeInput.value.substring(end);
 
-        // Insert character at cursor position
-        activeInput.value =
-            activeInput.value.substring(0, start) +
-            character +
-            activeInput.value.substring(end);
-
-        // Put cursor immediately after inserted character
+        // Advance cursor after character
         const newPosition = start + character.length;
-
         activeInput.focus();
         activeInput.setSelectionRange(newPosition, newPosition);
 
-        cursorPosition = newPosition;
-
-        // Trigger input event in case other code depends on it
+        // Fire input event for any event listeners attached to inputs
         activeInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
     });
-});
-  
-  <script>
+
     // --- DRAG AND DROP LOGIC ---
     const draggables = document.querySelectorAll('.draggable-item');
     const dragLists = document.querySelectorAll('.drag-list');
