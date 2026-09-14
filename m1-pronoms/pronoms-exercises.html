@@ -17,6 +17,119 @@
     .nav-buttons { display: flex; gap: 10px; }
     .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
     .nav-button:hover { background: #c8e6c9; }
+
+/* ==============================
+   FLOATING CHARACTER MAP
+   ============================== */
+
+.char-toolbar {
+    position: fixed !important;
+    bottom: 20px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+
+    z-index: 9999 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+
+    gap: 6px !important;
+
+    background: #ffffff !important;
+    padding: 10px 16px !important;
+
+    border-radius: 30px !important;
+    border: 2px solid #81c784 !important;
+
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+
+    animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* Character buttons */
+.char-btn {
+    display: inline-flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    flex: 0 0 36px !important;
+
+    width: 36px !important;
+    height: 36px !important;
+
+    padding: 0 !important;
+    margin: 0 !important;
+
+    background: #f1f8e9 !important;
+    color: #2e7d32 !important;
+
+    border: 1px solid #81c784 !important;
+    border-radius: 50% !important;
+
+    font-family: inherit !important;
+    font-size: 1.2rem !important;
+    font-weight: 600 !important;
+
+    line-height: 1 !important;
+
+    cursor: pointer !important;
+
+    box-sizing: border-box !important;
+
+    transition: background 0.15s ease,
+                transform 0.15s ease !important;
+}
+
+/* Hover */
+.char-btn:hover {
+    background: #c8e6c9 !important;
+    transform: translateY(-2px) !important;
+}
+
+/* Click */
+.char-btn:active {
+    transform: translateY(0) !important;
+}
+
+/* Floating entrance animation */
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+/* ==============================
+   MOBILE
+   ============================== */
+
+@media (max-width: 600px) {
+    .char-toolbar {
+        bottom: 12px !important;
+        gap: 4px !important;
+        padding: 8px 10px !important;
+
+        max-width: calc(100vw - 20px) !important;
+        overflow-x: auto !important;
+    }
+
+    .char-btn {
+        flex: 0 0 32px !important;
+        width: 32px !important;
+        height: 32px !important;
+
+        font-size: 1rem !important;
+    }
+}
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,6 +138,30 @@
 </head>
 
 <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+
+    <!-- ==============================
+         FLOATING CHARACTER MAP
+         ============================== -->
+    <div class="char-toolbar">
+        <button type="button" class="char-btn">é</button>
+        <button type="button" class="char-btn">è</button>
+        <button type="button" class="char-btn">ê</button>
+        <button type="button" class="char-btn">ë</button>
+
+        <button type="button" class="char-btn">à</button>
+        <button type="button" class="char-btn">â</button>
+
+        <button type="button" class="char-btn">ù</button>
+        <button type="button" class="char-btn">û</button>
+
+        <button type="button" class="char-btn">ô</button>
+
+        <button type="button" class="char-btn">î</button>
+        <button type="button" class="char-btn">ï</button>
+
+        <button type="button" class="char-btn">ç</button>
+    </div>
+
     <header class="site-header">
         <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
         <nav class="header-nav">
@@ -174,7 +311,7 @@
 
             <p>Dans la cuisine française, il existe des plats traditionnels qui ont traversé les siècles. Par exemple, la <strong>ratatouille provençale</strong> ? Tout le monde
             <input type="text" id="q1"> adore. On <input type="text" id="q2"> prépare souvent pendant l'été, quand les légumes sont de saison.</p>
-            
+
             <p>Il ne faut pas oublier les <strong>épices</strong>, bien sûr. Les chefs expérimentés <input type="text" id="q3"> utilisent avec parcimonie pour ne pas masquer le goût des légumes.
             Quand un apprenti arrive en cuisine, le chef <input type="text" id="q4"> apprend les bases de la découpe. Ensuite, quand il maîtrise bien les techniques, le chef <input type="text" id="q5"> 
             enseigne des recettes plus complexes. Les apprenti doivent écouter les chefs, <input type="text" id="q6"> respecter et <input type="text" id="q7"> parler s'il y a des soucis dans la cuisine.</p>
@@ -189,6 +326,7 @@
 
             <div class="form-actions">
                 <button type="button" onclick="checkAnswers2()">Vérifier</button>
+            </div>
             </form>
 
             <h3 id="result2"></h3>
@@ -247,19 +385,19 @@
             <h1>Exercise 3: Remplir les blancs avec des <em>doubles</em> pronoms.</h1>
             <h2>Récrivez la phrase en utilisant les pronoms appropriés dans le correct ordre.</h2>
 
-            <form id ="exercise3Form">
+            <form id="exercise3Form">
                 <p>1. <em>Le chef sert la soupe aux invités.</em> <br> Le chef <input type="text" id="q1a"> <input type="text" id="q1b"> sert.</p>
 
                 <p>2. <em>Les apprentis préparent des sauces pour leurs clients.</em> <br> Les apprentis <input type="text" id="q2a"> <input type="text" id="q2b"> préparent.</p>
-                
+
                 <p>3. <em>Les chefs présentent plusieurs plats dans le restaurant.</em> <br> Les chefs <input type="text" id="q3a"> <input type="text" id="q3b"> présentent.</p>
-                
+
                 <p>4. <em>Le critique explique le concept de la Nouvelle Cuisine aux jeunes chefs.</em> <br> Le critique <input type="text" id="q4a"> <input type="text" id="q4b"> explique.</p>
 
                 <p>5. <em>Le chef parle de sa recette aux apprentis.</em> <br> Le chef <input type="text" id="q5a"> <input type="text" id="q5b"> parle.</p>
 
                 <p>6. <em>Le serveur amène le plat dans la salle.</em> <br> Le serveur <input type="text" id="q6a"><small>[apostrophe]</small><input type="text" id="q6b"> amène.</p>
-            
+
                 <div class="form-actions">
                     <button type="button" onclick="checkAnswers3()">Vérifier</button>
                     <a href="pronoms-explication-grammaire.html" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px 12px 36px; background: #274820; color: #fff; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 1.2rem;">voir l'explication grammaticale</a>
@@ -308,8 +446,43 @@
             <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
         </div>
     </main>
-<!-- ----------CSV DOWNLOAD SCRIPT---------- -->
-    <script>
+
+<script>
+    // --- SPECIAL CHARACTER MAP LOGIC ---
+    let activeInput = null;
+
+    document.addEventListener('focusin', function (e) {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+        activeInput = e.target;
+      }
+    });
+
+    document.querySelectorAll('.char-btn').forEach(button => {
+      button.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+      });
+
+      button.addEventListener('click', function () {
+        if (!activeInput) return;
+
+        const character = this.textContent.trim();
+        const start = activeInput.selectionStart ?? activeInput.value.length;
+        const end = activeInput.selectionEnd ?? activeInput.value.length;
+
+        activeInput.value = 
+          activeInput.value.substring(0, start) + 
+          character + 
+          activeInput.value.substring(end);
+
+        const newPosition = start + character.length;
+        activeInput.focus();
+        activeInput.setSelectionRange(newPosition, newPosition);
+
+        activeInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
+    // --- CSV DOWNLOAD SCRIPT ---
     function downloadCSV() {
       const studentName = document.getElementById("studentName").value || "Étudiant";
 
@@ -390,17 +563,19 @@
       const totalMax = 7 + 15 + 12;
       data.push(["Score total", totalPoints + " / " + totalMax]);
 
-      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+      const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "pronoms_exercises_" + studentName + ".csv";
+      a.download = "pronoms_exercises_" + studentName.replace(/\s+/g, '_') + ".csv";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
-    </script>
+</script>
+</body>
+</html>
