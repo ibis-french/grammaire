@@ -7,7 +7,7 @@
     body { font-family: 'Dongle', 'Sansation'; padding: 20px; }
     p { margin-bottom: 18px; line-height: 1.6; font-size: 1.5rem;}
     label { display: block; margin-bottom: 15px; padding: 10px 0; font-size: 1.3rem; }
-    input { width: 120px; margin: 0 5px; font-size: 1.1rem; }
+    input { width: 140px; margin: 0 5px; font-size: 1.1rem; }
     select { font-size: 1.1rem; }
     .correct { color: #008000; }
     .incorrect { color: #ff0000; }
@@ -17,6 +17,88 @@
     .nav-buttons { display: flex; gap: 10px; }
     .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
     .nav-button:hover { background: #c8e6c9; }
+
+    /* ==============================
+       FLOATING CHARACTER MAP
+       ============================== */
+    .char-toolbar {
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important;
+        background: #ffffff !important;
+        padding: 10px 16px !important;
+        border-radius: 30px !important;
+        border: 2px solid #81c784 !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+        animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    }
+
+    .char-btn {
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #f1f8e9 !important;
+        color: #2e7d32 !important;
+        border: 1px solid #81c784 !important;
+        border-radius: 50% !important;
+        font-family: inherit !important;
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+        transition: background 0.15s ease, transform 0.15s ease !important;
+    }
+
+    .char-btn:hover {
+        background: #c8e6c9 !important;
+        transform: translateY(-2px) !important;
+    }
+
+    .char-btn:active {
+        transform: translateY(0) !important;
+    }
+
+    @keyframes floatIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 50px);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .char-toolbar {
+            bottom: 12px !important;
+            gap: 4px !important;
+            padding: 8px 10px !important;
+            max-width: calc(100vw - 20px) !important;
+            overflow-x: auto !important;
+        }
+
+        .char-btn {
+            flex: 0 0 32px !important;
+            width: 32px !important;
+            height: 32px !important;
+            font-size: 1rem !important;
+        }
+    }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,18 +107,39 @@
 </head>
 
 <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
+
+    <!-- FLOATING CHARACTER MAP -->
+    <div class="char-toolbar">
+        <button type="button" class="char-btn">é</button>
+        <button type="button" class="char-btn">è</button>
+        <button type="button" class="char-btn">ê</button>
+        <button type="button" class="char-btn">ë</button>
+
+        <button type="button" class="char-btn">à</button>
+        <button type="button" class="char-btn">â</button>
+
+        <button type="button" class="char-btn">ù</button>
+        <button type="button" class="char-btn">û</button>
+
+        <button type="button" class="char-btn">ô</button>
+
+        <button type="button" class="char-btn">î</button>
+        <button type="button" class="char-btn">ï</button>
+
+        <button type="button" class="char-btn">ç</button>
+    </div>
+
     <header class="site-header">
         <div class="logo"><a href="../index.html"><span class="logo-ibis">ibis</span> <span class="logo-french">FRENCH</span></a></div>
         <nav class="header-nav">
           <a class="nav-item" href="../a-propos.html">à propos</a>
           <a class="nav-item" href="../faq.html">F.A.Q</a>
           <a class="nav-item" href="../contact.html">nous contacter</a>
-          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/">Université de Miami</a>
+          <a class="nav-item" href="https://bulletin.miami.edu/undergraduate-academic-programs/arts-sciences/modern-languages-literatures/french-ba/" target="_blank" rel="noopener noreferrer">Université de Miami</a>
         </nav>
     </header>
 
     <main>
-        <!-- --------EXERCISES-------- -->
         <!-- EXERCISE 1 -->
         <div class="subjonctif-exercice1">
             <h1>Exercice 1: Subjonctif ou Indicatif ?</h1>
@@ -142,48 +245,38 @@
 
             <script>
             function checkAnswers1() {
-            const answers = {
-                q1: "S",
-                q2: "I",
-                q3: "S",
-                q4: "I",
-                q5: "S",
-                q6: "I",
-                q7: "S",
-                q8: "S",
-                q9: "I",
-                q10: "S"
-            };
+              const answers = {
+                q1: "S", q2: "I", q3: "S", q4: "I", q5: "S",
+                q6: "I", q7: "S", q8: "S", q9: "I", q10: "S"
+              };
 
-            let score = 0;
-            const selects = document.querySelectorAll('#exerciseForm1 select');
-            selects.forEach((select, index) => {
+              let score = 0;
+              const selects = document.querySelectorAll('#exerciseForm1 select');
+              selects.forEach((select, index) => {
                 const answerKey = 'q' + (index + 1);
                 const answer = answers[answerKey];
                 const feedback = select.nextElementSibling;
                 if(select.value === "") {
-                feedback.textContent = " ⚠ Choisissez S ou I";
-                feedback.className = "feedback incorrect";
+                  feedback.textContent = " ⚠ Choisissez S ou I";
+                  feedback.className = "feedback incorrect";
                 } else if(select.value === answer) {
-                score++;
-                feedback.textContent = "✔ Correct";
-                feedback.className = "feedback correct";
+                  score++;
+                  feedback.textContent = " ✔ Correct";
+                  feedback.className = "feedback correct";
                 } else {
-                feedback.textContent = "✖ Incorrect";
-                feedback.className = "feedback incorrect";
+                  feedback.textContent = " ✖ Incorrect";
+                  feedback.className = "feedback incorrect";
                 }
-            });
-            document.getElementById("result1").innerHTML = "Score: " + score + " / 10";
+              });
+              document.getElementById("result1").innerHTML = "Score: " + score + " / 10";
             }
             </script>
         </div>
-        
 
         <!-- EXERCISE 2 -->
         <div class="subjonctif-exercice2">
             <h1>Exercice 2: Subjonctif ou Indicatif?</h1>
             <h2>Complétez chaque phrase avec la forme correcte du verbe entre parenthèses.</h2>
-        
 
             <form id="exerciseForm2">
             <label>1. Je suis sûr qu'il (venir) 
@@ -245,52 +338,46 @@
 
             <script>
             function checkAnswers2() {
-            const answers = {
-                q1: "vient",
-                q2: "fasses",
-                q3: "comprend",
-                q4: "pleuve",
-                q5: "\u00eates",
-                q6: "ayons",
-                q7: "disent",
-                q8: "réponde",
-                q9: "oublies",
-                q10: "finissiez"
-            };
+              const answers = {
+                q1: "vient", q2: "fasses", q3: "comprend", q4: "pleuve",
+                q5: "êtes", q6: "ayons", q7: "disent", q8: "réponde",
+                q9: "oublies", q10: "finissiez"
+              };
 
-            let score = 0;
-            const inputs = document.querySelectorAll('#exerciseForm2 input');
-            inputs.forEach((input, index) => {
+              let score = 0;
+              const inputs = document.querySelectorAll('#exerciseForm2 input');
+              inputs.forEach((input, index) => {
                 const answerKey = 'q' + (index + 1);
                 const answer = answers[answerKey].toLowerCase();
                 const feedback = input.nextElementSibling;
                 const userValue = input.value.trim().toLowerCase();
+                
                 if(userValue === "") {
-                feedback.textContent = " \u26a0 Veuillez remplir le champ";
-                feedback.className = "feedback incorrect";
+                  feedback.textContent = " ⚠ Veuillez remplir le champ";
+                  feedback.className = "feedback incorrect";
+                  input.style.borderColor = "red";
                 } else if(userValue === answer) {
-                score++;
-                feedback.textContent = "\u2714 Correct";
-                feedback.className = "feedback correct";
-                document.getElementById(answerKey).style.borderColor = "green";
+                  score++;
+                  feedback.textContent = " ✔ Correct";
+                  feedback.className = "feedback correct";
+                  input.style.borderColor = "green";
                 } else {
-                feedback.textContent = `\u2716 Incorrect (Réponse: ${answer})`;
-                feedback.className = "feedback incorrect";
-                document.getElementById(answerKey).style.borderColor = "red";
+                  feedback.textContent = ` ✖ Incorrect (Réponse: ${answer})`;
+                  feedback.className = "feedback incorrect";
+                  input.style.borderColor = "red";
                 }
-            });
-            document.getElementById("result2").innerHTML = "Score: " + score + " / 10";
+              });
+              document.getElementById("result2").innerHTML = "Score: " + score + " / 10";
             }
             </script>
         </div>
 
         <!-- EXERCISE 3 -->
         <div class="subjonctif-exercice3">
-            <h1>Exercise 3: Remplissez les blancs</h1>
+            <h1>Exercice 3: Remplissez les blancs</h1>
             <h2>Complétez avec le verbe au subjonctif.</h2>
 
             <form id="exerciseForm3">
-
             <p>1. Le chef répète la recette pour que vous 
             <input type="text" id="q1"> (faire) le plat correctement.</p>
 
@@ -337,51 +424,38 @@
                 <button type="button" onclick="checkAnswers3()">Vérifier</button>
                 <a href="subjonctif-explication-grammaire.html" style="display: inline-flex; align-items: center; justify-content: center; padding: 12px 24px 12px 36px; background: #274820; color: #fff; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 1.2rem;">voir l'explication grammaticale</a>
             </div>
-
             </form>
 
             <h3 id="result"></h3>
 
             <script>
             function checkAnswers3() {
-            const answers = {
-                q1: "fassiez",
-                q2: "viennent",
-                q3: "ait",
-                q4: "saches",
-                q5: "puisse",
-                q6: "soit",
-                q7: "veuillent",
-                q8: "alliez",
-                q9: "prenne",
-                q10: "servions",
-                q11: "ayez",
-                q12: "soit",
-                q13: "fassent",
-                q14: "devienne"
-            };
+              const answers = {
+                q1: "fassiez", q2: "viennent", q3: "ait", q4: "saches",
+                q5: "puisse", q6: "soit", q7: "veuillent", q8: "alliez",
+                q9: "prenne", q10: "servions", q11: "ayez",
+                q12: "soit", q13: "fassent", q14: "devienne"
+              };
 
-            let score = 0;
+              let score = 0;
 
-            for (let key in answers) {
-                let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+              for (let key in answers) {
+                let inputElem = document.getElementById(key);
+                let userAnswer = inputElem.value.toLowerCase().trim();
                 if (userAnswer === answers[key]) {
-                score++;
-                document.getElementById(key).style.borderColor = "green";
+                  score++;
+                  inputElem.style.borderColor = "green";
                 } else {
-                document.getElementById(key).style.borderColor = "red";
+                  inputElem.style.borderColor = "red";
                 }
-            }
+              }
 
-            document.getElementById("result").innerHTML =
-                "Score: " + score + " / 14";
+              document.getElementById("result").innerHTML = "Score: " + score + " / 14";
             }
             </script>
         </div>
 
-        
-
-        <!-- --------------------CSV DOWNLOAD SECTION-------------------- -->
+        <!-- CSV DOWNLOAD SECTION -->
         <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
             <h2 style="font-size: 1.5rem;">Télécharger votre rapport</h2>
             <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
@@ -390,8 +464,43 @@
             <button type="button" onclick="downloadCSV()" style="padding: 12px 24px; font-size: 1.2rem; cursor: pointer; background: #2e7d32; color: #fff; border: none; border-radius: 4px;">Télécharger</button>
         </div>
     </main>
-<!-- ----------CSV DOWNLOAD SCRIPT---------- -->
+
     <script>
+    // --- SPECIAL CHARACTER MAP LOGIC ---
+    let activeInput = null;
+
+    document.addEventListener('focusin', function (e) {
+      if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) {
+        activeInput = e.target;
+      }
+    });
+
+    document.querySelectorAll('.char-btn').forEach(button => {
+      button.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+      });
+
+      button.addEventListener('click', function () {
+        if (!activeInput) return;
+
+        const character = this.textContent.trim();
+        const start = activeInput.selectionStart ?? activeInput.value.length;
+        const end = activeInput.selectionEnd ?? activeInput.value.length;
+
+        activeInput.value = 
+          activeInput.value.substring(0, start) + 
+          character + 
+          activeInput.value.substring(end);
+
+        const newPosition = start + character.length;
+        activeInput.focus();
+        activeInput.setSelectionRange(newPosition, newPosition);
+
+        activeInput.dispatchEvent(new Event('input', { bubbles: true }));
+      });
+    });
+
+    // --- CSV DOWNLOAD SCRIPT ---
     function downloadCSV() {
       const studentName = document.getElementById("studentName").value || "Étudiant";
 
@@ -457,7 +566,8 @@
       data.push(["Question", "Réponse de l'étudiant", "Réponse correcte"]);
 
       for (let key in answers3) {
-        let userAnswer = document.getElementById(key).value.toLowerCase().trim();
+        let inputElem = document.getElementById(key);
+        let userAnswer = inputElem ? inputElem.value.toLowerCase().trim() : "";
         let correct = answers3[key];
         if (userAnswer === correct) score3++;
         data.push([key, userAnswer, correct]);
@@ -470,17 +580,19 @@
       const totalMax = 10 + 10 + 14;
       data.push(["Score total", totalPoints + " / " + totalMax]);
 
-      const csvContent = data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
+      const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
 
       const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
       const url = URL.createObjectURL(blob);
 
       const a = document.createElement("a");
       a.href = url;
-      a.download = "subjonctif_exercises_" + studentName + ".csv";
+      a.download = "subjonctif_exercises_" + studentName.replace(/\s+/g, '_') + ".csv";
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
       URL.revokeObjectURL(url);
     }
     </script>
+</body>
+</html>
