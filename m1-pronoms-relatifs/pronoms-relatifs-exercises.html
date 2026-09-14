@@ -18,118 +18,94 @@
     .nav-button { display: inline-flex; align-items: center; justify-content: center; padding: 10px 18px; background: #e8f5e9; color: #2e7d32; border-radius: 4px; text-decoration: none; font-weight: 600; margin-left: 950px;}
     .nav-button:hover { background: #c8e6c9; }
 
-/* ==============================
-   FLOATING CHARACTER MAP
-   ============================== */
-
-.char-toolbar {
-    position: fixed !important;
-    bottom: 20px !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-
-    z-index: 9999 !important;
-
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    justify-content: center !important;
-    align-items: center !important;
-
-    gap: 6px !important;
-
-    background: #ffffff !important;
-    padding: 10px 16px !important;
-
-    border-radius: 30px !important;
-    border: 2px solid #81c784 !important;
-
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
-
-    animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-/* Character buttons */
-.char-btn {
-    display: inline-flex !important;
-
-    align-items: center !important;
-    justify-content: center !important;
-
-    flex: 0 0 36px !important;
-
-    width: 36px !important;
-    height: 36px !important;
-
-    padding: 0 !important;
-    margin: 0 !important;
-
-    background: #f1f8e9 !important;
-    color: #2e7d32 !important;
-
-    border: 1px solid #81c784 !important;
-    border-radius: 50% !important;
-
-    font-family: inherit !important;
-    font-size: 1.2rem !important;
-    font-weight: 600 !important;
-
-    line-height: 1 !important;
-
-    cursor: pointer !important;
-
-    box-sizing: border-box !important;
-
-    transition: background 0.15s ease,
-                transform 0.15s ease !important;
-}
-
-/* Hover */
-.char-btn:hover {
-    background: #c8e6c9 !important;
-    transform: translateY(-2px) !important;
-}
-
-/* Click */
-.char-btn:active {
-    transform: translateY(0) !important;
-}
-
-/* Floating entrance animation */
-@keyframes floatIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, 50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translate(-50%, 0);
-    }
-}
-
-/* ==============================
-   MOBILE
-   ============================== */
-
-@media (max-width: 600px) {
+    /* ==============================
+       FLOATING CHARACTER MAP
+       ============================== */
     .char-toolbar {
-        bottom: 12px !important;
-        gap: 4px !important;
-        padding: 8px 10px !important;
-
-        max-width: calc(100vw - 20px) !important;
-        overflow-x: auto !important;
+        position: fixed !important;
+        bottom: 20px !important;
+        left: 50% !important;
+        transform: translateX(-50%) !important;
+        z-index: 9999 !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: center !important;
+        align-items: center !important;
+        gap: 6px !important;
+        background: #ffffff !important;
+        padding: 10px 16px !important;
+        border-radius: 30px !important;
+        border: 2px solid #81c784 !important;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18) !important;
+        animation: floatIn 0.7s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     }
 
+    /* Character buttons */
     .char-btn {
-        flex: 0 0 32px !important;
-        width: 32px !important;
-        height: 32px !important;
-
-        font-size: 1rem !important;
+        display: inline-flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex: 0 0 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        background: #f1f8e9 !important;
+        color: #2e7d32 !important;
+        border: 1px solid #81c784 !important;
+        border-radius: 50% !important;
+        font-family: inherit !important;
+        font-size: 1.2rem !important;
+        font-weight: 600 !important;
+        line-height: 1 !important;
+        cursor: pointer !important;
+        box-sizing: border-box !important;
+        transition: background 0.15s ease, transform 0.15s ease !important;
     }
-}
+
+    /* Hover */
+    .char-btn:hover {
+        background: #c8e6c9 !important;
+        transform: translateY(-2px) !important;
+    }
+
+    /* Click */
+    .char-btn:active {
+        transform: translateY(0) !important;
+    }
+
+    /* Floating entrance animation */
+    @keyframes floatIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, 50px);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+
+    /* ==============================
+       MOBILE
+       ============================== */
+    @media (max-width: 600px) {
+        .char-toolbar {
+            bottom: 12px !important;
+            gap: 4px !important;
+            padding: 8px 10px !important;
+            max-width: calc(100vw - 20px) !important;
+            overflow-x: auto !important;
+        }
+
+        .char-btn {
+            flex: 0 0 32px !important;
+            width: 32px !important;
+            height: 32px !important;
+            font-size: 1rem !important;
+        }
+    }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -139,9 +115,7 @@
 
 <body oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
 
-    <!-- ==============================
-         FLOATING CHARACTER MAP
-         ============================== -->
+    <!-- FLOATING CHARACTER MAP -->
     <div class="char-toolbar">
         <button type="button" class="char-btn">é</button>
         <button type="button" class="char-btn">è</button>
@@ -249,7 +223,7 @@
             <h3 id="result1"></h3>
 
         <!-- EXERCISE 2 -->
-            <h1>Exercise 2: Definitions et pronoms relatifs</h1>
+            <h1>Exercise 2: Définitions et pronoms relatifs</h1>
             <h2>Donnez des définitions avec les pronoms relatifs.</h2>
             <form id="exerciseForm2">
               <label>1. La <strong>ratatouille</strong> est un plat 
@@ -281,7 +255,7 @@
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>  sert à battre les œufs ou la crème en cuisine.
+                </select> sert à battre les œufs ou la crème en cuisine.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -292,7 +266,7 @@
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>  on considère comme un symbole de la gastronomie française.
+                </select> on considère comme un symbole de la gastronomie française.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -303,7 +277,7 @@
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>   j'adore pour son caramel et ses pommes fondantes.
+                </select> j'adore pour son caramel et ses pommes fondantes.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -314,7 +288,7 @@
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>   est essentiel dans toutes les cuisines professionnelles.
+                </select> est essentiel dans toutes les cuisines professionnelles.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -325,18 +299,18 @@
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>   permet de caraméliser un plat avec de l'alcool.
+                </select> permet de caraméliser un plat avec de l'alcool.
                 <span class="feedback"></span>
               </label>
               <br><br>
-              <label>8. Les <strong>épices </strong> sont des ingrédients 
+              <label>8. Les <strong>épices</strong> sont des ingrédients 
                 <select data-answer="qui">
                   <option value="">--</option>
                   <option value="qui">qui</option>
                   <option value="ce qui">ce qui</option>
                   <option value="que">que</option>
                   <option value="ce que">ce que</option>
-                </select>   donnent beaucoup de saveur aux plats.
+                </select> donnent beaucoup de saveur aux plats.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -346,6 +320,7 @@
             </form>
 
             <h3 id="result2"></h3>
+
         <!-- EXERCISE 3 -->
             <h1>Exercice 3 : Cuisine avec des pronoms</h1>
             <h2>Remplissez les espaces vides dans ce paragraphe.</h2>
@@ -382,8 +357,8 @@
                 <select data-answer="qui">
                   <option value="">--</option>
                   <option value="dont">dont</option>
-                  <option value="que"> que</option>
-                  <option value="qui"> qui</option>
+                  <option value="que">que</option>
+                  <option value="qui">qui</option>
                 </select> sont devenus célèbres dans le monde entier.
                 <span class="feedback"></span>
               </label>
@@ -400,7 +375,7 @@
                 <select data-answer="qui">
                   <option value="">--</option>
                   <option value="où">où</option>
-                  <option value="que"> que</option>
+                  <option value="que">que</option>
                   <option value="qui">qui</option>
                 </select> consiste en une soupe de luxe à la truffe noire. 
                 <span class="feedback"></span>
@@ -410,7 +385,7 @@
                 <select data-answer="ce qui">
                   <option value="">--</option>
                   <option value="ce que">ce que</option>
-                  <option value="que"> que</option>
+                  <option value="que">que</option>
                   <option value="ce qui">ce qui</option>
                 </select> impressionnait le plus les critiques, c'était leur finesse et leur légèreté.
                 <span class="feedback"></span>
@@ -450,7 +425,7 @@
                   <option value="dont">dont</option>
                   <option value="ce dont">ce dont</option>
                   <option value="ce qui">ce qui</option>
-                </select>  il était fier et qu'il partageait avec passion.
+                </select> il était fier et qu'il partageait avec passion.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -460,7 +435,7 @@
                   <option value="dont">dont</option>
                   <option value="ce dont">ce dont</option>
                   <option value="qui">qui</option>
-                </select>  l'influence sur la cuisine française reste immense, même après sa disparition.
+                </select> l'influence sur la cuisine française reste immense, même après sa disparition.
                 <span class="feedback"></span>
               </label>
               <br><br>
@@ -545,12 +520,12 @@
                   feedback.className = "feedback incorrect";
                 }
               });
-              document.getElementById("result3").innerHTML = "Score: " + score + " / 13";
+              document.getElementById("result3").innerHTML = "Score: " + score + " / 12";
             }
             </script>
         </div>
 
-        <!-- --------------------CSV DOWNLOAD SECTION-------------------- -->
+        <!-- CSV DOWNLOAD SECTION -->
         <div style="margin-top: 60px; padding: 20px; border-top: 2px solid #ddd;">
             <h2 style="font-size: 1.5rem;">Télécharger votre rapport</h2>
             <label for="studentName" style="display: block; margin-bottom: 10px; font-size: 1.3rem;">Votre nom:</label>
@@ -627,7 +602,7 @@
       data.push([]);
 
       // exc 2 ------------
-      data.push(["Exercice 2: Definitions et pronoms relatifs"]);
+      data.push(["Exercice 2: Définitions et pronoms relatifs"]);
 
       const answers2 = {
         1: "qui", 2: "qui", 3: "qui", 4: "que",
@@ -653,7 +628,7 @@
       const answers3 = {
         1: "qui", 2: "où", 3: "ce qu'", 4: "qui",
         5: "dont", 6: "qui", 7: "ce qui", 8: "qui",
-        9: "dont", 10: "où", 11: "dont", 12: "dont", 13: "dont"
+        9: "dont", 10: "où", 11: "dont", 12: "dont"
       };
 
       let score3 = 0;
@@ -666,12 +641,12 @@
         if(user === correct) score3++;
         data.push(["Question " + (index + 1), user, correct]);
       });
-      data.push(["Score", score3 + " / 13"]);
+      data.push(["Score", score3 + " / 12"]);
       data.push([]);
 
       // total 
       const totalPoints = score1 + score2 + score3;
-      const totalMax = 7 + 8 + 13;
+      const totalMax = 7 + 8 + 12;
       data.push(["Score total", totalPoints + " / " + totalMax]);
 
       const csvContent = "\uFEFF" + data.map(row => row.map(field => `"${field}"`).join(",")).join("\n");
@@ -684,7 +659,7 @@
       a.download = "pronoms_relatifs_exercises_" + studentName.replace(/\s+/g, '_') + ".csv";
       document.body.appendChild(a);
       a.click();
-      document.body.removeChild(a);
+      a.removeChild(a);
       URL.revokeObjectURL(url);
     }
 </script>
