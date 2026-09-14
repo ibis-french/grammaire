@@ -230,6 +230,67 @@
     </div>
   </main>
 
+// --- SPECIAL CHARACTER MAP LOGIC ---
+
+let activeInput = null;
+let cursorPosition = 0;
+
+// Remember the last question field that was active
+document.querySelectorAll('input[type="text"]').forEach(input => {
+
+    input.addEventListener('focus', function () {
+        activeInput = this;
+        cursorPosition = this.selectionStart;
+    });
+
+    input.addEventListener('click', function () {
+        activeInput = this;
+        cursorPosition = this.selectionStart;
+    });
+
+    input.addEventListener('keyup', function () {
+        activeInput = this;
+        cursorPosition = this.selectionStart;
+    });
+});
+
+// Insert special character into the active field
+document.querySelectorAll('.char-btn').forEach(button => {
+
+    // Prevent the button from stealing focus from the input
+    button.addEventListener('mousedown', function (e) {
+        e.preventDefault();
+    });
+
+    button.addEventListener('click', function () {
+
+        if (!activeInput) {
+            return;
+        }
+
+        const character = this.textContent;
+        const start = activeInput.selectionStart;
+        const end = activeInput.selectionEnd;
+
+        // Insert character at cursor position
+        activeInput.value =
+            activeInput.value.substring(0, start) +
+            character +
+            activeInput.value.substring(end);
+
+        // Put cursor immediately after inserted character
+        const newPosition = start + character.length;
+
+        activeInput.focus();
+        activeInput.setSelectionRange(newPosition, newPosition);
+
+        cursorPosition = newPosition;
+
+        // Trigger input event in case other code depends on it
+        activeInput.dispatchEvent(new Event('input', { bubbles: true }));
+    });
+});
+  
   <script>
     // --- DRAG AND DROP LOGIC ---
     const draggables = document.querySelectorAll('.draggable-item');
